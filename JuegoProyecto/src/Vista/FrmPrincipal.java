@@ -49,7 +49,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlContenedor = new javax.swing.JPanel();
         pnlContenedorLogin = new javax.swing.JPanel();
         pnlLogin = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        pnlContenedorImagen = new javax.swing.JPanel();
         btnBoton = new javax.swing.JButton();
         lblImagen = new javax.swing.JLabel();
 
@@ -65,16 +65,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlLogin.setLayout(pnlLoginLayout);
         pnlLoginLayout.setHorizontalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 256, Short.MAX_VALUE)
+            .addGap(0, 336, Short.MAX_VALUE)
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 586, Short.MAX_VALUE)
         );
 
-        pnlContenedorLogin.add(pnlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 590));
+        pnlContenedorLogin.add(pnlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 590));
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlContenedorImagen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBoton.setBackground(new java.awt.Color(51, 51, 51));
         btnBoton.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -87,26 +87,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 btnBotonActionPerformed(evt);
             }
         });
-        jPanel2.add(btnBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 40));
+        pnlContenedorImagen.add(btnBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 40));
 
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/bloggif_59dd4d1fa569b-iloveimg-resized.gif"))); // NOI18N
         lblImagen.setText("La cuenta a sido creada exitodamente.");
         lblImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 590));
+        pnlContenedorImagen.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 590));
 
         javax.swing.GroupLayout pnlContenedorLayout = new javax.swing.GroupLayout(pnlContenedor);
         pnlContenedor.setLayout(pnlContenedorLayout);
         pnlContenedorLayout.setHorizontalGroup(
             pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlContenedorLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlContenedorImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(pnlContenedorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlContenedorLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlContenedorLayout.setVerticalGroup(
             pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlContenedorLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlContenedorImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlContenedorTotalLayout = new javax.swing.GroupLayout(pnlContenedorTotal);
@@ -151,9 +151,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBoton;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JPanel pnlContenedor;
+    private javax.swing.JPanel pnlContenedorImagen;
     private javax.swing.JPanel pnlContenedorLogin;
     private javax.swing.JPanel pnlContenedorTotal;
     private javax.swing.JPanel pnlLogin;
