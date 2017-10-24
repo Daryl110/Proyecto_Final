@@ -90,6 +90,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel2.add(btnBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 40));
 
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/bloggif_59dd4d1fa569b-iloveimg-resized.gif"))); // NOI18N
+        lblImagen.setText("La cuenta a sido creada exitodamente.");
         lblImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 590));
 

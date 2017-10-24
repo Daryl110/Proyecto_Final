@@ -5,8 +5,11 @@
  */
 package Vista.Paneles;
 
+import Controlador.CtlUsuario;
 import Controlador.Main;
+import Vista.FrmPrincipal;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.border.*;
 
 /**
@@ -14,13 +17,16 @@ import javax.swing.border.*;
  * @author Daryl Ospina
  */
 public class pnlRegistro extends javax.swing.JPanel {
-   
+
     /**
      * Creates new form pnlRegistro
      */
+    CtlUsuario controUsuario = new CtlUsuario();
+
     public pnlRegistro() {
         initComponents();
         ocultarAsteriscos();
+        cbPreguntaS.setModel(controUsuario.solicitarListarEnCB("preguntaUsuario", "enunciado"));
     }
 
     /**
@@ -340,7 +346,7 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void cambiarColor1(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cambiarColor1
         // TODO add your handling code here:
-        Main.ventanaPrincipal.cambiarColor(lblIniciarSesion, new Color(51,153,255));
+        Main.ventanaPrincipal.cambiarColor(lblIniciarSesion, new Color(51, 153, 255));
         Main.ventanaPrincipal.cambiarCursor(0);
     }//GEN-LAST:event_cambiarColor1
 
@@ -425,7 +431,16 @@ public class pnlRegistro extends javax.swing.JPanel {
     private void btnCrearUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuActionPerformed
         // TODO add your handling code here:
         if (validar()) {
+            
             //Accion De Crear Usuario
+            if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText())
+                    , cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + "")
+                    , txtNombre.getText(), txtNombreUsu.getText(), txtContrasena.getText(), txtCorreo.getText()
+                    , txtTelefono.getText(), txtRespuesta.getText())) {
+                Main.mensaje(200, 30, "Daryl el maricon", 5, "/Recursos/Cuenta.png");
+                Main.ventanaPrincipal.visualizar("inicio");
+
+            }
         }
     }//GEN-LAST:event_btnCrearUsuActionPerformed
 
@@ -435,7 +450,7 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void cambiarBorde(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cambiarBorde
         // TODO add your handling code here:
-        cbPreguntaS.setBorder(new CompoundBorder(new LineBorder(new Color(51,51,51)), new EtchedBorder(1)));
+        cbPreguntaS.setBorder(new CompoundBorder(new LineBorder(new Color(51, 51, 51)), new EtchedBorder(1)));
         lblPreguntaS.setVisible(false);
         notaVisible(false);
     }//GEN-LAST:event_cambiarBorde
@@ -450,7 +465,6 @@ public class pnlRegistro extends javax.swing.JPanel {
         validarTeclado(evt);
     }//GEN-LAST:event_txtTelefonoKeyTyped
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearUsu;
@@ -476,16 +490,16 @@ public class pnlRegistro extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     //Metodo Para Validar Key de tipos numericos
-    private void validarTeclado(java.awt.event.KeyEvent evt){
+    private void validarTeclado(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
-         if(Character.isLetter(c)) { 
-              getToolkit().beep(); 
-              evt.consume(); 
-          } 
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
     }
-    
+
     //Metodo Para Validar Campos
-    private boolean validar(){
+    private boolean validar() {
         LineBorder b = new LineBorder(Color.red, 1);
         boolean bool = false;
         if (txtCedula.getText().isEmpty() || txtCedula.getText().equalsIgnoreCase("Cedula")) {
@@ -515,18 +529,18 @@ public class pnlRegistro extends javax.swing.JPanel {
         }
         return !notaVisible(bool);
     }
-    
+
     //Metodo Para Mostar/Ocultar Etiqueta Espacios Obligatorios
-    private boolean notaVisible(boolean bool){
+    private boolean notaVisible(boolean bool) {
         lblNota.setVisible(bool);
         lblCampos.setVisible(bool);
         lblObligatorios.setVisible(bool);
-        
+
         return bool;
     }
-    
+
     //Metodo Para Ocultar Asteriscos
-    private void ocultarAsteriscos(){
+    private void ocultarAsteriscos() {
         lblCedula.setVisible(false);
         lblContrasena.setVisible(false);
         lblNombreUsuario.setVisible(false);

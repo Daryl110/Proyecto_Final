@@ -6,6 +6,7 @@
 package Controlador;
 
 import Mensaje.MesajeDeTiempo;
+import Modelo.Conexion;
 import Vista.FrmPrincipal;
 
 /**
@@ -15,6 +16,8 @@ import Vista.FrmPrincipal;
 public class Main {
 
     public static FrmPrincipal ventanaPrincipal;
+    public static Conexion conec = new Conexion("juego", "mariadb", "//localhost:3306/");
+
     /**
      * @param args the command line arguments
      */
@@ -35,28 +38,27 @@ public class Main {
             java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             ventanaPrincipal = new FrmPrincipal();
-            
+
             ventanaPrincipal.setLocationRelativeTo(null);
             ventanaPrincipal.setVisible(true);
         });
 
     }
-    
+
     //Metodo Para Llamar a Mensaje De Tiempo
-    public static void mensaje(int ancho,int alto, String texto,int tiempo,String icon) {
-        MesajeDeTiempo msm = new MesajeDeTiempo(null, true,ancho,alto,texto,tiempo,icon);
+    public static void mensaje(int ancho, int alto, String texto, int tiempo, String icon) {
+        MesajeDeTiempo msm = new MesajeDeTiempo(null, true, ancho, alto, texto, tiempo, icon);
         msm.setLocationRelativeTo(null);
         msm.setVisible(true);
     }
-    
+
     //Metodo Para Abrir Ventana Principal
-    public static void abrirFrmPrincipal(){
+    public static void abrirFrmPrincipal() {
         ventanaPrincipal.setLocationRelativeTo(null);
         ventanaPrincipal.setVisible(true);
     }
