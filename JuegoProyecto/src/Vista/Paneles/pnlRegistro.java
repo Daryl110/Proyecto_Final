@@ -6,6 +6,7 @@
 package Vista.Paneles;
 
 import Controlador.Main;
+import static Controlador.Main.controUsuario;
 import java.awt.Color;
 import javax.swing.border.*;
 
@@ -384,7 +385,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (txtNombreUsu.getText().isEmpty() || txtNombreUsu.getText().equalsIgnoreCase("nombre de usuario")) {
             Main.ventanaPrincipal.vaciarCampo("Nombre de usuario", txtNombreUsu, Color.WHITE);
-        }else{
+        } else {
             EtchedBorder borde = new EtchedBorder(1);
             txtNombreUsu.setBorder(borde);
         }
@@ -444,9 +445,7 @@ public class pnlRegistro extends javax.swing.JPanel {
     private void btnCrearUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuActionPerformed
         // TODO add your handling code here:
         if (validar()) {
-
             //Accion De Crear Usuario
-<<<<<<< HEAD
             if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
                     cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
                     validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
@@ -454,13 +453,6 @@ public class pnlRegistro extends javax.swing.JPanel {
                     validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
                 Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
                 Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
-=======
-            if (Main.controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
-                     cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
-                     txtNombre.getText(), txtNombreUsu.getText(), txtContrasena.getText(), txtCorreo.getText(),
-                     txtTelefono.getText(), txtRespuesta.getText())) {
-                Main.mensaje(200, 30, "Daryl el maricon", 5, "/Recursos/Cuenta.png");
->>>>>>> 6d33ce80bda136e752ce6290b868cdbb3fc33f71
                 Main.ventanaPrincipal.visualizar("inicio");
 
             } else {

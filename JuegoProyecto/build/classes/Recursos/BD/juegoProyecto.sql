@@ -31,8 +31,6 @@ CREATE TABLE Historial (
 	cedula INT(11),
 	nombreUsu VARCHAR(45),
 	contrasena VARCHAR(45),
-	fechaConexion DATE,
-	recordar BOOLEAN,
 	PRIMARY KEY (idHistorial),
 	FOREIGN KEY (cedula) REFERENCES usuario(cedula) ON DELETE CASCADE
 

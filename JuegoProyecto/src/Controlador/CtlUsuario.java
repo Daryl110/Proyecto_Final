@@ -8,6 +8,7 @@ package Controlador;
 import DAO.DAO;
 import Modelo.Usuario;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -55,5 +56,34 @@ public class CtlUsuario {
         }
         return false;
     }
+    
+    
+    //Metodos para recordar
+    
+    public void registroRecordar(String nombreUsu,String contrasena){
+        boolean recordar = dao.recordar(dao.traerDato("usuario", "cedula", "nombreUsu", nombreUsu), nombreUsu, contrasena);
+    }
+    public void eliminarRegistro(){
+        dao.eliminarTodo("historial");
+    }
+    public ArrayList<String> mostrarRecordar(){
+        ArrayList<String> lista = new ArrayList<>();
+        ResultSet resultado=dao.traerColumna("historial", "nombreUsu");
+        ResultSet resultado1=dao.traerColumna("historial", "contrasena");
+        
+        try {
+            while (resultado.next() && resultado1.next()) {                
+                lista.add(resultado.getString("nombreUsu"));
+                lista.add(resultado1.getString("contrasena"));
+            }
+        } catch (Exception e) {
+        }
+        return lista;
+        
+    }
+    
+    
+    //Metodos para olvidar contraseña
+    
 
 }

@@ -8,6 +8,7 @@ package Vista.Paneles;
 import Controlador.Main;
 import java.awt.Color;
 import java.awt.Cursor;
+import javax.swing.JOptionPane;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
@@ -321,6 +322,11 @@ public class pnlOlvideContraseña extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (validar()) {
             //Metodo Para Cambiar Contraseña
+            if (Main.controUsuario.validarCampo(txtCedula.getText(), "cedula", "usuario")) {
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "");
+            }
         }
     }//GEN-LAST:event_btnCrearUsuActionPerformed
 

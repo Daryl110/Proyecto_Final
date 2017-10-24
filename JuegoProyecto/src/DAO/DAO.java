@@ -71,9 +71,22 @@ public class DAO {
 
     public ResultSet traerColumna(String nombreTabla, String nombreColumna) {
         System.out.println("...");
-        String senteciaSQL = "SELECT "+ nombreColumna+ " FROM " + nombreTabla;
+        String senteciaSQL = "SELECT " + nombreColumna + " FROM " + nombreTabla;
         System.out.println(senteciaSQL);
         return Main.conec.ejecutarRetorno(senteciaSQL);
     }
+
+    //Metodo no generico sirve para el recordar
+    public boolean recordar(String cedula, String nombreUsu, String contrasena) {
+        String cadena = "INSERT INTO historial(cedula,nombreUsu,contrasena) VALUES('" + cedula + "','" + nombreUsu + "','" + contrasena + "');";
+        return Main.conec.ejecutar(cadena);
+    }
+
+    public boolean eliminarTodo(String tabla) {
+        String cadena = "DELETE FROM " + tabla + " WHERE 1";
+        return Main.conec.ejecutar(cadena);
+    }
+
+    
 
 }

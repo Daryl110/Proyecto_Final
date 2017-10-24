@@ -26,13 +26,13 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
     /**
      * Creates new form pnlIniciarSesion
      */
-    CtlUsuario controUsu = new CtlUsuario();
-
     public pnlIniciarSesion() {
         initComponents();
         lblAstContraseña.setVisible(false);
         lblAstNombreUsu.setVisible(false);
         notaVisible(false);
+        recordarme();
+
     }
 
     /**
@@ -272,24 +272,19 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (validar()) {
             if (txtNombreUsu.getText().equalsIgnoreCase("Admin") && txtContrasena.getText().equalsIgnoreCase("123")) {
-<<<<<<< HEAD
                 FrmAdministrador admin = new FrmAdministrador();
                 momentoIniciar(admin);
-            } else if (controUsu.validarCampo(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
-                if (controUsu.validarCampo(txtContrasena.getText(), "contrasena", "usuario")) {
+            } else if (Main.controUsuario.validarCampo(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
+                if (Main.controUsuario.validarCampo(txtContrasena.getText(), "contrasena", "usuario")) {
+                    if (chbRecordarme.isSelected()) {
+                        Main.controUsuario.eliminarRegistro();
+                        Main.controUsuario.registroRecordar(txtNombreUsu.getText(), txtContrasena.getText());
+                    }
                     FrmUsuario usu = new FrmUsuario();
                     momentoIniciar(usu);
                 } else {
                     prevenirContrasena();
                 }
-=======
-                FrmAdministrador ventanaAdministrador = new FrmAdministrador();
-                recordar(chbRecordarme.isSelected());
-                Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
-                Main.ventanaPrincipal.dispose();
-                ventanaAdministrador.setLocationRelativeTo(null);
-                ventanaAdministrador.setVisible(true);
->>>>>>> 6d33ce80bda136e752ce6290b868cdbb3fc33f71
             } else {
                 cambiarNota("La informacion que ha diligenciado", "no es correcta o no existe");
                 notaVisible(true);
@@ -410,5 +405,17 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
         notaVisible(true);
         txtContrasena.setBorder(b);
         lblAstContraseña.setVisible(true);
+    }
+
+    private void recordarme() {
+        try {
+            txtNombreUsu.setText(Main.controUsuario.mostrarRecordar().get(0));
+            txtContrasena.setText(Main.controUsuario.mostrarRecordar().get(1));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        if (!txtContrasena.getText().isEmpty() && !txtNombreUsu.getText().isEmpty()) {
+            chbRecordarme.setSelected(true);
+        }
     }
 }
