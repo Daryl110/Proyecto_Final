@@ -5,8 +5,8 @@
  */
 package Vista;
 
+import Controlador.Main;
 import Vista.Paneles.pnlIniciarSesion;
-import Vista.Paneles.pnlJugar;
 import Vista.Paneles.pnlOlvideContraseña;
 import Vista.Paneles.pnlRegistro;
 import java.awt.BorderLayout;
@@ -140,12 +140,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBotonActionPerformed
         // TODO add your handling code here:
-        pnlIniciarSesion1.recordar(pnlIniciarSesion1.getRecordar());
-        pnlContenedorTotal.remove(0);
-        pnlJugar pnlJugar = new pnlJugar();
-        pnlContenedorTotal.setLayout(new BorderLayout(5, 5));
-        pnlContenedorTotal.add(pnlJugar, BorderLayout.CENTER);
-        pnlContenedorTotal.updateUI();
+        this.dispose();
+        Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
+        FrmCrearJuego ventanaCrearJuego = new FrmCrearJuego();
+        ventanaCrearJuego.setLocationRelativeTo(null);
+        ventanaCrearJuego.setVisible(true);
     }//GEN-LAST:event_btnBotonActionPerformed
 
 

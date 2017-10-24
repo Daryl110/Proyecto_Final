@@ -272,7 +272,6 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (validar()) {
             if (txtNombreUsu.getText().equalsIgnoreCase("Admin") && txtContrasena.getText().equalsIgnoreCase("123")) {
-<<<<<<< HEAD
                 FrmAdministrador admin = new FrmAdministrador();
                 momentoIniciar(admin);
             } else if (controUsu.validarCampo(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
@@ -282,14 +281,6 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                 } else {
                     prevenirContrasena();
                 }
-=======
-                FrmAdministrador ventanaAdministrador = new FrmAdministrador();
-                recordar(chbRecordarme.isSelected());
-                Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
-                Main.ventanaPrincipal.dispose();
-                ventanaAdministrador.setLocationRelativeTo(null);
-                ventanaAdministrador.setVisible(true);
->>>>>>> 6d33ce80bda136e752ce6290b868cdbb3fc33f71
             } else {
                 cambiarNota("La informacion que ha diligenciado", "no es correcta o no existe");
                 notaVisible(true);
