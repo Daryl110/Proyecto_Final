@@ -270,7 +270,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                 FrmAdministrador ventanaAdministrador = new FrmAdministrador();
                 recordar(chbRecordarme.isSelected());
                 Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
-                Main.ventanaPrincipal.setVisible(false);
+                Main.ventanaPrincipal.dispose();
                 ventanaAdministrador.setLocationRelativeTo(null);
                 ventanaAdministrador.setVisible(true);
             } else {

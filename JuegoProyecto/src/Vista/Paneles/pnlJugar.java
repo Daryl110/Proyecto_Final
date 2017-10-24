@@ -18,7 +18,7 @@ public class pnlJugar extends javax.swing.JPanel {
      */
     public pnlJugar() {
         initComponents();
-        lblEtiqueta.setText("<html>Hola La noche esta para <br>que nicolas lo mame</html>");
+        lblEtiqueta.setText("<html>Hola La noche esta para que nicolas <br>lo mame</html>");
     }
 
     /**

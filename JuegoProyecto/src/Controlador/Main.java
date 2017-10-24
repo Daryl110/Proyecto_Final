@@ -17,6 +17,7 @@ public class Main {
 
     public static FrmPrincipal ventanaPrincipal;
     public static Conexion conec = new Conexion("juego", "mariadb", "//localhost:3306/");
+    public static CtlUsuario controUsuario = new CtlUsuario();
 
     /**
      * @param args the command line arguments

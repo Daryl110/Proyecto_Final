@@ -5,11 +5,8 @@
  */
 package Vista.Paneles;
 
-import Controlador.CtlUsuario;
 import Controlador.Main;
-import Vista.FrmPrincipal;
 import java.awt.Color;
-import javax.swing.JOptionPane;
 import javax.swing.border.*;
 
 /**
@@ -21,12 +18,10 @@ public class pnlRegistro extends javax.swing.JPanel {
     /**
      * Creates new form pnlRegistro
      */
-    CtlUsuario controUsuario = new CtlUsuario();
-
     public pnlRegistro() {
         initComponents();
         ocultarAsteriscos();
-        cbPreguntaS.setModel(controUsuario.solicitarListarEnCB("preguntaUsuario", "enunciado"));
+        cbPreguntaS.setModel(Main.controUsuario.solicitarListarEnCB("preguntaUsuario", "enunciado"));
     }
 
     /**
@@ -444,12 +439,12 @@ public class pnlRegistro extends javax.swing.JPanel {
     private void btnCrearUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuActionPerformed
         // TODO add your handling code here:
         if (validar()) {
-            
+
             //Accion De Crear Usuario
-            if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText())
-                    , cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + "")
-                    , txtNombre.getText(), txtNombreUsu.getText(), txtContrasena.getText(), txtCorreo.getText()
-                    , txtTelefono.getText(), txtRespuesta.getText())) {
+            if (Main.controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
+                     cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                     txtNombre.getText(), txtNombreUsu.getText(), txtContrasena.getText(), txtCorreo.getText(),
+                     txtTelefono.getText(), txtRespuesta.getText())) {
                 Main.mensaje(200, 30, "Daryl el maricon", 5, "/Recursos/Cuenta.png");
                 Main.ventanaPrincipal.visualizar("inicio");
 
