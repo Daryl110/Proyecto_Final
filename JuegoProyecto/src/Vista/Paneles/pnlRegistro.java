@@ -398,7 +398,12 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void borrarNombreUsu(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_borrarNombreUsu
         // TODO add your handling code here:
-        Main.ventanaPrincipal.vaciarCampo("Nombre de usuario", txtNombreUsu, Color.WHITE);
+        if (txtNombreUsu.getText().isEmpty() || txtNombreUsu.getText().equalsIgnoreCase("nombre de usuario")) {
+            Main.ventanaPrincipal.vaciarCampo("Nombre de usuario", txtNombreUsu, Color.WHITE);
+        }else{
+            EtchedBorder borde = new EtchedBorder(1);
+            txtNombreUsu.setBorder(borde);
+        }
         lblNombreUsuario.setVisible(false);
         notaVisible(false);
     }//GEN-LAST:event_borrarNombreUsu
@@ -455,15 +460,22 @@ public class pnlRegistro extends javax.swing.JPanel {
     private void btnCrearUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuActionPerformed
         // TODO add your handling code here:
         if (validar()) {
-            
+
             //Accion De Crear Usuario
-            if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText())
-                    , cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + "")
-                    , txtNombre.getText(), txtNombreUsu.getText(), txtContrasena.getText(), txtCorreo.getText()
-                    , txtTelefono.getText(), txtRespuesta.getText())) {
-                Main.mensaje(200, 30, "Daryl el maricon", 5, "/Recursos/Cuenta.png");
+            if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
+                    cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                    validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
+                    txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText()),
+                    validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
+                Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+                Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
                 Main.ventanaPrincipal.visualizar("inicio");
 
+            } else {
+                Main.mensaje(300, 30, "EL NOMBRE DE USUARIO YA ESTA OCUPADO", 1, "/Recursos/Cuenta.png");
+                LineBorder b = new LineBorder(Color.red, 1);
+                txtNombreUsu.setBorder(b);
+                lblNombreUsuario.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnCrearUsuActionPerformed
@@ -573,6 +585,13 @@ public class pnlRegistro extends javax.swing.JPanel {
         lblNota.setVisible(false);
         lblCampos.setVisible(false);
         lblObligatorios.setVisible(false);
+    }
+
+    private String validarEspaciosNoRequeridos(String campo) {
+        if (campo.equalsIgnoreCase("nombre") || campo.equalsIgnoreCase("e-mail") || campo.equalsIgnoreCase("telefono")) {
+            return "";
+        }
+        return campo;
     }
 
 }

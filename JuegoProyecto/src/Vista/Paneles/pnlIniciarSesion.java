@@ -5,10 +5,13 @@
  */
 package Vista.Paneles;
 
+import Controlador.CtlUsuario;
 import Controlador.Main;
 import Vista.FrmAdministrador;
+import Vista.FrmUsuario;
 import java.awt.Color;
 import java.awt.Cursor;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
@@ -23,6 +26,8 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
     /**
      * Creates new form pnlIniciarSesion
      */
+    CtlUsuario controUsu = new CtlUsuario();
+
     public pnlIniciarSesion() {
         initComponents();
         lblAstContraseña.setVisible(false);
@@ -267,12 +272,15 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (validar()) {
             if (txtNombreUsu.getText().equalsIgnoreCase("Admin") && txtContrasena.getText().equalsIgnoreCase("123")) {
-                FrmAdministrador ventanaAdministrador = new FrmAdministrador();
-                recordar(chbRecordarme.isSelected());
-                Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
-                Main.ventanaPrincipal.setVisible(false);
-                ventanaAdministrador.setLocationRelativeTo(null);
-                ventanaAdministrador.setVisible(true);
+                FrmAdministrador admin = new FrmAdministrador();
+                momentoIniciar(admin);
+            } else if (controUsu.validarCampo(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
+                if (controUsu.validarCampo(txtContrasena.getText(), "contrasena", "usuario")) {
+                    FrmUsuario usu = new FrmUsuario();
+                    momentoIniciar(usu);
+                } else {
+                    prevenirContrasena();
+                }
             } else {
                 cambiarNota("La informacion que ha diligenciado", "no es correcta o no existe");
                 notaVisible(true);
@@ -309,42 +317,44 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     //Metodos Para Obtener Los Campos Desde Otras Guis
-    public JTextField getTxtNombreUsu(){
+    public JTextField getTxtNombreUsu() {
         return txtNombreUsu;
     }
-    public JTextField getTxtContrasena(){
+
+    public JTextField getTxtContrasena() {
         return txtContrasena;
     }
-    public JLabel getAstNombreUsu(){
+
+    public JLabel getAstNombreUsu() {
         return lblAstNombreUsu;
     }
-    public JLabel getAstContrasena(){
+
+    public JLabel getAstContrasena() {
         return lblAstContraseña;
     }
-    
+
     //Metodo Para Quitar El LineBorder Rojo
-    public void cambiarANormal(JTextField txt, JLabel lbl){
+    public void cambiarANormal(JTextField txt, JLabel lbl) {
         EtchedBorder b = new EtchedBorder(1);
         txt.setBorder(b);
         lbl.setVisible(false);
         notaVisible(false);
         cambiarNota("Los Campos con asteriscos", "son Obligatorios.");
     }
-    
-    
+
     //Metodo Para Obtener Boolean Del CheckBox
-    public boolean getRecordar(){
+    public boolean getRecordar() {
         return chbRecordarme.isSelected();
     }
-    
+
     //Metodo Para Recordar
-    public void recordar(boolean bool){
+    public void recordar(boolean bool) {
         if (!bool) {
             txtNombreUsu.setText("");
             txtContrasena.setText("");
         }
     }
-    
+
     //Metodo Para Validar Los Campos
     private boolean validar() {
         LineBorder b = new LineBorder(Color.red, 1);
@@ -375,5 +385,21 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
         lblObligatorios.setVisible(bool);
 
         return bool;
+    }
+
+    private void momentoIniciar(JFrame frame) {
+        recordar(chbRecordarme.isSelected());
+        Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
+        Main.ventanaPrincipal.dispose();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    private void prevenirContrasena() {
+        LineBorder b = new LineBorder(Color.red, 1);
+        cambiarNota("El usuario que ha ingresado", "no coincide con la contraseña");
+        notaVisible(true);
+        txtContrasena.setBorder(b);
+        lblAstContraseña.setVisible(true);
     }
 }

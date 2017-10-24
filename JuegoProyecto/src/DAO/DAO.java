@@ -15,7 +15,8 @@ import javax.swing.DefaultComboBoxModel;
  * @author PCSHOP
  */
 public class DAO {
-        private ResultSet resultadoDB;
+
+    private ResultSet resultadoDB;
 
     public DefaultComboBoxModel cargarInformacionCB(String tabla, String campo, DefaultComboBoxModel modelo) {
 
@@ -57,15 +58,22 @@ public class DAO {
 
         return dato;
     }
-    
-    public ResultSet traerBuscar(String nombreTabla,String llavePrimaria,String dato){
-        String senteciaSQL = "SELECT * FROM "+nombreTabla+" WHERE "+llavePrimaria+"='"+dato+"'";
+
+    public ResultSet traerBuscar(String nombreTabla, String llavePrimaria, String dato) {
+        String senteciaSQL = "SELECT * FROM " + nombreTabla + " WHERE " + llavePrimaria + "='" + dato + "'";
         return Main.conec.ejecutarRetorno(senteciaSQL);
     }
 
     public boolean eliminar(String nombreTabla, String llavePrimaria, String dato) {
-        String senteciaSQL = "DELETE FROM "+nombreTabla+" WHERE "+llavePrimaria+"='"+dato+"'";
+        String senteciaSQL = "DELETE FROM " + nombreTabla + " WHERE " + llavePrimaria + "='" + dato + "'";
         return Main.conec.ejecutar(senteciaSQL);
     }
-    
+
+    public ResultSet traerColumna(String nombreTabla, String nombreColumna) {
+        System.out.println("...");
+        String senteciaSQL = "SELECT "+ nombreColumna+ " FROM " + nombreTabla;
+        System.out.println(senteciaSQL);
+        return Main.conec.ejecutarRetorno(senteciaSQL);
+    }
+
 }
