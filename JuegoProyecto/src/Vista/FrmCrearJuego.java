@@ -16,6 +16,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
      */
     public FrmCrearJuego() {
         initComponents();
+        lblEtiqueta.setText("<html>Bienvenido por favor<br>seleccione el numero de<br>jugadores que<br>participaran en la partida</html>");
     }
 
     /**
@@ -27,51 +28,88 @@ public class FrmCrearJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        pnlContenedorTotal = new javax.swing.JPanel();
+        btnIniciarSesion = new javax.swing.JButton();
+        btnIniciarSesion1 = new javax.swing.JButton();
+        pnlContenedorPanelC = new javax.swing.JPanel();
+        pnlContenedorDialogo = new javax.swing.JPanel();
+        lblEtiqueta = new javax.swing.JLabel();
+        lblGif = new javax.swing.JLabel();
+        lblNube = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 29));
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 29));
+        pnlContenedorTotal.setBackground(new java.awt.Color(0, 0, 29));
+        pnlContenedorTotal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 247, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 379, Short.MAX_VALUE)
-        );
+        btnIniciarSesion.setBackground(new java.awt.Color(51, 51, 51));
+        btnIniciarSesion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(204, 204, 204));
+        btnIniciarSesion.setText("INICIAR JUEGO");
+        btnIniciarSesion.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlContenedorTotal.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 199, 330, 50));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(303, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        btnIniciarSesion1.setBackground(new java.awt.Color(51, 51, 51));
+        btnIniciarSesion1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnIniciarSesion1.setForeground(new java.awt.Color(204, 204, 204));
+        btnIniciarSesion1.setText("CANCELAR");
+        btnIniciarSesion1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btnIniciarSesion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlContenedorTotal.add(btnIniciarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 267, 330, 50));
+
+        pnlContenedorPanelC.setBackground(new java.awt.Color(0, 0, 29));
+
+        pnlContenedorDialogo.setBackground(new java.awt.Color(0, 0, 29));
+        pnlContenedorDialogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEtiqueta.setForeground(new java.awt.Color(255, 255, 255));
+        lblEtiqueta.setText("Texto");
+        pnlContenedorDialogo.add(lblEtiqueta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        lblGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/pinguino-iloveimg-resized.gif"))); // NOI18N
+        pnlContenedorDialogo.add(lblGif, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 74, -1, -1));
+
+        lblNube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icon-iloveimg-resized (1).png"))); // NOI18N
+        pnlContenedorDialogo.add(lblNube, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 160));
+
+        javax.swing.GroupLayout pnlContenedorPanelCLayout = new javax.swing.GroupLayout(pnlContenedorPanelC);
+        pnlContenedorPanelC.setLayout(pnlContenedorPanelCLayout);
+        pnlContenedorPanelCLayout.setHorizontalGroup(
+            pnlContenedorPanelCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlContenedorPanelCLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(pnlContenedorDialogo, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
         );
+        pnlContenedorPanelCLayout.setVerticalGroup(
+            pnlContenedorPanelCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlContenedorPanelCLayout.createSequentialGroup()
+                .addComponent(pnlContenedorDialogo, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        pnlContenedorTotal.add(pnlContenedorPanelC, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 12, 400, -1));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Numero de jugadores");
+        pnlContenedorTotal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 83, 178, -1));
+        pnlContenedorTotal.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 111, 47, 28));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlContenedorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlContenedorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -79,7 +117,15 @@ public class FrmCrearJuego extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton btnIniciarSesion;
+    private javax.swing.JButton btnIniciarSesion1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel lblEtiqueta;
+    private javax.swing.JLabel lblGif;
+    private javax.swing.JLabel lblNube;
+    private javax.swing.JPanel pnlContenedorDialogo;
+    private javax.swing.JPanel pnlContenedorPanelC;
+    private javax.swing.JPanel pnlContenedorTotal;
     // End of variables declaration//GEN-END:variables
 }
