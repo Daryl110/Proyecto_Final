@@ -13,6 +13,7 @@ import Controlador.Main;
  */
 public class FrmCrearJuego extends javax.swing.JFrame {
 
+    public static FrmIniciarCrear ventanaJuego;
     /**
      * Creates new form FrmCrearJuego
      */
@@ -140,7 +141,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
         Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
-        FrmIniciarCrear ventanaJuego = new FrmIniciarCrear();
+        ventanaJuego = new FrmIniciarCrear();
         ventanaJuego.setLocationRelativeTo(null);
         ventanaJuego.setVisible(true);
     }//GEN-LAST:event_btnIniciarSesionActionPerformed

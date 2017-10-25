@@ -6,9 +6,9 @@
 package Vista;
 
 import Controlador.Main;
-import Vista.Paneles.pnlIniciarSesion;
-import Vista.Paneles.pnlOlvideContraseña;
-import Vista.Paneles.pnlRegistro;
+import Vista.Login.pnlIniciarSesion;
+import Vista.Login.pnlOlvideContraseña;
+import Vista.Login.pnlRegistro;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
