@@ -5,12 +5,15 @@
  */
 package Vista;
 
+import Controlador.Main;
+
 /**
  *
  * @author Daryl Ospina
  */
 public class FrmCrearJuego extends javax.swing.JFrame {
 
+    public static FrmIniciarCrear ventanaJuego;
     /**
      * Creates new form FrmCrearJuego
      */
@@ -52,6 +55,11 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         btnIniciarSesion.setText("INICIAR JUEGO");
         btnIniciarSesion.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
         pnlContenedorTotal.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 199, 330, 50));
 
         btnIniciarSesion1.setBackground(new java.awt.Color(51, 51, 51));
@@ -60,6 +68,11 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         btnIniciarSesion1.setText("CANCELAR");
         btnIniciarSesion1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion1ActionPerformed(evt);
+            }
+        });
         pnlContenedorTotal.add(btnIniciarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 267, 330, 50));
 
         pnlContenedorPanelC.setBackground(new java.awt.Color(0, 0, 29));
@@ -98,8 +111,10 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Numero de jugadores");
-        pnlContenedorTotal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 83, 178, -1));
-        pnlContenedorTotal.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 111, 47, 28));
+        pnlContenedorTotal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 178, -1));
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        pnlContenedorTotal.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 47, 28));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,6 +129,22 @@ public class FrmCrearJuego extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIniciarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Main.mensaje(115, 30, "Cancelando...", 3, "/Recursos/spinner-of-dots.png");
+        Main.abrirFrmPrincipal();
+    }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
+
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
+        ventanaJuego = new FrmIniciarCrear();
+        ventanaJuego.setLocationRelativeTo(null);
+        ventanaJuego.setVisible(true);
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
