@@ -278,7 +278,12 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void borrarCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_borrarCedula
         // TODO add your handling code here:
-        Main.ventanaPrincipal.vaciarCampo("Cedula", txtCedula, Color.WHITE);
+        if (txtCedula.getText().isEmpty() || txtCedula.getText().equalsIgnoreCase("cedula")) {
+            Main.ventanaPrincipal.vaciarCampo("Cedula", txtCedula, Color.WHITE);
+        } else {
+            EtchedBorder borde = new EtchedBorder(1);
+            txtCedula.setBorder(borde);
+        }
         lblCedula.setVisible(false);
         notaVisible(false);
     }//GEN-LAST:event_borrarCedula
@@ -363,20 +368,28 @@ public class pnlRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (validar()) {
             //Accion De Crear Usuario
-            if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
-                    cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
-                    validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
-                    txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText()),
-                    validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
-                Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
-                Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
-                Main.ventanaPrincipal.visualizar("inicio");
-
+            Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+            if (!controUsuario.validarCampo(txtCedula.getText(), "cedula", "usuario")) {
+                if (!controUsuario.validarCampo(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
+                    if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
+                            cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                            validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
+                            txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText()),
+                            validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
+                        Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                        Main.ventanaPrincipal.visualizar("inicio");
+                    }
+                } else {
+                    Main.mensaje(300, 30, "EL NOMBRE DE USUARIO YA ESTA OCUPADO", 2, "/Recursos/cancel.png");
+                    LineBorder b = new LineBorder(Color.red, 1);
+                    txtNombreUsu.setBorder(b);
+                    lblNombreUsuario.setVisible(true);
+                }
             } else {
-                Main.mensaje(300, 30, "EL NOMBRE DE USUARIO YA ESTA OCUPADO", 1, "/Recursos/Cuenta.png");
+                Main.mensaje(300, 30, "ESTA CEDULA YA EXISTE", 2, "/Recursos/cancel.png");
                 LineBorder b = new LineBorder(Color.red, 1);
-                txtNombreUsu.setBorder(b);
-                lblNombreUsuario.setVisible(true);
+                txtCedula.setBorder(b);
+                lblCedula.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnCrearUsuActionPerformed

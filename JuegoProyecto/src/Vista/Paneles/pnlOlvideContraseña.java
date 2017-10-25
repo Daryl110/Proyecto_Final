@@ -322,10 +322,21 @@ public class pnlOlvideContraseña extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (validar()) {
             //Metodo Para Cambiar Contraseña
+            Main.mensaje(300, 30, "CAMBIANDO CONTRASEÑA....", 3, "/Recursos/spinner-of-dots.png");
             if (Main.controUsuario.validarCampo(txtCedula.getText(), "cedula", "usuario")) {
-                
-            }else{
-                JOptionPane.showMessageDialog(null, "");
+                if (Main.controUsuario.validarOlvidoContrasena(txtCedula.getText(), cbPreguntaS.getSelectedIndex(), txtRespuesta.getText())) {
+                    if (Main.controUsuario.cambiarContrasena(txtContrasena.getText(), txtCedula.getText())) {
+                        Main.mensaje(300, 30, "!SE HA CAMBIADO LA CONTRASEÑA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                        Main.ventanaPrincipal.visualizar("inicio");
+                    }
+                    System.out.println("...");
+                } else {
+                    //               JOptionPane.showMessageDialog(this, "Los datos ingresados no coinciden con la cedula", "NO EXITE LA CEDULA", JOptionPane.ERROR_MESSAGE);
+                    Main.mensaje(300, 30, "Los datos ingresados no coinciden con la cedula", 2, "/Recursos/cancel.png");
+                }
+            } else {
+                //            JOptionPane.showMessageDialog(this, "La cedula ingresada no existe", "NO EXITE LA CEDULA", JOptionPane.ERROR_MESSAGE);
+                Main.mensaje(300, 30, "La cedula ingresada no existe", 2, "/Recursos/cancel.png");
             }
         }
     }//GEN-LAST:event_btnCrearUsuActionPerformed

@@ -8,6 +8,7 @@ package Controlador;
 import DAO.DAO;
 import Modelo.Usuario;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
@@ -85,5 +86,25 @@ public class CtlUsuario {
     
     //Metodos para olvidar contraseña
     
-
+    public boolean validarOlvidoContrasena(String cedula,int pregunta,String respuesta){
+        ResultSet resultado = dao.traerListar("usuario");
+        try {
+            while (resultado.next()) {                
+                if (resultado.getString("cedula").equalsIgnoreCase(cedula) && 
+                        resultado.getInt("pregunta")==pregunta && 
+                        resultado.getString("respuesta").equalsIgnoreCase(respuesta)) {
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+    
+    public boolean cambiarContrasena(String contrasena,String cedula){
+        String consulta ="update usuario set contrasena='"+contrasena+"' where cedula='"+cedula+"'";
+        System.out.println(consulta);
+        return  dao.registrarYModificar(consulta);
+    }
 }

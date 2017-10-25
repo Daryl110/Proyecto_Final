@@ -44,6 +44,7 @@ CREATE TABLE tema (
 
 CREATE TABLE juego(
 	idJuego INT(11) AUTO_INCREMENT,
+        numeroJugadores INT,
 	fechaJuego DATE,
 	PRIMARY KEY(idJuego)	
 );

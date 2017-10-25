@@ -21,7 +21,6 @@
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
-<<<<<<< HEAD
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
@@ -145,10 +144,8 @@
           </Group>
       </Group>
     </DimensionLayout>
-=======
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
     <Property name="useNullLayout" type="boolean" value="false"/>
->>>>>>> 59c28688f65c5cc269a65c9ab05ccc4bf8737694
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblIniciarSesion">
