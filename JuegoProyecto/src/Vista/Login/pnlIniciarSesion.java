@@ -450,7 +450,6 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
             txtNombreUsu.setText(Main.controUsuario.mostrarRecordar().get(0));
             txtContrasena.setText(Main.controUsuario.mostrarRecordar().get(1));
         } catch (Exception e) {
-            System.out.println(e);
         }
         if (!txtContrasena.getText().isEmpty() && !txtNombreUsu.getText().isEmpty()) {
             chbRecordarme.setSelected(true);

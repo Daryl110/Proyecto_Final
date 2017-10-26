@@ -5,21 +5,29 @@
  */
 package Vista.Preguntas;
 
+import Modelo.Opcion;
+import Modelo.Pregunta;
+import java.util.ArrayList;
+
 /**
  *
  * @author Daryl Ospina
  */
 public class pnlPregunta extends javax.swing.JPanel {
 
-    private int tipoPreg;
+    private final int tipoPreg;
+    private ArrayList<Opcion> opciones;
+    
     /**
      * Creates new form pnlPregunta
      */
-    public pnlPregunta(int tipoPreg) {
+    public pnlPregunta(Pregunta preg,ArrayList<Opcion> opciones) {
         initComponents();
         lblEnunciado.setLineWrap(true);
+        lblEnunciado.setText(preg.getEnunciado());
+        this.tipoPreg = preg.getIdTipoPregunta();
         cambiarTipoPreg(tipoPreg);
-        this.tipoPreg = tipoPreg;
+        ponerOpciones(opciones);
     }
 
     /**
@@ -116,12 +124,11 @@ public class pnlPregunta extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rbtnD)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(lblD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pnlContenedorLayout.setVerticalGroup(
@@ -130,29 +137,27 @@ public class pnlPregunta extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(pnlLblEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(chA)
                         .addComponent(rbtnA))
-                    .addComponent(lblA, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chB)
                     .addComponent(rbtnB)
-                    .addComponent(lblB, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(chC)
-                        .addComponent(rbtnC))
-                    .addComponent(lblC, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chC)
+                    .addComponent(rbtnC)
+                    .addComponent(lblC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(chD)
-                        .addComponent(rbtnD))
-                    .addComponent(lblD, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chD)
+                    .addComponent(rbtnD)
+                    .addComponent(lblD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -187,6 +192,31 @@ public class pnlPregunta extends javax.swing.JPanel {
     private javax.swing.JRadioButton rbtnD;
     // End of variables declaration//GEN-END:variables
 
+    private void ponerOpciones(ArrayList<Opcion> opciones){
+        ArrayList<Opcion> opc = new ArrayList<>();
+        
+        int numero = (int) (Math.random() * opciones.size()-1) + 0;
+        lblA.setText(opciones.get(numero).getEnunciado());
+        opc.add(opciones.get(numero));
+        opciones.remove(numero);
+        
+        numero = (int) (Math.random() * opciones.size()-1) + 0;
+        lblB.setText(opciones.get(numero).getEnunciado());
+        opc.add(opciones.get(numero));
+        opciones.remove(numero);
+        
+        numero = (int) (Math.random() * opciones.size()-1) + 0;
+        lblC.setText(opciones.get(numero).getEnunciado());
+        opc.add(opciones.get(numero));
+        opciones.remove(numero);
+        
+        numero = (int) (Math.random() * opciones.size()-1) + 0;
+        lblD.setText(opciones.get(numero).getEnunciado());
+        opc.add(opciones.get(numero));
+        
+        this.opciones = opc;
+    }
+    
     private void cambiarTipoPreg(int tipoPreg){
         if (tipoPreg == 1) {
             rbtnA.setVisible(false);
@@ -207,6 +237,10 @@ public class pnlPregunta extends javax.swing.JPanel {
         grupoBtn.add(rbtnB);
         grupoBtn.add(rbtnC);
         grupoBtn.add(rbtnD);
+    }
+    
+    public ArrayList<Opcion> getOpciones(){
+        return this.opciones;
     }
     
     public int[] getSelecciones(){
@@ -232,6 +266,7 @@ public class pnlPregunta extends javax.swing.JPanel {
             }else{
                 arreglo[3] = 0;
             }
+            arreglo[1] = 'D';
         }else{
             if (rbtnA.isSelected()) {
                 arreglo[0] = 1;

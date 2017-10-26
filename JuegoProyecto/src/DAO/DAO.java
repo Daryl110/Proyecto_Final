@@ -29,7 +29,7 @@ public class DAO {
                 modelo.addElement(resultadoDB.getString(campo));
             }
         } catch (SQLException ex) {
-            System.out.println("Esto se tosto");
+            
         }
 
         return modelo;
@@ -53,7 +53,7 @@ public class DAO {
                 dato = resultadoDB.getString(atributoSolicitado);
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            
         }
 
         return dato;
@@ -70,9 +70,12 @@ public class DAO {
     }
 
     public ResultSet traerColumna(String nombreTabla, String nombreColumna) {
-        System.out.println("...");
         String senteciaSQL = "SELECT " + nombreColumna + " FROM " + nombreTabla;
-        System.out.println(senteciaSQL);
+        return Main.conec.ejecutarRetorno(senteciaSQL);
+    }
+    
+    public ResultSet getNumeroRegistros(String tabla){
+        String senteciaSQL = "SELECT COUNT(*) FROM "+tabla;
         return Main.conec.ejecutarRetorno(senteciaSQL);
     }
 

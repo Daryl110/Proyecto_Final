@@ -5,8 +5,12 @@
  */
 package Vista;
 
+import Controlador.CtlPregunta;
+import Modelo.Opcion;
+import Modelo.Pregunta;
 import Vista.Preguntas.pnlPregunta;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,12 +18,19 @@ import java.awt.BorderLayout;
  */
 public class FrmJuego extends javax.swing.JFrame {
 
+    private ArrayList<pnlPregunta> preguntas;
+    private int[] idPreguntas;
+    CtlPregunta controladorPreg;
+
     /**
      * Creates new form FrmJuego
      */
     public FrmJuego() {
         initComponents();
-        pnlPreguntas.setLayout(new BorderLayout(5, 5));
+        idPreguntas = new int[10];
+        preguntas = new ArrayList<>();
+        controladorPreg = new CtlPregunta();
+        cargarPreguntas(0);
     }
 
     /**
@@ -59,6 +70,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion.setText("1");
         btnIniciarSesion.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion1.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -66,6 +82,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion1.setText("2");
         btnIniciarSesion1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion1ActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion2.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -73,6 +94,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion2.setText("3");
         btnIniciarSesion2.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion2ActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion3.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -80,6 +106,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion3.setText("4");
         btnIniciarSesion3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion3ActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion4.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -87,6 +118,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion4.setText("5");
         btnIniciarSesion4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion4ActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion5.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -94,6 +130,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion5.setText("6");
         btnIniciarSesion5.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion5ActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion6.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -101,6 +142,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion6.setText("7");
         btnIniciarSesion6.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion6ActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion7.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -108,6 +154,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion7.setText("8");
         btnIniciarSesion7.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion7ActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion8.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -115,6 +166,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion8.setText("9");
         btnIniciarSesion8.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion8ActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion9.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -122,6 +178,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion9.setText("10");
         btnIniciarSesion9.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion9ActionPerformed(evt);
+            }
+        });
 
         btnIniciarSesion10.setBackground(new java.awt.Color(153, 178, 203));
         btnIniciarSesion10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -129,6 +190,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion10.setText("TERMINAR");
         btnIniciarSesion10.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnIniciarSesion10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlOpcionesLayout = new javax.swing.GroupLayout(pnlOpciones);
         pnlOpciones.setLayout(pnlOpcionesLayout);
@@ -228,6 +294,62 @@ public class FrmJuego extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(0);
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void btnIniciarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion1ActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(1);
+    }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
+
+    private void btnIniciarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion2ActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(2);
+    }//GEN-LAST:event_btnIniciarSesion2ActionPerformed
+
+    private void btnIniciarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion3ActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(3);
+    }//GEN-LAST:event_btnIniciarSesion3ActionPerformed
+
+    private void btnIniciarSesion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion4ActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(4);
+    }//GEN-LAST:event_btnIniciarSesion4ActionPerformed
+
+    private void btnIniciarSesion5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion5ActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(5);
+    }//GEN-LAST:event_btnIniciarSesion5ActionPerformed
+
+    private void btnIniciarSesion6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion6ActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(6);
+    }//GEN-LAST:event_btnIniciarSesion6ActionPerformed
+
+    private void btnIniciarSesion7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion7ActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(7);
+    }//GEN-LAST:event_btnIniciarSesion7ActionPerformed
+
+    private void btnIniciarSesion8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion8ActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(8);
+    }//GEN-LAST:event_btnIniciarSesion8ActionPerformed
+
+    private void btnIniciarSesion9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion9ActionPerformed
+        // TODO add your handling code here:
+        cargarPanel(9);
+    }//GEN-LAST:event_btnIniciarSesion9ActionPerformed
+
+    private void btnIniciarSesion10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion10ActionPerformed
+        // TODO add your handling code here:
+        Object[] arreglo = guardarInformacion();
+        controladorPreg.calificar((ArrayList<int[]>)arreglo[0], (ArrayList<ArrayList<Opcion>>)arreglo[1]);
+    }//GEN-LAST:event_btnIniciarSesion10ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnIniciarSesion1;
@@ -244,4 +366,49 @@ public class FrmJuego extends javax.swing.JFrame {
     private javax.swing.JPanel pnlOpciones;
     private javax.swing.JPanel pnlPreguntas;
     // End of variables declaration//GEN-END:variables
+
+    private Object[] guardarInformacion(){
+        Object[] arreglo = new Object[2];
+        ArrayList<int[]> selecciones = new ArrayList<>();
+        ArrayList<ArrayList<Opcion>> opciones = new ArrayList<>();
+        
+        for (int i = 0; i < preguntas.size(); i++) {
+            selecciones.add(preguntas.get(i).getSelecciones());
+        }
+        arreglo[0] = selecciones;
+        for (int i = 0; i < preguntas.size(); i++) {
+            opciones.add(preguntas.get(i).getOpciones());
+        }
+        arreglo[1] = opciones;
+        return arreglo;
+    }
+    
+    private void cargarPreguntas(int contador) {
+        if (contador < 10) {
+            int numero = (int) (Math.random() * controladorPreg.getNumeroRegistros()) + 1;
+            if (validarIgualdad(numero)) {
+                preguntas.add(new pnlPregunta(controladorPreg.traerPregunta(numero),controladorPreg.getOpciones(numero)));
+                idPreguntas[contador] = numero;
+                cargarPreguntas(contador + 1);
+            }else{
+                cargarPreguntas(contador);
+            }
+        }
+    }
+
+    private boolean validarIgualdad(int numero) {
+        for (int i = 0; i < idPreguntas.length; i++) {
+            if (idPreguntas[i] == numero) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void cargarPanel(int preg) {
+        pnlPreguntas.removeAll();
+        pnlPreguntas.setLayout(new BorderLayout(5, 5));
+        pnlPreguntas.add(preguntas.get(preg), BorderLayout.CENTER);
+        pnlPreguntas.updateUI();
+    }
 }

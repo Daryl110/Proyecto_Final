@@ -35,6 +35,19 @@ public class CtlDAO {
         gson = new Gson();
         dao = new DAO();
     }
+    
+    public int getNumeroRegistros(String tabla){
+        ResultSet result = dao.getNumeroRegistros(tabla);
+        try {
+            if (result.next()) {
+                int cantidaRegistros = result.getInt("COUNT(*)");
+                return cantidaRegistros;
+            }
+        } catch (SQLException e) {
+            return 0;
+        }
+        return 0;
+    }
 
     public boolean solicitudRegistro(Object objeto, String tabla) {
         
@@ -59,7 +72,6 @@ public class CtlDAO {
                 sentenciaSQL += "');";
             }
         }
-//        System.out.println(sentenciaSQL);
 
         return dao.registrarYModificar(sentenciaSQL);
     }
@@ -114,7 +126,7 @@ public class CtlDAO {
         } catch (SQLException e) {
             
         }
-
+        
         return gson.fromJson(sentenciaJSON, objeto.getClass());
     }
     

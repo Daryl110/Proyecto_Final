@@ -52,8 +52,8 @@ public class CtlUsuario {
                     return true;
                 }
             }
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException e) {
+            
         }
         return false;
     }
@@ -97,14 +97,13 @@ public class CtlUsuario {
                 }
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            
         }
         return false;
     }
     
     public boolean cambiarContrasena(String contrasena,String cedula){
         String consulta ="update usuario set contrasena='"+contrasena+"' where cedula='"+cedula+"'";
-        System.out.println(consulta);
         return  dao.registrarYModificar(consulta);
     }
 }
