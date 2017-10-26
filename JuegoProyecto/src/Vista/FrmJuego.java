@@ -27,13 +27,18 @@ public class FrmJuego extends javax.swing.JFrame {
     private final int[] idPreguntas;
     CtlPregunta controladorPreg;
     CtlJuego controladorJuego;
+    private String idJuego;
+    private int cedula;
 
     /**
      * Creates new form FrmJuego
      * @param idJuego
+     * @param cedula
      */
-    public FrmJuego(String idJuego) {
+    public FrmJuego(String idJuego,int cedula) {
         initComponents();
+        this.idJuego = idJuego;
+        this.cedula=cedula;
         idPreguntas = new int[10];
         preguntas = new ArrayList<>();
         controladorPreg = new CtlPregunta();
@@ -366,7 +371,9 @@ public class FrmJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
         cambiarBordeButton(btnTerminar);
         Object[] arreglo = guardarInformacion();
-        controladorPreg.calificar((ArrayList<int[]>)arreglo[0], (ArrayList<ArrayList<Opcion>>)arreglo[1]);
+        controladorJuego.registrarPreguntasJuego(idPreguntas, controladorPreg.calificar(
+                (ArrayList<int[]>)arreglo[0], (ArrayList<ArrayList<Opcion>>)arreglo[1])
+                , Integer.parseInt(idJuego),cedula);
     }//GEN-LAST:event_btnTerminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

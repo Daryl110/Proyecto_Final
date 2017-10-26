@@ -173,7 +173,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
             SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
             Date date = new Date();
             if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(),d.format(date))) {
-                ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText()));
+                ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText()));               
                 ventanaJuego.setLocationRelativeTo(null);
                 ventanaJuego.setVisible(true);
                 return;

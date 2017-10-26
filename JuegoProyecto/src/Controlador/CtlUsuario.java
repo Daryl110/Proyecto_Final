@@ -36,6 +36,11 @@ public class CtlUsuario {
 
         return controladorDAO.solicitudRegistro(usu, "usuario");
     }
+    
+    public int solicitarCedula(String nombreUsu){
+        return Integer.parseInt(dao.traerDato("usuario", "cedula", "nombreUsu", nombreUsu));
+    }
+    
 
     public DefaultComboBoxModel solicitarListarEnCB(String tabla, String campo) {
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();

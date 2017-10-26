@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.CtlUsuario;
 import Vista.Login.pnlIniciarSesion;
 import Vista.Login.pnlOlvideContraseña;
 import Vista.Login.pnlRegistro;
@@ -16,7 +17,8 @@ import javax.swing.JPanel;
  * @author Daryl Ospina
  */
 public class FrmIniciarCrear extends javax.swing.JFrame {
-
+    
+    
     private final String idJuego;
     /**
      * Creates new form FrmJuego

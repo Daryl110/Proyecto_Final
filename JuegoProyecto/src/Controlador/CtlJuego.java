@@ -37,7 +37,7 @@ public class CtlJuego {
         return dao.traerDato("juego", "idJuego", "nombreJuego", nombreJuego);
     }
 
-    public boolean registrarPreguntasJuego(int[] idPreguntas, int[] puntajes, String idJuego, String cedula) {
+    public boolean registrarPreguntasJuego(int[] idPreguntas, int[] puntajes, int idJuego, int cedula) {
         for (int i = 0; i < 10; i++) {
             String sentenciaSQL = "INSERT INTO resultado VALUES(''," + idPreguntas[i] + "," + puntajes[i] + "," + idJuego + "," + cedula + ");";
             if (!dao.registrarYModificar(sentenciaSQL)) {
