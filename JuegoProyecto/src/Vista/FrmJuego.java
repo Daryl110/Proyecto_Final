@@ -57,7 +57,7 @@ public class FrmJuego extends javax.swing.JFrame {
         btnIniciarSesion10 = new javax.swing.JButton();
         pnlPreguntas = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         pnlContenedorTotal.setBackground(new java.awt.Color(67, 119, 170));
 

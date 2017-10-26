@@ -180,7 +180,7 @@ INSERT INTO pregunta VALUES('','Para un caso de estudio en donde se busque simul
 INSERT INTO opcion VALUE('','Revisar saldo.',1,'10');
 INSERT INTO opcion VALUE('','Realizar depósito.',1,'10');
 INSERT INTO opcion VALUE('','Realizar retiro. ',1,'10');
-INSERT INTO opcion VALUE('','Desplegar información del sistema',1,'10');
+INSERT INTO opcion VALUE('','Desplegar información del sistema',0,'10');
 
 INSERT INTO pregunta VALUES('','A un patrón arquitectónico se lo puede considerar como:','1','2');
 INSERT INTO opcion VALUE('','Un elemento fundamental del diseño arquitectónico..',0,'11');
@@ -266,7 +266,7 @@ INSERT INTO opcion VALUE('','liberaciones frecuentes de software ',1,'24');
 INSERT INTO opcion VALUE('','Estructura de la documentación',1,'24');
 INSERT INTO opcion VALUE('','Confiabilidad del diseño',0,'24');
 
-INSERT INTO pregunta VALUES('','¿Cual de estos lenguajes de programacion manejan POO?','1','2');
+INSERT INTO pregunta VALUES('','¿esestos lenguajes de programacion manejan POO?','1','2');
 INSERT INTO opcion VALUE('','Python',1,'25');
 INSERT INTO opcion VALUE('','Oz',1,'25');
 INSERT INTO opcion VALUE('','CSS',1,'25');

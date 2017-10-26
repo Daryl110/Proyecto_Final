@@ -17,17 +17,18 @@ public class pnlPregunta extends javax.swing.JPanel {
 
     private final int tipoPreg;
     private ArrayList<Opcion> opciones;
-    
+
     /**
      * Creates new form pnlPregunta
      */
-    public pnlPregunta(Pregunta preg,ArrayList<Opcion> opciones) {
+    public pnlPregunta(Pregunta preg, ArrayList<Opcion> opciones) {
         initComponents();
         lblEnunciado.setLineWrap(true);
         lblEnunciado.setText(preg.getEnunciado());
         this.tipoPreg = preg.getIdTipoPregunta();
         cambiarTipoPreg(tipoPreg);
         ponerOpciones(opciones);
+        lblEnunciado.setEditable(false);
     }
 
     /**
@@ -138,9 +139,8 @@ public class pnlPregunta extends javax.swing.JPanel {
                 .addComponent(pnlLblEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(chA)
-                        .addComponent(rbtnA))
+                    .addComponent(chA)
+                    .addComponent(rbtnA)
                     .addComponent(lblA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,38 +192,38 @@ public class pnlPregunta extends javax.swing.JPanel {
     private javax.swing.JRadioButton rbtnD;
     // End of variables declaration//GEN-END:variables
 
-    private void ponerOpciones(ArrayList<Opcion> opciones){
+    private void ponerOpciones(ArrayList<Opcion> opciones) {
         ArrayList<Opcion> opc = new ArrayList<>();
-        
-        int numero = (int) (Math.random() * opciones.size()-1) + 0;
+
+        int numero = (int) (Math.random() * opciones.size() - 1) + 0;
         lblA.setText(opciones.get(numero).getEnunciado());
         opc.add(opciones.get(numero));
         opciones.remove(numero);
-        
-        numero = (int) (Math.random() * opciones.size()-1) + 0;
+
+        numero = (int) (Math.random() * opciones.size() - 1) + 0;
         lblB.setText(opciones.get(numero).getEnunciado());
         opc.add(opciones.get(numero));
         opciones.remove(numero);
-        
-        numero = (int) (Math.random() * opciones.size()-1) + 0;
+
+        numero = (int) (Math.random() * opciones.size() - 1) + 0;
         lblC.setText(opciones.get(numero).getEnunciado());
         opc.add(opciones.get(numero));
         opciones.remove(numero);
-        
-        numero = (int) (Math.random() * opciones.size()-1) + 0;
+
+        numero = (int) (Math.random() * opciones.size() - 1) + 0;
         lblD.setText(opciones.get(numero).getEnunciado());
         opc.add(opciones.get(numero));
-        
+
         this.opciones = opc;
     }
-    
-    private void cambiarTipoPreg(int tipoPreg){
-        if (tipoPreg == 1) {
+
+    private void cambiarTipoPreg(int tipoPreg) {
+        if (tipoPreg == 2) {
             rbtnA.setVisible(false);
             rbtnB.setVisible(false);
             rbtnC.setVisible(false);
             rbtnD.setVisible(false);
-        }else{
+        } else {
             chA.setVisible(false);
             chB.setVisible(false);
             chC.setVisible(false);
@@ -231,61 +231,60 @@ public class pnlPregunta extends javax.swing.JPanel {
             añadirGrupoBotones();
         }
     }
-    
-    private void añadirGrupoBotones(){
+
+    private void añadirGrupoBotones() {
         grupoBtn.add(rbtnA);
         grupoBtn.add(rbtnB);
         grupoBtn.add(rbtnC);
         grupoBtn.add(rbtnD);
     }
-    
-    public ArrayList<Opcion> getOpciones(){
+
+    public ArrayList<Opcion> getOpciones() {
         return this.opciones;
     }
-    
-    public int[] getSelecciones(){
+
+    public int[] getSelecciones() {
         int[] arreglo = new int[4];
         if (tipoPreg == 1) {
-            if (chA.isSelected()) {
-                arreglo[0] = 1;
-            }else{
-                arreglo[0] = 0;
-            }
-            if (chB.isSelected()) {
-                arreglo[1] = 1;
-            }else{
-                arreglo[1] = 0;
-            }
-            if (chC.isSelected()) {
-                arreglo[2] = 1;
-            }else{
-                arreglo[2] = 0;
-            }
-            if (chD.isSelected()) {
-                arreglo[3] = 1;
-            }else{
-                arreglo[3] = 0;
-            }
-            arreglo[1] = 'D';
-        }else{
             if (rbtnA.isSelected()) {
                 arreglo[0] = 1;
-            }else{
+            } else {
                 arreglo[0] = 0;
             }
             if (rbtnB.isSelected()) {
                 arreglo[1] = 1;
-            }else{
+            } else {
                 arreglo[1] = 0;
             }
             if (rbtnC.isSelected()) {
                 arreglo[2] = 1;
-            }else{
+            } else {
                 arreglo[2] = 0;
             }
             if (rbtnD.isSelected()) {
                 arreglo[3] = 1;
-            }else{
+            } else {
+                arreglo[3] = 0;
+            }
+        } else {
+            if (chA.isSelected()) {
+                arreglo[0] = 1;
+            } else {
+                arreglo[0] = 0;
+            }
+            if (chB.isSelected()) {
+                arreglo[1] = 1;
+            } else {
+                arreglo[1] = 0;
+            }
+            if (chC.isSelected()) {
+                arreglo[2] = 1;
+            } else {
+                arreglo[2] = 0;
+            }
+            if (chD.isSelected()) {
+                arreglo[3] = 1;
+            } else {
                 arreglo[3] = 0;
             }
         }
