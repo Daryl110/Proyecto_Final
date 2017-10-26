@@ -424,5 +424,3 @@ INSERT INTO opcion VALUE('','La organización que desarrolla el software.',1,'50
 INSERT INTO opcion VALUE('','La organización que compra el software.',0,'50');
 INSERT INTO opcion VALUE('','La organización que desarrolla y compra el software.',0,'50');
 INSERT INTO opcion VALUE('','La organización de mantenimiento.',0,'50');
-
-
