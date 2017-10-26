@@ -8,6 +8,9 @@ package Controlador;
 import Mensaje.MesajeDeTiempo;
 import Modelo.Conexion;
 import Vista.FrmPrincipal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -43,6 +46,10 @@ public class Main {
         //</editor-fold>
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
+
+            SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
+            Date date = new Date();
+            System.out.println(DateFormat.getDateInstance().format(date));
             ventanaPrincipal = new FrmPrincipal();
 
             ventanaPrincipal.setLocationRelativeTo(null);
