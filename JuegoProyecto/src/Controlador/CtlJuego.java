@@ -33,4 +33,18 @@ public class CtlJuego {
         return controladorDAO.solicitudRegistro(juego, "juego");
     }
 
+    public String traerIdJuego(String nombreJuego) {
+        return dao.traerDato("juego", "idJuego", "nombreJuego", nombreJuego);
+    }
+
+    public boolean registrarPreguntasJuego(int[] idPreguntas, int[] puntajes, String idJuego, String cedula) {
+        for (int i = 0; i < 10; i++) {
+            String sentenciaSQL = "INSERT INTO resultado VALUES(''," + idPreguntas[i] + "," + puntajes[i] + "," + idJuego + "," + cedula + ");";
+            if (!dao.registrarYModificar(sentenciaSQL)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

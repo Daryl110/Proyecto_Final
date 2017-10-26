@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.CtlJuego;
 import Controlador.CtlPregunta;
 import Modelo.Opcion;
 import Vista.Preguntas.pnlPregunta;
@@ -25,15 +26,18 @@ public class FrmJuego extends javax.swing.JFrame {
     private final ArrayList<pnlPregunta> preguntas;
     private final int[] idPreguntas;
     CtlPregunta controladorPreg;
+    CtlJuego controladorJuego;
 
     /**
      * Creates new form FrmJuego
+     * @param idJuego
      */
-    public FrmJuego() {
+    public FrmJuego(String idJuego) {
         initComponents();
         idPreguntas = new int[10];
         preguntas = new ArrayList<>();
         controladorPreg = new CtlPregunta();
+        controladorJuego = new CtlJuego();
         cargarPreguntas(0);
     }
 

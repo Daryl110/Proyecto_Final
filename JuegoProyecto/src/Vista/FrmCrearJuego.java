@@ -8,7 +8,6 @@ package Vista;
 import Controlador.CtlJuego;
 import Controlador.Main;
 import java.awt.Color;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.border.EtchedBorder;
@@ -174,8 +173,13 @@ public class FrmCrearJuego extends javax.swing.JFrame {
             Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
             SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
             Date date = new Date();
+<<<<<<< HEAD
             if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(), d.format(date))) {
                 ventanaJuego = new FrmIniciarCrear();
+=======
+            if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(),d.format(date))) {
+                ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText()));
+>>>>>>> 39c170d9b1772c1ea257e720531620fdcf94e572
                 ventanaJuego.setLocationRelativeTo(null);
                 ventanaJuego.setVisible(true);
                 return;
