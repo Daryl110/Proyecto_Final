@@ -6,6 +6,8 @@
 package Vista;
 
 import Controlador.Main;
+import java.awt.Color;
+import javax.swing.border.EtchedBorder;
 
 /**
  *
@@ -14,12 +16,14 @@ import Controlador.Main;
 public class FrmCrearJuego extends javax.swing.JFrame {
 
     public static FrmIniciarCrear ventanaJuego;
+
     /**
      * Creates new form FrmCrearJuego
      */
     public FrmCrearJuego() {
         initComponents();
         lblEtiqueta.setText("<html>Bienvenido por favor<br>seleccione el numero de<br>jugadores que<br>participaran en la partida</html>");
+        lblNombreJuego.setVisible(false);
     }
 
     /**
@@ -32,6 +36,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlContenedorTotal = new javax.swing.JPanel();
+        txtNombreJuego = new javax.swing.JTextField();
         btnIniciarSesion = new javax.swing.JButton();
         btnIniciarSesion1 = new javax.swing.JButton();
         pnlContenedorPanelC = new javax.swing.JPanel();
@@ -41,6 +46,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         lblNube = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
+        lblNombreJuego = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 29));
@@ -48,6 +54,21 @@ public class FrmCrearJuego extends javax.swing.JFrame {
 
         pnlContenedorTotal.setBackground(new java.awt.Color(0, 0, 29));
         pnlContenedorTotal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtNombreJuego.setBackground(new java.awt.Color(51, 51, 51));
+        txtNombreJuego.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        txtNombreJuego.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombreJuego.setText("Nombre del juego");
+        txtNombreJuego.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtNombreJuego.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreJuegoborrarCedula(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreJuegoponerCedula(evt);
+            }
+        });
+        pnlContenedorTotal.add(txtNombreJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 256, 25));
 
         btnIniciarSesion.setBackground(new java.awt.Color(51, 51, 51));
         btnIniciarSesion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -111,10 +132,13 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Numero de jugadores");
-        pnlContenedorTotal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 178, -1));
+        pnlContenedorTotal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 178, -1));
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
-        pnlContenedorTotal.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 47, 28));
+        pnlContenedorTotal.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 47, 28));
+
+        lblNombreJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/bloggif_59e7c9eb160c7.png"))); // NOI18N
+        pnlContenedorTotal.add(lblNombreJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,12 +163,34 @@ public class FrmCrearJuego extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
-        ventanaJuego = new FrmIniciarCrear();
-        ventanaJuego.setLocationRelativeTo(null);
-        ventanaJuego.setVisible(true);
+        if (!txtNombreJuego.getText().isEmpty() && !txtNombreJuego.getText().equalsIgnoreCase("Nombre del juego")) {
+            this.dispose();
+            Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
+            ventanaJuego = new FrmIniciarCrear();
+            ventanaJuego.setLocationRelativeTo(null);
+            ventanaJuego.setVisible(true);
+            return;
+        }
+        lblEtiqueta.setText("<html>Debe llenar todos<br>los campos</html>");
+        lblNombreJuego.setVisible(true);
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void txtNombreJuegoborrarCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreJuegoborrarCedula
+        // TODO add your handling code here:
+        if (txtNombreJuego.getText().isEmpty() || txtNombreJuego.getText().equalsIgnoreCase("Nombre del juego")) {
+            Main.ventanaPrincipal.vaciarCampo("Nombre del juego", txtNombreJuego, Color.WHITE);
+            lblEtiqueta.setText("<html>por favor<br>seleccione el numero de<br>jugadores que<br>participaran en la partida</html>");
+        } else {
+            EtchedBorder borde = new EtchedBorder(1);
+            txtNombreJuego.setBorder(borde);
+        }
+        lblNombreJuego.setVisible(false);
+    }//GEN-LAST:event_txtNombreJuegoborrarCedula
+
+    private void txtNombreJuegoponerCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreJuegoponerCedula
+        // TODO add your handling code here:
+        Main.ventanaPrincipal.vaciarCampo("Nombre del juego", txtNombreJuego, Color.LIGHT_GRAY);
+    }//GEN-LAST:event_txtNombreJuegoponerCedula
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -154,9 +200,11 @@ public class FrmCrearJuego extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblEtiqueta;
     private javax.swing.JLabel lblGif;
+    private javax.swing.JLabel lblNombreJuego;
     private javax.swing.JLabel lblNube;
     private javax.swing.JPanel pnlContenedorDialogo;
     private javax.swing.JPanel pnlContenedorPanelC;
     private javax.swing.JPanel pnlContenedorTotal;
+    private javax.swing.JTextField txtNombreJuego;
     // End of variables declaration//GEN-END:variables
 }
