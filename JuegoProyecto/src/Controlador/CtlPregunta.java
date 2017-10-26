@@ -62,15 +62,24 @@ public class CtlPregunta {
     }
 
     public void calificar(ArrayList<int[]> selecciones, ArrayList<ArrayList<Opcion>> opciones) {
-        boolean incorrecta = true;
-        int correctas = 0;
+        ArrayList<Boolean> corr = new ArrayList<>();
+        int correctas;
         for (int i = 0; i < selecciones.size(); i++) {
+            correctas = 0;
             for (int j = 0; j < selecciones.get(i).length; j++) {
-                if (selecciones.get(i)[j] + opciones.get(i).get(j).getCorrecta() != 2) {
-                    incorrecta = false;
+                if (selecciones.get(i)[j] == opciones.get(i).get(j).getCorrecta()) {
+                    correctas++;
                 }
             }
-            if (incorrecta) {
+            if (correctas == 4) {
+                corr.add(true);
+            }else{
+                corr.add(false);
+            }
+        }
+        correctas = 0;
+        for (int i = 0; i < corr.size(); i++) {
+            if (corr.get(i)) {
                 correctas++;
             }
         }
