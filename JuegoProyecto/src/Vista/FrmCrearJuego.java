@@ -12,6 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -173,15 +174,18 @@ public class FrmCrearJuego extends javax.swing.JFrame {
             Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
             SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
             Date date = new Date();
-            if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(),d.format(date))) {
+            if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(), d.format(date))) {
                 ventanaJuego = new FrmIniciarCrear();
                 ventanaJuego.setLocationRelativeTo(null);
                 ventanaJuego.setVisible(true);
                 return;
-            }else{
-                System.out.println("Hubo un error");
+            } else {
+                Main.mensaje(300, 30, "EL NOMBRE DEL JUEGO NO ESTA DISPONIBLE", 2, "/Recursos/cancel.png");
+                LineBorder b = new LineBorder(Color.red, 1);
+                txtNombreJuego.setBorder(b);
+                lblNombreJuego.setVisible(true);
             }
-            
+
         }
         lblEtiqueta.setText("<html>Debe llenar todos<br>los campos</html>");
         lblNombreJuego.setVisible(true);
