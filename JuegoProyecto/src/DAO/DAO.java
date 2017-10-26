@@ -29,7 +29,7 @@ public class DAO {
                 modelo.addElement(resultadoDB.getString(campo));
             }
         } catch (SQLException ex) {
-            
+
         }
 
         return modelo;
@@ -53,7 +53,7 @@ public class DAO {
                 dato = resultadoDB.getString(atributoSolicitado);
             }
         } catch (SQLException e) {
-            
+
         }
 
         return dato;
@@ -73,9 +73,9 @@ public class DAO {
         String senteciaSQL = "SELECT " + nombreColumna + " FROM " + nombreTabla;
         return Main.conec.ejecutarRetorno(senteciaSQL);
     }
-    
-    public ResultSet getNumeroRegistros(String tabla){
-        String senteciaSQL = "SELECT COUNT(*) FROM "+tabla;
+
+    public ResultSet getNumeroRegistros(String tabla) {
+        String senteciaSQL = "SELECT COUNT(*) FROM " + tabla;
         return Main.conec.ejecutarRetorno(senteciaSQL);
     }
 
@@ -90,6 +90,19 @@ public class DAO {
         return Main.conec.ejecutar(cadena);
     }
 
-    
+    public boolean validarCampo(String igualdad, String columna, String tabla) {
+        ResultSet resultado = traerColumna(tabla, columna);
+
+        try {
+            while (resultado.next()) {
+                if (resultado.getString(columna).equals(igualdad)) {
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+
+        }
+        return false;
+    }
 
 }

@@ -381,8 +381,8 @@ public class pnlRegistro extends javax.swing.JPanel {
         if (validar()) {
             //Accion De Crear Usuario
             Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
-            if (!controUsuario.validarCampo(txtCedula.getText(), "cedula", "usuario")) {
-                if (!controUsuario.validarCampo(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
+            if (!controUsuario.validarCampoUsuario(txtCedula.getText(), "cedula", "usuario")) {
+                if (!controUsuario.validarCampoUsuario(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
                     if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
                             cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
                             validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),

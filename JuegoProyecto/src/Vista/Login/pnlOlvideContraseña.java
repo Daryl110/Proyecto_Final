@@ -330,7 +330,7 @@ public class pnlOlvideContraseña extends javax.swing.JPanel {
         if (validar()) {
             //Metodo Para Cambiar Contraseña
             Main.mensaje(300, 30, "CAMBIANDO CONTRASEÑA....", 3, "/Recursos/spinner-of-dots.png");
-            if (Main.controUsuario.validarCampo(txtCedula.getText(), "cedula", "usuario")) {
+            if (Main.controUsuario.validarCampoUsuario(txtCedula.getText(), "cedula", "usuario")) {
                 if (Main.controUsuario.validarOlvidoContrasena(txtCedula.getText(), cbPreguntaS.getSelectedIndex(), txtRespuesta.getText())) {
                     if (Main.controUsuario.cambiarContrasena(txtContrasena.getText(), txtCedula.getText())) {
                         Main.mensaje(300, 30, "!SE HA CAMBIADO LA CONTRASEÑA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");

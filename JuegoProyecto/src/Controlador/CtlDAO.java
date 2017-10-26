@@ -72,6 +72,7 @@ public class CtlDAO {
                 sentenciaSQL += "');";
             }
         }
+        System.out.println(sentenciaSQL);
 
         return dao.registrarYModificar(sentenciaSQL);
     }

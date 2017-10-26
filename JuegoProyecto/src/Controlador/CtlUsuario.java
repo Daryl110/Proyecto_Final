@@ -28,7 +28,7 @@ public class CtlUsuario {
 
     public boolean solicitudRegistro(int cedula, int pregunta, int semestre, String nombre, String nombreUsu, String contrasena, String correo, String telefono, String respuesta) {
 
-        if (validarCampo(nombreUsu, "nombreUsu", "usuario")) {
+        if (dao.validarCampo(nombreUsu, "nombreUsu", "usuario")) {
             return false;
         }
 
@@ -43,67 +43,54 @@ public class CtlUsuario {
         return dao.cargarInformacionCB(tabla, campo, modelo);
     }
 
-    public boolean validarCampo(String igualdad, String columna, String tabla) {
-        ResultSet resultado = dao.traerColumna(tabla, columna);
-
-        try {
-            while (resultado.next()) {
-                if (resultado.getString(columna).equals(igualdad)) {
-                    return true;
-                }
-            }
-        } catch (SQLException e) {
-            
-        }
-        return false;
-    }
-    
-    
     //Metodos para recordar
-    
-    public void registroRecordar(String nombreUsu,String contrasena){
+    public boolean validarCampoUsuario(String igualdad, String columna, String tabla) {
+        return dao.validarCampo(igualdad, columna, tabla);
+    }
+
+    public void registroRecordar(String nombreUsu, String contrasena) {
         boolean recordar = dao.recordar(dao.traerDato("usuario", "cedula", "nombreUsu", nombreUsu), nombreUsu, contrasena);
     }
-    public void eliminarRegistro(){
+
+    public void eliminarRegistro() {
         dao.eliminarTodo("historial");
     }
-    public ArrayList<String> mostrarRecordar(){
+
+    public ArrayList<String> mostrarRecordar() {
         ArrayList<String> lista = new ArrayList<>();
-        ResultSet resultado=dao.traerColumna("historial", "nombreUsu");
-        ResultSet resultado1=dao.traerColumna("historial", "contrasena");
-        
+        ResultSet resultado = dao.traerColumna("historial", "nombreUsu");
+        ResultSet resultado1 = dao.traerColumna("historial", "contrasena");
+
         try {
-            while (resultado.next() && resultado1.next()) {                
+            while (resultado.next() && resultado1.next()) {
                 lista.add(resultado.getString("nombreUsu"));
                 lista.add(resultado1.getString("contrasena"));
             }
         } catch (Exception e) {
         }
         return lista;
-        
+
     }
-    
-    
+
     //Metodos para olvidar contraseña
-    
-    public boolean validarOlvidoContrasena(String cedula,int pregunta,String respuesta){
+    public boolean validarOlvidoContrasena(String cedula, int pregunta, String respuesta) {
         ResultSet resultado = dao.traerListar("usuario");
         try {
-            while (resultado.next()) {                
-                if (resultado.getString("cedula").equalsIgnoreCase(cedula) && 
-                        resultado.getInt("pregunta")==pregunta && 
-                        resultado.getString("respuesta").equalsIgnoreCase(respuesta)) {
+            while (resultado.next()) {
+                if (resultado.getString("cedula").equalsIgnoreCase(cedula)
+                        && resultado.getInt("pregunta") == pregunta
+                        && resultado.getString("respuesta").equalsIgnoreCase(respuesta)) {
                     return true;
                 }
             }
         } catch (SQLException e) {
-            
+
         }
         return false;
     }
-    
-    public boolean cambiarContrasena(String contrasena,String cedula){
-        String consulta ="update usuario set contrasena='"+contrasena+"' where cedula='"+cedula+"'";
-        return  dao.registrarYModificar(consulta);
+
+    public boolean cambiarContrasena(String contrasena, String cedula) {
+        String consulta = "update usuario set contrasena='" + contrasena + "' where cedula='" + cedula + "'";
+        return dao.registrarYModificar(consulta);
     }
 }

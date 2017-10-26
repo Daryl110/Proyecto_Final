@@ -10,13 +10,14 @@ package Modelo;
  * @author PCSHOP
  */
 public class Juego {
-    int numeroJugadores;
-    String fechaJuego,nombreJuego;
 
-    public Juego(int numeroJugadores, String fechaJuego, String nombreJuego) {
+    int numeroJugadores;
+    String fechaJuego, nombreJuego;
+
+    public Juego(int numeroJugadores, String nombreJuego, String fechaJuego) {
         this.numeroJugadores = numeroJugadores;
-        this.fechaJuego = fechaJuego;
         this.nombreJuego = nombreJuego;
+        this.fechaJuego = fechaJuego;
     }
 
     public Juego() {
@@ -45,8 +46,5 @@ public class Juego {
     public void setNombreJuego(String nombreJuego) {
         this.nombreJuego = nombreJuego;
     }
-    
-    
-
 
 }

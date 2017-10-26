@@ -22,9 +22,13 @@ public class CtlJuego {
         controladorDAO = new CtlDAO();
     }
 
-    public boolean solicitudRegistro(int numeroJugadores,String nombreJuego,String fecha) {
+    public boolean solicitudRegistro(int numeroJugadores, String nombreJuego, String fecha) {
 
-        Juego juego = new Juego(numeroJugadores, fecha, nombreJuego);
+        if (dao.validarCampo(nombreJuego, "nombreJuego", "juego")) {
+            return false;
+        }
+
+        Juego juego = new Juego(numeroJugadores, nombreJuego, fecha);
 
         return controladorDAO.solicitudRegistro(juego, "juego");
     }

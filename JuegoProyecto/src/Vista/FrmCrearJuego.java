@@ -5,8 +5,12 @@
  */
 package Vista;
 
+import Controlador.CtlJuego;
 import Controlador.Main;
 import java.awt.Color;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.border.EtchedBorder;
 
 /**
@@ -16,6 +20,7 @@ import javax.swing.border.EtchedBorder;
 public class FrmCrearJuego extends javax.swing.JFrame {
 
     public static FrmIniciarCrear ventanaJuego;
+    CtlJuego controJuego = new CtlJuego();
 
     /**
      * Creates new form FrmCrearJuego
@@ -166,10 +171,17 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         if (!txtNombreJuego.getText().isEmpty() && !txtNombreJuego.getText().equalsIgnoreCase("Nombre del juego")) {
             this.dispose();
             Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
-            ventanaJuego = new FrmIniciarCrear();
-            ventanaJuego.setLocationRelativeTo(null);
-            ventanaJuego.setVisible(true);
-            return;
+            SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
+            Date date = new Date();
+            if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(),d.format(date))) {
+                ventanaJuego = new FrmIniciarCrear();
+                ventanaJuego.setLocationRelativeTo(null);
+                ventanaJuego.setVisible(true);
+                return;
+            }else{
+                System.out.println("Hubo un error");
+            }
+            
         }
         lblEtiqueta.setText("<html>Debe llenar todos<br>los campos</html>");
         lblNombreJuego.setVisible(true);

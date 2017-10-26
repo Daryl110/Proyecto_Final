@@ -46,10 +46,10 @@ public class Main {
         //</editor-fold>
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-
-            SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
-            Date date = new Date();
-            System.out.println(DateFormat.getDateInstance().format(date));
+//
+//            SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
+//            Date date = new Date();
+//            System.out.println(DateFormat.getDateInstance().format(date));
             ventanaPrincipal = new FrmPrincipal();
 
             ventanaPrincipal.setLocationRelativeTo(null);

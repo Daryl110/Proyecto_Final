@@ -23,9 +23,7 @@ import javax.swing.border.LineBorder;
  */
 public class pnlIniciarSesion extends javax.swing.JPanel {
 
-    /**
-     * Creates new form pnlIniciarSesion
-     */
+    
     public pnlIniciarSesion() {
         initComponents();
         lblAstContraseña.setVisible(false);
@@ -302,8 +300,8 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
             if (txtNombreUsu.getText().equalsIgnoreCase("Admin") && txtContrasena.getText().equalsIgnoreCase("123")) {
                 FrmAdministrador admin = new FrmAdministrador();
                 momentoIniciar(admin);
-            } else if (Main.controUsuario.validarCampo(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
-                if (Main.controUsuario.validarCampo(txtContrasena.getText(), "contrasena", "usuario")) {
+            } else if (Main.controUsuario.validarCampoUsuario(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
+                if (Main.controUsuario.validarCampoUsuario(txtContrasena.getText(), "contrasena", "usuario")) {
                     if (Main.ventanaPrincipal.isActive()) {
                         if (chbRecordarme.isSelected()) {
                             Main.controUsuario.eliminarRegistro();

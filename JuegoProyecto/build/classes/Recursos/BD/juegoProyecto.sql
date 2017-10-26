@@ -45,6 +45,7 @@ CREATE TABLE tema (
 CREATE TABLE juego(
 	idJuego INT(11) AUTO_INCREMENT,
 	numeroJugadores INT,
+	nombreJuego VARCHAR(45),
 	fechaJuego DATE,
 	PRIMARY KEY(idJuego)	
 );
@@ -266,7 +267,7 @@ INSERT INTO opcion VALUE('','liberaciones frecuentes de software ',1,'24');
 INSERT INTO opcion VALUE('','Estructura de la documentación',1,'24');
 INSERT INTO opcion VALUE('','Confiabilidad del diseño',0,'24');
 
-INSERT INTO pregunta VALUES('','¿esestos lenguajes de programacion manejan POO?','1','2');
+INSERT INTO pregunta VALUES('','¿Cual de estos lenguajes de programacion manejan POO?','1','2');
 INSERT INTO opcion VALUE('','Python',1,'25');
 INSERT INTO opcion VALUE('','Oz',1,'25');
 INSERT INTO opcion VALUE('','CSS',1,'25');
