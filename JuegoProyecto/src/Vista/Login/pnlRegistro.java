@@ -453,7 +453,7 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     //Abrir Iniciar Sesion
     private void abrirIniciarSesion(){
-        if (Main.ventanaPrincipal.isActive()) {
+        if (Main.ventanaPrincipal.isVisible()) {
             Main.ventanaPrincipal.visualizar("inicio");
         }else{
             FrmCrearJuego.ventanaJuego.visualizar("inicio");

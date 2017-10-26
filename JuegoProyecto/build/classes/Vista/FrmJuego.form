@@ -83,27 +83,27 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn0" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion1" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn1" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion2" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn2" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn3" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion4" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn4" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion5" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn5" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion6" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn6" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion7" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn7" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion8" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn8" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion9" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btn9" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion10" pref="188" max="32767" attributes="0"/>
+                      <Component id="btnTerminar" pref="188" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -113,18 +113,18 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnIniciarSesion" max="32767" attributes="0"/>
+                          <Component id="btn0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnIniciarSesion1" alignment="3" pref="50" max="32767" attributes="0"/>
-                              <Component id="btnIniciarSesion2" alignment="3" pref="50" max="32767" attributes="0"/>
-                              <Component id="btnIniciarSesion3" alignment="3" pref="50" max="32767" attributes="0"/>
-                              <Component id="btnIniciarSesion4" alignment="3" pref="50" max="32767" attributes="0"/>
-                              <Component id="btnIniciarSesion5" alignment="3" pref="50" max="32767" attributes="0"/>
-                              <Component id="btnIniciarSesion6" alignment="3" pref="50" max="32767" attributes="0"/>
-                              <Component id="btnIniciarSesion7" alignment="3" pref="50" max="32767" attributes="0"/>
-                              <Component id="btnIniciarSesion8" alignment="3" pref="50" max="32767" attributes="0"/>
-                              <Component id="btnIniciarSesion9" alignment="3" pref="50" max="32767" attributes="0"/>
-                              <Component id="btnIniciarSesion10" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btn1" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btn2" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btn3" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btn4" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btn5" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btn6" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btn7" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btn8" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btn9" alignment="3" pref="50" max="32767" attributes="0"/>
+                              <Component id="btnTerminar" alignment="3" pref="50" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -133,7 +133,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion">
+            <Component class="javax.swing.JButton" name="btn0">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -164,10 +164,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesionActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn0ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion1">
+            <Component class="javax.swing.JButton" name="btn1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -198,10 +198,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion2">
+            <Component class="javax.swing.JButton" name="btn2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -232,10 +232,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion3">
+            <Component class="javax.swing.JButton" name="btn3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -266,10 +266,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn3ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion4">
+            <Component class="javax.swing.JButton" name="btn4">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -300,10 +300,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn4ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion5">
+            <Component class="javax.swing.JButton" name="btn5">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -334,10 +334,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn5ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion6">
+            <Component class="javax.swing.JButton" name="btn6">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -368,10 +368,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn6ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion7">
+            <Component class="javax.swing.JButton" name="btn7">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -402,10 +402,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion7ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn7ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion8">
+            <Component class="javax.swing.JButton" name="btn8">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -436,10 +436,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion8ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn8ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion9">
+            <Component class="javax.swing.JButton" name="btn9">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -470,10 +470,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion9ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn9ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIniciarSesion10">
+            <Component class="javax.swing.JButton" name="btnTerminar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cb" green="b2" red="99" type="rgb"/>
@@ -504,7 +504,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion10ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerminarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

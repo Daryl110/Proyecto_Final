@@ -425,7 +425,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
     //Iniciar Sesion
     private void momentoIniciar(JFrame frame) {
         Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
-        if (Main.ventanaPrincipal.isActive()) {
+        if (Main.ventanaPrincipal.isVisible()) {
             recordar(chbRecordarme.isSelected());
             Main.ventanaPrincipal.dispose();
         }else{

@@ -20,6 +20,8 @@ public class pnlPregunta extends javax.swing.JPanel {
 
     /**
      * Creates new form pnlPregunta
+     * @param preg
+     * @param opciones
      */
     public pnlPregunta(Pregunta preg, ArrayList<Opcion> opciones) {
         initComponents();
