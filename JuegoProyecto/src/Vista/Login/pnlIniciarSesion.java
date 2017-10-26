@@ -23,6 +23,7 @@ import javax.swing.border.LineBorder;
  */
 public class pnlIniciarSesion extends javax.swing.JPanel {
 
+    private String idJuego;
     
     public pnlIniciarSesion() {
         initComponents();
@@ -34,6 +35,18 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
         }else{
             chbRecordarme.setVisible(false);
         }
+    }
+    public pnlIniciarSesion(String idJuego) {
+        initComponents();
+        lblAstContraseña.setVisible(false);
+        lblAstNombreUsu.setVisible(false);
+        notaVisible(false);
+        if (FrmCrearJuego.ventanaJuego == null) {
+            recordarme();
+        }else{
+            chbRecordarme.setVisible(false);
+        }
+        this.idJuego = idJuego;
     }
 
     /**
@@ -310,7 +323,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                         FrmUsuario usu = new FrmUsuario();
                         momentoIniciar(usu);
                     } else {
-                        FrmJuego juego = new FrmJuego();
+                        FrmJuego juego = new FrmJuego(idJuego);
                         momentoIniciar(juego);
                     }
                 } else {

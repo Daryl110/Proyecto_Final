@@ -11,8 +11,15 @@ package Modelo;
  */
 public class Opcion {
 
-    private int idPregunta, correcta;
+    private int idPregunta, correcta,idOpcion;
     private String enunciado;
+
+    public Opcion(int idOpcion,int idPregunta, int correcta, String enunciado) {
+        this.idOpcion = idOpcion;
+        this.idPregunta = idPregunta;
+        this.correcta = correcta;
+        this.enunciado = enunciado;
+    }
 
     public Opcion(int idPregunta, int correcta, String enunciado) {
         this.idPregunta = idPregunta;

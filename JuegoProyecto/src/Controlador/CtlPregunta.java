@@ -35,7 +35,7 @@ public class CtlPregunta {
         int[] idOpciones = traerOpciones(idPregunta);
 
         for (int i = 0; i < idOpciones.length; i++) {
-            opciones.add((Opcion) controladorDAO.sqlToObject("opcion", "idOpcion", idOpciones[i] + "", new Opcion(0, 0, "")));
+            opciones.add((Opcion) controladorDAO.sqlToObject("opcion", "idOpcion", idOpciones[i] + "", new Opcion(0,0, 0, "")));
         }
 
         return opciones;

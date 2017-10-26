@@ -8,7 +8,6 @@ package Vista;
 import Controlador.CtlJuego;
 import Controlador.Main;
 import java.awt.Color;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.border.EtchedBorder;
@@ -174,7 +173,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
             SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
             Date date = new Date();
             if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(),d.format(date))) {
-                ventanaJuego = new FrmIniciarCrear();
+                ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText()));
                 ventanaJuego.setLocationRelativeTo(null);
                 ventanaJuego.setVisible(true);
                 return;
