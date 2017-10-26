@@ -218,7 +218,7 @@ public class pnlPregunta extends javax.swing.JPanel {
     }
     
     private void cambiarTipoPreg(int tipoPreg){
-        if (tipoPreg == 1) {
+        if (tipoPreg == 2) {
             rbtnA.setVisible(false);
             rbtnB.setVisible(false);
             rbtnC.setVisible(false);
@@ -266,7 +266,6 @@ public class pnlPregunta extends javax.swing.JPanel {
             }else{
                 arreglo[3] = 0;
             }
-            arreglo[1] = 'D';
         }else{
             if (rbtnA.isSelected()) {
                 arreglo[0] = 1;
