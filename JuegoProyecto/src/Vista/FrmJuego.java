@@ -438,10 +438,6 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private void cambiarBordeButton(JButton boton) {
         CompoundBorder b = new CompoundBorder(new LineBorder(new Color(153, 153, 153)), new EtchedBorder(1));
-<<<<<<< HEAD
-=======
-
->>>>>>> 57aa707b3f47a4d66a2c98d6ef8b6c68b73c0efe
         if (btn0.getBorder().getClass().getSimpleName().equalsIgnoreCase("LineBorder")) {
             btn0.setBorder(b);
         }
