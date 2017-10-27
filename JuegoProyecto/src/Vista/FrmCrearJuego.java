@@ -21,6 +21,8 @@ public class FrmCrearJuego extends javax.swing.JFrame {
 
     public static FrmIniciarCrear ventanaJuego;
     CtlJuego controJuego = new CtlJuego();
+    
+    public static String nombreJuego=""; 
 
     /**
      * Creates new form FrmCrearJuego
@@ -174,6 +176,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
             SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
             Date date = new Date();
             if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(),d.format(date))) {
+                nombreJuego=txtNombreJuego.getText();
                 ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText()),Integer.parseInt(jSpinner1.getValue()+""));
                 ventanaJuego.setLocationRelativeTo(null);
                 ventanaJuego.setVisible(true);

@@ -27,7 +27,7 @@ public class CtlUsuario {
     }
 
     public String traerDato(String cedula,String columna) {
-        return dao.traerDato("usuario", columna, "cedula", cedula);
+        return dao.traerDato("usuario", columna, "nombreUsu", cedula);
     }
 
     public boolean solicitudRegistro(int cedula, int pregunta, int semestre, String nombre, String nombreUsu, String contrasena, String correo, String telefono, String respuesta) {

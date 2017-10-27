@@ -7,6 +7,12 @@ package Controlador;
 
 import DAO.DAO;
 import Modelo.Juego;
+import Modelo.Puntuacion;
+import Vista.Login.pnlRegistro;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,10 +22,21 @@ public class CtlJuego {
 
     private final DAO dao;
     private final CtlDAO controladorDAO;
+    ArrayList<String> listaCedulas = new ArrayList<>();
+    ArrayList<Puntuacion> listaPuntuacio = new ArrayList<>();
+    Puntuacion punta = new Puntuacion();
 
     public CtlJuego() {
         dao = new DAO();
         controladorDAO = new CtlDAO();
+    }
+
+    public ArrayList<String> getListaCedulas() {
+        return listaCedulas;
+    }
+
+    public void limpiarLista() {
+        listaCedulas = new ArrayList<>();
     }
 
     public boolean solicitudRegistro(int numeroJugadores, String nombreJuego, String fecha) {
@@ -46,6 +63,50 @@ public class CtlJuego {
             }
         }
         return true;
+
+    }
+
+    public DefaultTableModel listarPuntuacion(String nombreJuego) {
+
+        String[] nombreColumnas = {"Cedula", "Nombre Usuario", "Puntaje"};
+
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        for (int i = 0; i < listaCedulas.size(); i++) {
+            ResultSet resultado = dao.traerBuscarAvanzado("resultado", "idJuego", dao.traerDato("juego", "idJuego", "nombreJuego", nombreJuego), "cedula", listaCedulas.get(i));
+            int suma = 0;
+            try {
+                while (resultado.next()) {
+                    suma = suma + resultado.getInt("puntaje");
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+            punta = new Puntuacion(listaCedulas.get(i), suma, dao.traerDato("usuario", "nombreUsu", "cedula", listaCedulas.get(i) + ""));
+            listaPuntuacio.add(punta);
+        }
+
+        ArrayList<Puntuacion> listaPuntuacio2 = new ArrayList<>();
+
+        int max = 0;
+        int pos = 0;
+        while (!listaPuntuacio.isEmpty()) {
+            for (int i = 0; i < listaPuntuacio.size(); i++) {
+                if (Integer.parseInt(listaPuntuacio.get(i).getCedula()) > max) {
+                    max = Integer.parseInt(listaPuntuacio.get(i).getCedula());
+                    punta = listaPuntuacio.get(i);
+                    pos = i;
+
+                }
+            }
+            listaPuntuacio.remove(pos);
+            listaPuntuacio2.add(punta);
+        }
+        for (int i = 0; i < listaPuntuacio2.size(); i++) {
+            model.addRow(new Object[]{listaPuntuacio2.get(i).getCedula(), listaPuntuacio2.get(i).getNombreUsuario(), listaPuntuacio2.get(i).getPuntuacion()});
+        }
+        return model;
+
     }
 
 }

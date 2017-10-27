@@ -383,7 +383,7 @@ public class FrmJuego extends javax.swing.JFrame {
                     (ArrayList<int[]>) arreglo[0], (ArrayList<ArrayList<Opcion>>) arreglo[1]),
                     Integer.parseInt(idJuego), cedula)) {
 
-                Main.mensaje(250, 30, "Preparando el nuevo juego para el siguiente jugador", 3, "/Recursos/spinner-of-dots.png");
+                Main.mensaje(350, 30, "Preparando el nuevo juego para el siguiente jugador", 3, "/Recursos/spinner-of-dots.png");
                 this.dispose();
                 ventanaJuego = new FrmIniciarCrear(idJuego, participantes);
                 ventanaJuego.setLocationRelativeTo(null);
@@ -396,8 +396,12 @@ public class FrmJuego extends javax.swing.JFrame {
             if (controladorJuego.registrarPreguntasJuego(idPreguntas, controladorPreg.calificar(
                     (ArrayList<int[]>) arreglo[0], (ArrayList<ArrayList<Opcion>>) arreglo[1]),
                     Integer.parseInt(idJuego), cedula)) {
-                System.out.println("Felicitaciones");
-            }else{
+                 Main.mensaje(350, 30, "Gracias por jugar!!!Cargando las puntaciones", 3, "/Recursos/Cuenta.png");
+                FrmPuntuaciones punta = new FrmPuntuaciones(FrmCrearJuego.nombreJuego);
+                punta.setLocationRelativeTo(null);
+                punta.setVisible(true);
+                this.dispose();
+            } else {
                 System.out.println("Hubo un error");
             }
         }
