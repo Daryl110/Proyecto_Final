@@ -324,10 +324,14 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                             Main.controUsuario.eliminarRegistro();
                             Main.controUsuario.registroRecordar(txtNombreUsu.getText(), txtContrasena.getText());
                         }
-                        FrmUsuario usu = new FrmUsuario();
-                        momentoIniciar(usu);
+                        FrmUsuario frmusu = new FrmUsuario(usu.traerDato(usu.traerDato(txtNombreUsu.getText()+"", "cedula"), "nombre"));
+                        momentoIniciar(frmusu);
                     } else {
+<<<<<<< HEAD
                         FrmJuego juego = new FrmJuego(idJuego,usu.solicitarCedula(txtNombreUsu.getText()+""),participantes);
+=======
+                        FrmJuego juego = new FrmJuego(idJuego,Integer.parseInt(usu.traerDato(txtNombreUsu.getText()+"", "cedula")));
+>>>>>>> 93ca52efe619895733ca22ff91f87c7d83a22b3c
                         momentoIniciar(juego);
                     }
                 } else {

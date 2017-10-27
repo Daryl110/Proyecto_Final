@@ -20,12 +20,16 @@ public class pnlRegistro extends javax.swing.JPanel {
     /**
      * Creates new form pnlRegistro
      */
-    public pnlRegistro() {
+    public pnlRegistro(boolean modificar) {
         initComponents();
         ocultarAsteriscos();
         cbPreguntaS.setModel(Main.controUsuario.solicitarListarEnCB("preguntaUsuario", "enunciado"));
         if (FrmCrearJuego.ventanaJuego != null) {
             FrmCrearJuego.ventanaJuego.setSize(350, FrmCrearJuego.ventanaJuego.getHeight());
+        }
+        if (modificar) {
+            lblIniciarSesion.setVisible(false);
+            btnCrearUsu.setText("Modificar Cuenta");
         }
     }
 

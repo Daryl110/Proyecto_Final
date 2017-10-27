@@ -128,6 +128,7 @@ public class CtlDAO {
             
         }
         
+        System.out.println(sentenciaJSON);
         return gson.fromJson(sentenciaJSON, objeto.getClass());
     }
     

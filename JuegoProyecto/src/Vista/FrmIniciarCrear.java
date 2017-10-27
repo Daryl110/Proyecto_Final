@@ -98,7 +98,7 @@ public class FrmIniciarCrear extends javax.swing.JFrame {
             } else {
                 pnlContenedor.getComponent(0).setVisible(false);
                 if (panel.equalsIgnoreCase("registro") && numeroComponentes > 0) {
-                    panelNuevo = new pnlRegistro();
+                    panelNuevo = new pnlRegistro(false);
                     if (numeroComponentes == 2) {
                         pnlContenedor.remove(1);
                     }

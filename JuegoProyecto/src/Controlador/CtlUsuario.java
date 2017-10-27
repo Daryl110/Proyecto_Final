@@ -26,6 +26,10 @@ public class CtlUsuario {
         controladorDAO = new CtlDAO();
     }
 
+    public String traerDato(String cedula,String columna) {
+        return dao.traerDato("usuario", columna, "cedula", cedula);
+    }
+
     public boolean solicitudRegistro(int cedula, int pregunta, int semestre, String nombre, String nombreUsu, String contrasena, String correo, String telefono, String respuesta) {
 
         if (dao.validarCampo(nombreUsu, "nombreUsu", "usuario")) {
@@ -36,11 +40,6 @@ public class CtlUsuario {
 
         return controladorDAO.solicitudRegistro(usu, "usuario");
     }
-    
-    public int solicitarCedula(String nombreUsu){
-        return Integer.parseInt(dao.traerDato("usuario", "cedula", "nombreUsu", nombreUsu));
-    }
-    
 
     public DefaultComboBoxModel solicitarListarEnCB(String tabla, String campo) {
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
