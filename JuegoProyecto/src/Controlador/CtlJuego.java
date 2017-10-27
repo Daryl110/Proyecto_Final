@@ -8,7 +8,6 @@ package Controlador;
 import DAO.DAO;
 import Modelo.Juego;
 import Modelo.Puntuacion;
-import Vista.Login.pnlRegistro;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -35,6 +34,38 @@ public class CtlJuego {
         return listaCedulas;
     }
 
+    public DefaultTableModel listarPuntuacion(int cedula) {
+
+        String[] nombreColumnas = {"Nombre del juego", "Puntuación"};
+        
+        ArrayList<String> puntua = new ArrayList<>();
+
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        ResultSet resultado = dao.traerBuscar("resultado", "cedula", cedula + "");
+        
+        try {
+            while (resultado.next()) {
+                model.addRow(new Object[]{traerDato(resultado.getString("idJuego")),resultado.getString("puntaje")});
+            }
+        } catch (Exception e) {
+        }
+        
+//        int[] puntuaciones = new int[10];
+//        int contador = 0;
+//        
+//        for (int i = 0; i < puntua.size(); i++) {
+//            for (int j = 0; j < 20; j++) {
+//                if (j % 2 == 0) {
+//                    puntuaciones[contador] += Integer.parseInt(puntua.get(j));
+//                }
+//            }
+//            contador++;
+//        }
+        
+        return model;
+    }
+
     public void limpiarLista() {
         listaCedulas = new ArrayList<>();
     }
@@ -52,6 +83,10 @@ public class CtlJuego {
 
     public String traerIdJuego(String nombreJuego) {
         return dao.traerDato("juego", "idJuego", "nombreJuego", nombreJuego);
+    }
+    
+    public String traerDato(String idJuego) {
+        return dao.traerDato("juego", "nombreJuego", "idJuego", idJuego);
     }
 
     public boolean registrarPreguntasJuego(int[] idPreguntas, int[] puntajes, int idJuego, int cedula) {
@@ -106,7 +141,6 @@ public class CtlJuego {
             model.addRow(new Object[]{listaPuntuacio2.get(i).getCedula(), listaPuntuacio2.get(i).getNombreUsuario(), listaPuntuacio2.get(i).getPuntuacion()});
         }
         return model;
-
     }
 
 }

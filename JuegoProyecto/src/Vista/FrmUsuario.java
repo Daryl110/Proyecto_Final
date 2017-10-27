@@ -9,6 +9,7 @@ import Controlador.CtlUsuario;
 import Controlador.Main;
 import Modelo.Usuario;
 import Vista.Login.pnlRegistro;
+import Vista.Preguntas.pnlPuntuaciones;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -34,7 +35,7 @@ public class FrmUsuario extends javax.swing.JFrame {
                 + "<br>realiza la accion que "
                 + "desees<br>dando click "
                 + "al boton de<br>la devida acción</html>");
-        
+
         usu = contronladorUsu.traerUsuario(nombreUsu);
     }
 
@@ -62,6 +63,7 @@ public class FrmUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlContenedor.setBackground(new java.awt.Color(0, 0, 29));
+        pnlContenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlContenedorDialogo.setBackground(new java.awt.Color(0, 0, 29));
         pnlContenedorDialogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,7 +79,10 @@ public class FrmUsuario extends javax.swing.JFrame {
         lblNube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icon.png"))); // NOI18N
         pnlContenedorDialogo.add(lblNube, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 270, 290));
 
+        pnlContenedor.add(pnlContenedorDialogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 12, 528, 640));
+
         pnlOpciones.setBackground(new java.awt.Color(0, 0, 29));
+        pnlOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -120,6 +125,8 @@ public class FrmUsuario extends javax.swing.JFrame {
         });
         pnlMenu.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 130, 60));
 
+        pnlOpciones.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 392, -1));
+
         pnlCambio.setBackground(new java.awt.Color(0, 0, 29));
 
         javax.swing.GroupLayout pnlCambioLayout = new javax.swing.GroupLayout(pnlCambio);
@@ -130,44 +137,12 @@ public class FrmUsuario extends javax.swing.JFrame {
         );
         pnlCambioLayout.setVerticalGroup(
             pnlCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGap(0, 562, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout pnlOpcionesLayout = new javax.swing.GroupLayout(pnlOpciones);
-        pnlOpciones.setLayout(pnlOpcionesLayout);
-        pnlOpcionesLayout.setHorizontalGroup(
-            pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
-            .addComponent(pnlCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        pnlOpcionesLayout.setVerticalGroup(
-            pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlOpcionesLayout.createSequentialGroup()
-                .addComponent(pnlMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        pnlOpciones.add(pnlCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 66, 392, -1));
 
-        javax.swing.GroupLayout pnlContenedorLayout = new javax.swing.GroupLayout(pnlContenedor);
-        pnlContenedor.setLayout(pnlContenedorLayout);
-        pnlContenedorLayout.setHorizontalGroup(
-            pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlContenedorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlContenedorDialogo, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pnlContenedorLayout.setVerticalGroup(
-            pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlContenedorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlContenedorDialogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        pnlContenedor.add(pnlOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,12 +161,13 @@ public class FrmUsuario extends javax.swing.JFrame {
     private void btnEditarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPerfilActionPerformed
         // TODO add your handling code here:
         visualizar("registro");
-        lblEtiqueta.setText("<html>Aqui Puedes modificar tu<br>información si no sabes cuales<br>son los campos solo<br>pon el mouse encima</html>");
+        lblEtiqueta.setText("<html>Aqui Puedes modificar tu<br>información personal si no<br>sabes cuales son los campos solo<br>pon el mouse encima</html>");
+
     }//GEN-LAST:event_btnEditarPerfilActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         // TODO add your handling code here:
-        lblEtiqueta.setText("  Adios "+usu.getNombreUsu()+"...");
+        lblEtiqueta.setText("  Adios " + usu.getNombreUsu() + "...");
         Main.mensaje(145, 30, "Cerrando Sesión...", 3, "/Recursos/spinner-of-dots.png");
         this.dispose();
         Main.abrirFrmPrincipal();
@@ -199,6 +175,8 @@ public class FrmUsuario extends javax.swing.JFrame {
 
     private void btnPuntuacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntuacionesActionPerformed
         // TODO add your handling code here:
+        visualizar("");
+        lblEtiqueta.setText("<html>Aqui Puedes visualizar tus<br>puntajes en las partidas<br>que has participado</html>");
     }//GEN-LAST:event_btnPuntuacionesActionPerformed
 
 
@@ -219,9 +197,15 @@ public class FrmUsuario extends javax.swing.JFrame {
     //Metodo Para Visualizar Paneles
     public void visualizar(String panel) {
         try {
+            pnlCambio.removeAll();
+            JPanel panelNuevo;
             pnlCambio.setLayout(new BorderLayout(5, 5));
-            JPanel panelNuevo = new pnlRegistro(usu);
-            pnlCambio.add(panelNuevo,BorderLayout.CENTER);
+            if (panel.equalsIgnoreCase("registro")) {
+                panelNuevo = new pnlRegistro(usu);
+            } else {
+                panelNuevo = new pnlPuntuaciones(usu.getCedula()+"");
+            }
+            pnlCambio.add(panelNuevo, BorderLayout.CENTER);
             pnlCambio.updateUI();
         } catch (ArrayIndexOutOfBoundsException e) {
 
