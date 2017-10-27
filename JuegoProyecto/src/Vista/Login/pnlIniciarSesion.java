@@ -330,11 +330,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                             Main.controUsuario.eliminarRegistro();
                             Main.controUsuario.registroRecordar(txtNombreUsu.getText(), txtContrasena.getText());
                         }
-<<<<<<< HEAD
                         FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText()+"");
-=======
-                        FrmUsuario frmusu = new FrmUsuario(usu.traerDato(usu.traerDato(txtNombreUsu.getText() + "", "cedula"), "nombre"));
->>>>>>> 57aa707b3f47a4d66a2c98d6ef8b6c68b73c0efe
                         momentoIniciar(frmusu);
                     } else {
                         
