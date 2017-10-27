@@ -6,26 +6,28 @@
 package Vista;
 
 import Controlador.CtlJuego;
+import Controlador.Main;
+import static Controlador.Main.ventanaPrincipal;
 
 /**
  *
  * @author Daryl Ospina
  */
 public class FrmPuntuaciones extends javax.swing.JFrame {
-    
+
     private final String nombreJuego;
     CtlJuego juego = new CtlJuego();
 
     /**
      * Creates new form FrmPuntuaciones
+     *
      * @param nombreJuego
      */
     public FrmPuntuaciones(String nombreJuego) {
         initComponents();
-        this.nombreJuego=nombreJuego;
-        juego.listarPuntuacion(nombreJuego);
+        this.nombreJuego = nombreJuego;
         tblPuntuaciones.setModel(juego.listarPuntuacion(nombreJuego));
-        
+
     }
 
     /**
@@ -74,6 +76,11 @@ public class FrmPuntuaciones extends javax.swing.JFrame {
         btnVolverJugar.setText("VOLVER A JUGAR");
         btnVolverJugar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnVolverJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolverJugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverJugarActionPerformed(evt);
+            }
+        });
 
         btnVolverInicio.setBackground(new java.awt.Color(51, 51, 51));
         btnVolverInicio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -81,6 +88,11 @@ public class FrmPuntuaciones extends javax.swing.JFrame {
         btnVolverInicio.setText("VOLVER A INICIO");
         btnVolverInicio.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnVolverInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolverInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverInicioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -124,6 +136,22 @@ public class FrmPuntuaciones extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverJugarActionPerformed
+        this.dispose();
+        Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
+        FrmCrearJuego ventanaCrearJuego = new FrmCrearJuego();
+        ventanaCrearJuego.setLocationRelativeTo(null);
+        ventanaCrearJuego.setVisible(true);
+    }//GEN-LAST:event_btnVolverJugarActionPerformed
+
+    private void btnVolverInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInicioActionPerformed
+        ventanaPrincipal = new FrmPrincipal();
+
+        ventanaPrincipal.setLocationRelativeTo(null);
+        ventanaPrincipal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverInicioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

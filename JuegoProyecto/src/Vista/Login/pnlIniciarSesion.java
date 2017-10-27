@@ -32,7 +32,6 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
     CtlJuego juego = new CtlJuego();
     public static ArrayList<String> listaCedulas = new ArrayList<String>();
 
-
     public pnlIniciarSesion() {
         initComponents();
         lblAstContraseña.setVisible(false);
@@ -330,17 +329,13 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                             Main.controUsuario.eliminarRegistro();
                             Main.controUsuario.registroRecordar(txtNombreUsu.getText(), txtContrasena.getText());
                         }
-<<<<<<< HEAD
                         FrmUsuario frmusu = new FrmUsuario(usu.traerDato(usu.traerDato(txtNombreUsu.getText() + "", "cedula"), "nombre"));
-=======
-                        FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText()+"");
->>>>>>> 72987b660a6c999884bc131ffb4e5d54430a04a5
                         momentoIniciar(frmusu);
                     } else {
-                        
-                        listaCedulas.add(usu.traerDato(txtNombreUsu.getText() + "","cedula"));
-                        
-                        FrmJuego juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText() + "","cedula")), participantes);
+
+                        listaCedulas.add(usu.traerDato(txtNombreUsu.getText() + "", "cedula"));
+
+                        FrmJuego juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText() + "", "cedula")), participantes);
                         momentoIniciar(juego);
                     }
                 } else {

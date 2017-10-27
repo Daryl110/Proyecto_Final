@@ -66,7 +66,7 @@ public class DAO {
     }
 
     public ResultSet traerBuscarAvanzado(String nombreTabla, String llavePrimaria, String dato,String llavePrimaria2, String dato2) {
-        String senteciaSQL = "SELECT * FROM " + nombreTabla + " WHERE " + llavePrimaria + "='" + dato + "' and " + llavePrimaria2 + "='" + dato2 + "";
+        String senteciaSQL = "SELECT * FROM " + nombreTabla + " WHERE " + llavePrimaria + "='" + dato + "' and " + llavePrimaria2 + "='" + dato2 + "'";
         System.out.println(senteciaSQL);
         return Main.conec.ejecutarRetorno(senteciaSQL);
     }
