@@ -73,7 +73,7 @@ public class pnlPregunta extends javax.swing.JPanel {
         lblEnunciado.setColumns(20);
         lblEnunciado.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblEnunciado.setForeground(new java.awt.Color(255, 255, 255));
-        lblEnunciado.setRows(5);
+        lblEnunciado.setRows(4);
         lblEnunciado.setBorder(null);
         pnlLblEnunciado.setViewportView(lblEnunciado);
 
@@ -87,10 +87,10 @@ public class pnlPregunta extends javax.swing.JPanel {
 
         lblA.setEditable(false);
         lblA.setBackground(new java.awt.Color(0, 0, 29));
-        lblA.setColumns(20);
+        lblA.setColumns(15);
         lblA.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblA.setForeground(new java.awt.Color(255, 255, 255));
-        lblA.setRows(2);
+        lblA.setRows(4);
         lblA.setBorder(null);
         lblA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -103,10 +103,10 @@ public class pnlPregunta extends javax.swing.JPanel {
 
         lblB.setEditable(false);
         lblB.setBackground(new java.awt.Color(0, 0, 29));
-        lblB.setColumns(20);
+        lblB.setColumns(15);
         lblB.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblB.setForeground(new java.awt.Color(255, 255, 255));
-        lblB.setRows(2);
+        lblB.setRows(4);
         lblB.setBorder(null);
         lblB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,10 +125,10 @@ public class pnlPregunta extends javax.swing.JPanel {
 
         lblC.setEditable(false);
         lblC.setBackground(new java.awt.Color(0, 0, 29));
-        lblC.setColumns(20);
+        lblC.setColumns(15);
         lblC.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblC.setForeground(new java.awt.Color(255, 255, 255));
-        lblC.setRows(2);
+        lblC.setRows(4);
         lblC.setBorder(null);
         lblC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -147,10 +147,10 @@ public class pnlPregunta extends javax.swing.JPanel {
 
         lblD.setEditable(false);
         lblD.setBackground(new java.awt.Color(0, 0, 29));
-        lblD.setColumns(20);
+        lblD.setColumns(15);
         lblD.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblD.setForeground(new java.awt.Color(255, 255, 255));
-        lblD.setRows(2);
+        lblD.setRows(4);
         lblD.setBorder(null);
         lblD.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -198,32 +198,32 @@ public class pnlPregunta extends javax.swing.JPanel {
             pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlContenedorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlLblEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlLblEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rbtnA))
-                    .addComponent(pnlLblEnunciado2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlLblEnunciado2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rbtnB))
-                    .addComponent(pnl, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnl, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rbtnC))
-                    .addComponent(pnlLblEnunciado4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlLblEnunciado4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rbtnD))
-                    .addComponent(pnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 148, Short.MAX_VALUE))
+                    .addComponent(pnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 43, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
