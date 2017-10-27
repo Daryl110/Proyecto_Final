@@ -61,8 +61,9 @@ public class CtlPregunta {
         return opciones;
     }
 
-    public void calificar(ArrayList<int[]> selecciones, ArrayList<ArrayList<Opcion>> opciones) {
+    public int[] calificar(ArrayList<int[]> selecciones, ArrayList<ArrayList<Opcion>> opciones) {
         ArrayList<Boolean> corr = new ArrayList<>();
+        int[] arreglo = new int[10];
         int correctas;
         for (int i = 0; i < selecciones.size(); i++) {
             correctas = 0;
@@ -77,12 +78,13 @@ public class CtlPregunta {
                 corr.add(false);
             }
         }
-        correctas = 0;
         for (int i = 0; i < corr.size(); i++) {
             if (corr.get(i)) {
-                correctas++;
+                arreglo[i] = 1;
+            }else{
+                arreglo[i] = 0;
             }
         }
-        System.out.println(correctas);
+        return arreglo;
     }
 }

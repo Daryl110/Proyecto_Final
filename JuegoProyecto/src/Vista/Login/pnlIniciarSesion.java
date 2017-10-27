@@ -5,6 +5,7 @@
  */
 package Vista.Login;
 
+import Controlador.CtlUsuario;
 import Controlador.Main;
 import Vista.FrmAdministrador;
 import Vista.FrmCrearJuego;
@@ -24,6 +25,7 @@ import javax.swing.border.LineBorder;
 public class pnlIniciarSesion extends javax.swing.JPanel {
 
     private String idJuego;
+    CtlUsuario usu= new CtlUsuario();
     
     public pnlIniciarSesion() {
         initComponents();
@@ -323,7 +325,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                         FrmUsuario usu = new FrmUsuario();
                         momentoIniciar(usu);
                     } else {
-                        FrmJuego juego = new FrmJuego(idJuego);
+                        FrmJuego juego = new FrmJuego(idJuego,usu.solicitarCedula(txtNombreUsu.getText()+""));
                         momentoIniciar(juego);
                     }
                 } else {
