@@ -68,11 +68,12 @@ public class pnlPregunta extends javax.swing.JPanel {
 
         pnlLblEnunciado.setBorder(null);
 
+        lblEnunciado.setEditable(false);
         lblEnunciado.setBackground(new java.awt.Color(0, 0, 29));
         lblEnunciado.setColumns(20);
         lblEnunciado.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblEnunciado.setForeground(new java.awt.Color(255, 255, 255));
-        lblEnunciado.setRows(5);
+        lblEnunciado.setRows(4);
         lblEnunciado.setBorder(null);
         pnlLblEnunciado.setViewportView(lblEnunciado);
 
@@ -84,22 +85,34 @@ public class pnlPregunta extends javax.swing.JPanel {
 
         pnlLblEnunciado2.setBorder(null);
 
+        lblA.setEditable(false);
         lblA.setBackground(new java.awt.Color(0, 0, 29));
-        lblA.setColumns(20);
-        lblA.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lblA.setColumns(15);
+        lblA.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblA.setForeground(new java.awt.Color(255, 255, 255));
-        lblA.setRows(2);
+        lblA.setRows(4);
         lblA.setBorder(null);
+        lblA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAMouseClicked(evt);
+            }
+        });
         pnlLblEnunciado2.setViewportView(lblA);
 
         pnl.setBorder(null);
 
+        lblB.setEditable(false);
         lblB.setBackground(new java.awt.Color(0, 0, 29));
-        lblB.setColumns(20);
-        lblB.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lblB.setColumns(15);
+        lblB.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblB.setForeground(new java.awt.Color(255, 255, 255));
-        lblB.setRows(2);
+        lblB.setRows(4);
         lblB.setBorder(null);
+        lblB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblBMouseClicked(evt);
+            }
+        });
         pnl.setViewportView(lblB);
 
         rbtnB.setBackground(new java.awt.Color(0, 0, 29));
@@ -110,12 +123,18 @@ public class pnlPregunta extends javax.swing.JPanel {
 
         pnlLblEnunciado4.setBorder(null);
 
+        lblC.setEditable(false);
         lblC.setBackground(new java.awt.Color(0, 0, 29));
-        lblC.setColumns(20);
-        lblC.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lblC.setColumns(15);
+        lblC.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblC.setForeground(new java.awt.Color(255, 255, 255));
-        lblC.setRows(2);
+        lblC.setRows(4);
         lblC.setBorder(null);
+        lblC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCMouseClicked(evt);
+            }
+        });
         pnlLblEnunciado4.setViewportView(lblC);
 
         rbtnC.setBackground(new java.awt.Color(0, 0, 29));
@@ -126,12 +145,18 @@ public class pnlPregunta extends javax.swing.JPanel {
 
         pnl1.setBorder(null);
 
+        lblD.setEditable(false);
         lblD.setBackground(new java.awt.Color(0, 0, 29));
-        lblD.setColumns(20);
-        lblD.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lblD.setColumns(15);
+        lblD.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblD.setForeground(new java.awt.Color(255, 255, 255));
-        lblD.setRows(2);
+        lblD.setRows(4);
         lblD.setBorder(null);
+        lblD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDMouseClicked(evt);
+            }
+        });
         pnl1.setViewportView(lblD);
 
         javax.swing.GroupLayout pnlContenedorLayout = new javax.swing.GroupLayout(pnlContenedor);
@@ -165,40 +190,40 @@ public class pnlPregunta extends javax.swing.JPanel {
                         .addComponent(rbtnD)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pnl1))
-                    .addComponent(pnlLblEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, 853, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(pnlLblEnunciado, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlContenedorLayout.setVerticalGroup(
             pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlContenedorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlLblEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlLblEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlLblEnunciado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rbtnA)))
-                .addGap(40, 40, 40)
+                        .addComponent(rbtnA))
+                    .addComponent(pnlLblEnunciado2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rbtnB)))
-                .addGap(40, 40, 40)
+                        .addComponent(rbtnB))
+                    .addComponent(pnl, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlLblEnunciado4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rbtnC)))
-                .addGap(40, 40, 40)
+                        .addComponent(rbtnC))
+                    .addComponent(pnlLblEnunciado4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rbtnD)))
-                .addGap(0, 22, Short.MAX_VALUE))
+                        .addComponent(rbtnD))
+                    .addComponent(pnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 43, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -213,6 +238,42 @@ public class pnlPregunta extends javax.swing.JPanel {
             .addComponent(pnlContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAMouseClicked
+        // TODO add your handling code here:
+        if (tipoPreg == 2) {
+            chA.setSelected(!chA.isSelected());
+        } else {
+            rbtnA.setSelected(!rbtnA.isSelected());
+        }
+    }//GEN-LAST:event_lblAMouseClicked
+
+    private void lblBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBMouseClicked
+        // TODO add your handling code here:
+        if (tipoPreg == 2) {
+            chB.setSelected(!chB.isSelected());
+        } else {
+            rbtnB.setSelected(!rbtnB.isSelected());
+        }
+    }//GEN-LAST:event_lblBMouseClicked
+
+    private void lblCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCMouseClicked
+        // TODO add your handling code here:
+        if (tipoPreg == 2) {
+            chC.setSelected(!chC.isSelected());
+        } else {
+            rbtnC.setSelected(!rbtnC.isSelected());
+        }
+    }//GEN-LAST:event_lblCMouseClicked
+
+    private void lblDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDMouseClicked
+        // TODO add your handling code here:
+        if (tipoPreg == 2) {
+            chD.setSelected(!chD.isSelected());
+        } else {
+            rbtnD.setSelected(!rbtnD.isSelected());
+        }
+    }//GEN-LAST:event_lblDMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
