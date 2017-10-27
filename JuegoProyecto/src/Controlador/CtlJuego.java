@@ -39,7 +39,7 @@ public class CtlJuego {
 
     public boolean registrarPreguntasJuego(int[] idPreguntas, int[] puntajes, int idJuego, int cedula) {
         for (int i = 0; i < 10; i++) {
-            String sentenciaSQL = "INSERT INTO resultado(idPregunta,puntaje,idJuego,cedula) VALUES(" + idPreguntas[i] + "," + puntajes[i] + "," + idJuego + "," + cedula + ");";
+            String sentenciaSQL = "INSERT INTO resultado(idPregunta,puntaje,cedula,idJuego) VALUES(" + idPreguntas[i] + "," + puntajes[i] + "," + cedula + "," + idJuego + ");";
             System.out.println(sentenciaSQL);
             if (!dao.registrarYModificar(sentenciaSQL)) {
                 return false;

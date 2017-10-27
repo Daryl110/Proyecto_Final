@@ -25,6 +25,7 @@ import javax.swing.border.LineBorder;
 public class pnlIniciarSesion extends javax.swing.JPanel {
 
     private String idJuego;
+    private int participantes;
     CtlUsuario usu= new CtlUsuario();
     
     public pnlIniciarSesion() {
@@ -38,7 +39,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
             chbRecordarme.setVisible(false);
         }
     }
-    public pnlIniciarSesion(String idJuego) {
+    public pnlIniciarSesion(String idJuego, int participantes) {
         initComponents();
         lblAstContraseña.setVisible(false);
         lblAstNombreUsu.setVisible(false);
@@ -49,6 +50,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
             chbRecordarme.setVisible(false);
         }
         this.idJuego = idJuego;
+        this.participantes=participantes;
     }
 
     /**
@@ -325,7 +327,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                         FrmUsuario usu = new FrmUsuario();
                         momentoIniciar(usu);
                     } else {
-                        FrmJuego juego = new FrmJuego(idJuego,usu.solicitarCedula(txtNombreUsu.getText()+""));
+                        FrmJuego juego = new FrmJuego(idJuego,usu.solicitarCedula(txtNombreUsu.getText()+""),participantes);
                         momentoIniciar(juego);
                     }
                 } else {
