@@ -51,8 +51,8 @@ public class pnlPregunta extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         pnlLblEnunciado2 = new javax.swing.JScrollPane();
         lblA = new javax.swing.JTextArea();
-        lblB = new javax.swing.JScrollPane();
-        lblEnunciado3 = new javax.swing.JTextArea();
+        pnl = new javax.swing.JScrollPane();
+        lblB = new javax.swing.JTextArea();
         rbtnB = new javax.swing.JRadioButton();
         chB = new javax.swing.JCheckBox();
         chC = new javax.swing.JCheckBox();
@@ -61,8 +61,8 @@ public class pnlPregunta extends javax.swing.JPanel {
         rbtnC = new javax.swing.JRadioButton();
         chD = new javax.swing.JCheckBox();
         rbtnD = new javax.swing.JRadioButton();
-        lblD = new javax.swing.JScrollPane();
-        lblEnunciado5 = new javax.swing.JTextArea();
+        pnl1 = new javax.swing.JScrollPane();
+        lblD = new javax.swing.JTextArea();
 
         pnlContenedor.setBackground(new java.awt.Color(0, 0, 29));
 
@@ -92,15 +92,15 @@ public class pnlPregunta extends javax.swing.JPanel {
         lblA.setBorder(null);
         pnlLblEnunciado2.setViewportView(lblA);
 
-        lblB.setBorder(null);
+        pnl.setBorder(null);
 
-        lblEnunciado3.setBackground(new java.awt.Color(0, 0, 29));
-        lblEnunciado3.setColumns(20);
-        lblEnunciado3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        lblEnunciado3.setForeground(new java.awt.Color(255, 255, 255));
-        lblEnunciado3.setRows(2);
-        lblEnunciado3.setBorder(null);
-        lblB.setViewportView(lblEnunciado3);
+        lblB.setBackground(new java.awt.Color(0, 0, 29));
+        lblB.setColumns(20);
+        lblB.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lblB.setForeground(new java.awt.Color(255, 255, 255));
+        lblB.setRows(2);
+        lblB.setBorder(null);
+        pnl.setViewportView(lblB);
 
         rbtnB.setBackground(new java.awt.Color(0, 0, 29));
 
@@ -124,15 +124,15 @@ public class pnlPregunta extends javax.swing.JPanel {
 
         rbtnD.setBackground(new java.awt.Color(0, 0, 29));
 
-        lblD.setBorder(null);
+        pnl1.setBorder(null);
 
-        lblEnunciado5.setBackground(new java.awt.Color(0, 0, 29));
-        lblEnunciado5.setColumns(20);
-        lblEnunciado5.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        lblEnunciado5.setForeground(new java.awt.Color(255, 255, 255));
-        lblEnunciado5.setRows(2);
-        lblEnunciado5.setBorder(null);
-        lblD.setViewportView(lblEnunciado5);
+        lblD.setBackground(new java.awt.Color(0, 0, 29));
+        lblD.setColumns(20);
+        lblD.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lblD.setForeground(new java.awt.Color(255, 255, 255));
+        lblD.setRows(2);
+        lblD.setBorder(null);
+        pnl1.setViewportView(lblD);
 
         javax.swing.GroupLayout pnlContenedorLayout = new javax.swing.GroupLayout(pnlContenedor);
         pnlContenedor.setLayout(pnlContenedorLayout);
@@ -152,7 +152,7 @@ public class pnlPregunta extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rbtnB)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblB))
+                        .addComponent(pnl))
                     .addGroup(pnlContenedorLayout.createSequentialGroup()
                         .addComponent(chC)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -164,7 +164,7 @@ public class pnlPregunta extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rbtnD)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblD))
+                        .addComponent(pnl1))
                     .addComponent(pnlLblEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, 853, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -182,7 +182,7 @@ public class pnlPregunta extends javax.swing.JPanel {
                         .addComponent(rbtnA)))
                 .addGap(40, 40, 40)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rbtnB)))
@@ -194,7 +194,7 @@ public class pnlPregunta extends javax.swing.JPanel {
                         .addComponent(rbtnC)))
                 .addGap(40, 40, 40)
                 .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(chD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rbtnD)))
@@ -223,12 +223,12 @@ public class pnlPregunta extends javax.swing.JPanel {
     private javax.swing.ButtonGroup grupoBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextArea lblA;
-    private javax.swing.JScrollPane lblB;
+    private javax.swing.JTextArea lblB;
     private javax.swing.JTextArea lblC;
-    private javax.swing.JScrollPane lblD;
+    private javax.swing.JTextArea lblD;
     private javax.swing.JTextArea lblEnunciado;
-    private javax.swing.JTextArea lblEnunciado3;
-    private javax.swing.JTextArea lblEnunciado5;
+    private javax.swing.JScrollPane pnl;
+    private javax.swing.JScrollPane pnl1;
     private javax.swing.JPanel pnlContenedor;
     private javax.swing.JScrollPane pnlLblEnunciado;
     private javax.swing.JScrollPane pnlLblEnunciado2;

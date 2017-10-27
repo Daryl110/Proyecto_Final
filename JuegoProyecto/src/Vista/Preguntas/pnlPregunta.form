@@ -55,7 +55,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="rbtnB" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblB" max="32767" attributes="0"/>
+                          <Component id="pnl" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="chC" min="-2" max="-2" attributes="0"/>
@@ -69,7 +69,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="rbtnD" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblD" max="32767" attributes="0"/>
+                          <Component id="pnl1" max="32767" attributes="0"/>
                       </Group>
                       <Component id="pnlLblEnunciado" alignment="0" min="-2" pref="853" max="-2" attributes="0"/>
                   </Group>
@@ -93,7 +93,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblB" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="pnl" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                           <Component id="chB" alignment="0" max="32767" attributes="0"/>
                           <Component id="rbtnB" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -109,7 +109,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblD" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="pnl1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                           <Component id="chD" alignment="0" max="32767" attributes="0"/>
                           <Component id="rbtnD" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -207,7 +207,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JScrollPane" name="lblB">
+        <Container class="javax.swing.JScrollPane" name="pnl">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -219,7 +219,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="lblEnunciado3">
+            <Component class="javax.swing.JTextArea" name="lblB">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="1d" green="0" red="0" type="rgb"/>
@@ -313,7 +313,7 @@
             </Property>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="lblD">
+        <Container class="javax.swing.JScrollPane" name="pnl1">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -325,7 +325,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="lblEnunciado5">
+            <Component class="javax.swing.JTextArea" name="lblD">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="1d" green="0" red="0" type="rgb"/>
