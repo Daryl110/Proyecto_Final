@@ -6,8 +6,8 @@
 package Vista;
 
 import Controlador.CtlUsuario;
-import Vista.Login.pnlIniciarSesion;
-import Vista.Login.pnlOlvideContraseña;
+import Controlador.Main;
+import Modelo.Usuario;
 import Vista.Login.pnlRegistro;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
@@ -19,21 +19,23 @@ import javax.swing.JPanel;
 public class FrmUsuario extends javax.swing.JFrame {
 
     CtlUsuario contronladorUsu;
+    private final Usuario usu;
 
     /**
      * Creates new form FrmUsuario
      *
-     * @param cedula
+     * @param nombreUsu
      */
-    public FrmUsuario(String cedula) {
+    public FrmUsuario(String nombreUsu) {
         initComponents();
         contronladorUsu = new CtlUsuario();
         lblEtiqueta.setText("<html>Te doy la bienvenida "
-                + contronladorUsu.traerDato(cedula, "nombreUsu")
+                + nombreUsu
                 + "<br>realiza la accion que "
                 + "desees<br>dando click "
                 + "al boton de<br>la devida acción</html>");
-
+        
+        usu = contronladorUsu.traerUsuario(nombreUsu);
     }
 
     /**
@@ -52,9 +54,9 @@ public class FrmUsuario extends javax.swing.JFrame {
         lblNube = new javax.swing.JLabel();
         pnlOpciones = new javax.swing.JPanel();
         pnlMenu = new javax.swing.JPanel();
-        btn0 = new javax.swing.JButton();
-        btn1 = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
+        btnPuntuaciones = new javax.swing.JButton();
+        btnEditarPerfil = new javax.swing.JButton();
+        btnCerrarSesion = new javax.swing.JButton();
         pnlCambio = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,46 +69,56 @@ public class FrmUsuario extends javax.swing.JFrame {
         lblEtiqueta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblEtiqueta.setForeground(new java.awt.Color(255, 255, 255));
         lblEtiqueta.setText("Texto");
-        pnlContenedorDialogo.add(lblEtiqueta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
+        pnlContenedorDialogo.add(lblEtiqueta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        lblGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/pinguino-iloveimg-resized.gif"))); // NOI18N
-        pnlContenedorDialogo.add(lblGif, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
+        lblGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/pinguino.gif"))); // NOI18N
+        pnlContenedorDialogo.add(lblGif, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
 
         lblNube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icon.png"))); // NOI18N
-        pnlContenedorDialogo.add(lblNube, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 270, 290));
+        pnlContenedorDialogo.add(lblNube, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 270, 290));
 
         pnlOpciones.setBackground(new java.awt.Color(0, 0, 29));
 
         pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn0.setBackground(new java.awt.Color(153, 178, 203));
-        btn0.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        btn0.setForeground(new java.awt.Color(51, 51, 51));
-        btn0.setText("Ver Puntuaciones");
-        btn0.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
-        btn0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pnlMenu.add(btn0, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 60));
-
-        btn1.setBackground(new java.awt.Color(153, 178, 203));
-        btn1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        btn1.setForeground(new java.awt.Color(51, 51, 51));
-        btn1.setText("Editar Perfil");
-        btn1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
-        btn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn1.addActionListener(new java.awt.event.ActionListener() {
+        btnPuntuaciones.setBackground(new java.awt.Color(153, 178, 203));
+        btnPuntuaciones.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnPuntuaciones.setForeground(new java.awt.Color(51, 51, 51));
+        btnPuntuaciones.setText("Ver Puntuaciones");
+        btnPuntuaciones.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btnPuntuaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPuntuaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1ActionPerformed(evt);
+                btnPuntuacionesActionPerformed(evt);
             }
         });
-        pnlMenu.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 130, 60));
+        pnlMenu.add(btnPuntuaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 60));
 
-        btn2.setBackground(new java.awt.Color(153, 178, 203));
-        btn2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        btn2.setForeground(new java.awt.Color(51, 51, 51));
-        btn2.setText("Cerrar Sesión");
-        btn2.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
-        btn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pnlMenu.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 130, 60));
+        btnEditarPerfil.setBackground(new java.awt.Color(153, 178, 203));
+        btnEditarPerfil.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnEditarPerfil.setForeground(new java.awt.Color(51, 51, 51));
+        btnEditarPerfil.setText("Editar Perfil");
+        btnEditarPerfil.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btnEditarPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditarPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarPerfilActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(btnEditarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 130, 60));
+
+        btnCerrarSesion.setBackground(new java.awt.Color(153, 178, 203));
+        btnCerrarSesion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(51, 51, 51));
+        btnCerrarSesion.setText("Cerrar Sesión");
+        btnCerrarSesion.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 130, 60));
 
         pnlCambio.setBackground(new java.awt.Color(0, 0, 29));
 
@@ -125,7 +137,7 @@ public class FrmUsuario extends javax.swing.JFrame {
         pnlOpciones.setLayout(pnlOpcionesLayout);
         pnlOpcionesLayout.setHorizontalGroup(
             pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
             .addComponent(pnlCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlOpcionesLayout.setVerticalGroup(
@@ -144,7 +156,7 @@ public class FrmUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlContenedorDialogo, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlContenedorDialogo, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pnlContenedorLayout.setVerticalGroup(
@@ -171,16 +183,29 @@ public class FrmUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+    private void btnEditarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPerfilActionPerformed
         // TODO add your handling code here:
         visualizar("registro");
-    }//GEN-LAST:event_btn1ActionPerformed
+        lblEtiqueta.setText("<html>Aqui Puedes modificar tu<br>información si no sabes cuales<br>son los campos solo<br>pon el mouse encima</html>");
+    }//GEN-LAST:event_btnEditarPerfilActionPerformed
+
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        // TODO add your handling code here:
+        lblEtiqueta.setText("  Adios "+usu.getNombreUsu()+"...");
+        Main.mensaje(145, 30, "Cerrando Sesión...", 3, "/Recursos/spinner-of-dots.png");
+        this.dispose();
+        Main.abrirFrmPrincipal();
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnPuntuacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntuacionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPuntuacionesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn0;
-    private javax.swing.JButton btn1;
-    private javax.swing.JButton btn2;
+    private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnEditarPerfil;
+    private javax.swing.JButton btnPuntuaciones;
     private javax.swing.JLabel lblEtiqueta;
     private javax.swing.JLabel lblGif;
     private javax.swing.JLabel lblNube;
@@ -195,7 +220,7 @@ public class FrmUsuario extends javax.swing.JFrame {
     public void visualizar(String panel) {
         try {
             pnlCambio.setLayout(new BorderLayout(5, 5));
-            JPanel panelNuevo = new pnlRegistro(true);
+            JPanel panelNuevo = new pnlRegistro(usu);
             pnlCambio.add(panelNuevo,BorderLayout.CENTER);
             pnlCambio.updateUI();
         } catch (ArrayIndexOutOfBoundsException e) {

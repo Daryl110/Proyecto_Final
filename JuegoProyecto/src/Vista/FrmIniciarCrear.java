@@ -5,7 +5,6 @@
  */
 package Vista;
 
-import Controlador.CtlUsuario;
 import Vista.Login.pnlIniciarSesion;
 import Vista.Login.pnlOlvideContraseña;
 import Vista.Login.pnlRegistro;
@@ -95,7 +94,7 @@ public class FrmIniciarCrear extends javax.swing.JFrame {
             } else {
                 pnlContenedor.getComponent(0).setVisible(false);
                 if (panel.equalsIgnoreCase("registro") && numeroComponentes > 0) {
-                    panelNuevo = new pnlRegistro(false);
+                    panelNuevo = new pnlRegistro();
                     if (numeroComponentes == 2) {
                         pnlContenedor.remove(1);
                     }

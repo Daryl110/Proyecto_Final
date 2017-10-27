@@ -71,6 +71,11 @@ public class FrmJuego extends javax.swing.JFrame {
         pnlPreguntas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         pnlContenedorTotal.setBackground(new java.awt.Color(67, 119, 170));
 
@@ -269,7 +274,7 @@ public class FrmJuego extends javax.swing.JFrame {
         );
         pnlPreguntasLayout.setVerticalGroup(
             pnlPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addGap(0, 358, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlContenedorTotalLayout = new javax.swing.GroupLayout(pnlContenedorTotal);
@@ -309,62 +314,62 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(0);
         cambiarBordeButton(btn0);
+        cargarPanel(0);
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(1);
         cambiarBordeButton(btn1);
+        cargarPanel(1);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(2);
         cambiarBordeButton(btn2);
+        cargarPanel(2);
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(3);
         cambiarBordeButton(btn3);
+        cargarPanel(3);
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(4);
         cambiarBordeButton(btn4);
+        cargarPanel(4);
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(5);
         cambiarBordeButton(btn5);
+        cargarPanel(5);
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(6);
         cambiarBordeButton(btn6);
+        cargarPanel(6);
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(7);
         cambiarBordeButton(btn7);
+        cargarPanel(7);
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(8);
         cambiarBordeButton(btn8);
+        cargarPanel(8);
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
-        cargarPanel(9);
         cambiarBordeButton(btn9);
+        cargarPanel(9);
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
@@ -375,6 +380,11 @@ public class FrmJuego extends javax.swing.JFrame {
                 (ArrayList<int[]>)arreglo[0], (ArrayList<ArrayList<Opcion>>)arreglo[1])
                 , Integer.parseInt(idJuego),cedula);
     }//GEN-LAST:event_btnTerminarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        this.setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_formWindowOpened
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
@@ -395,7 +405,6 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private void cambiarBordeButton(JButton boton){
         CompoundBorder b = new CompoundBorder(new LineBorder(new Color(153, 153, 153)), new EtchedBorder(1));
-        
         if (btn0.getBorder().getClass().getSimpleName().equalsIgnoreCase("LineBorder")) {
             btn0.setBorder(b);
         }

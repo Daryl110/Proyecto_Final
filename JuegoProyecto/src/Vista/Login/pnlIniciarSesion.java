@@ -322,7 +322,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                             Main.controUsuario.eliminarRegistro();
                             Main.controUsuario.registroRecordar(txtNombreUsu.getText(), txtContrasena.getText());
                         }
-                        FrmUsuario frmusu = new FrmUsuario(usu.traerDato(usu.traerDato(txtNombreUsu.getText()+"", "cedula"), "nombre"));
+                        FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText()+"");
                         momentoIniciar(frmusu);
                     } else {
                         FrmJuego juego = new FrmJuego(idJuego,Integer.parseInt(usu.traerDato(txtNombreUsu.getText()+"", "cedula")));
@@ -440,14 +440,14 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
     //Iniciar Sesion
     private void momentoIniciar(JFrame frame) {
         Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
         if (Main.ventanaPrincipal.isVisible()) {
             recordar(chbRecordarme.isSelected());
             Main.ventanaPrincipal.dispose();
         }else{
             FrmCrearJuego.ventanaJuego.dispose();
         }
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
     }
 
     private void prevenirContrasena() {

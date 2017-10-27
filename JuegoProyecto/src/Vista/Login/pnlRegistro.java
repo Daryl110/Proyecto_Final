@@ -7,6 +7,7 @@ package Vista.Login;
 
 import Controlador.Main;
 import static Controlador.Main.controUsuario;
+import Modelo.Usuario;
 import Vista.FrmCrearJuego;
 import java.awt.Color;
 import javax.swing.border.*;
@@ -17,20 +18,30 @@ import javax.swing.border.*;
  */
 public class pnlRegistro extends javax.swing.JPanel {
 
+    private Usuario usu;
+
     /**
      * Creates new form pnlRegistro
      */
-    public pnlRegistro(boolean modificar) {
+    public pnlRegistro() {
         initComponents();
         ocultarAsteriscos();
         cbPreguntaS.setModel(Main.controUsuario.solicitarListarEnCB("preguntaUsuario", "enunciado"));
         if (FrmCrearJuego.ventanaJuego != null) {
             FrmCrearJuego.ventanaJuego.setSize(350, FrmCrearJuego.ventanaJuego.getHeight());
         }
-        if (modificar) {
-            lblIniciarSesion.setVisible(false);
-            btnCrearUsu.setText("Modificar Cuenta");
+    }
+
+    public pnlRegistro(Usuario usu) {
+        initComponents();
+        ocultarAsteriscos();
+        cbPreguntaS.setModel(Main.controUsuario.solicitarListarEnCB("preguntaUsuario", "enunciado"));
+        if (FrmCrearJuego.ventanaJuego != null) {
+            FrmCrearJuego.ventanaJuego.setSize(350, FrmCrearJuego.ventanaJuego.getHeight());
         }
+        lblIniciarSesion.setVisible(false);
+        btnCrearUsu.setText("Modificar Cuenta");
+        cambiarCampos(usu);
     }
 
     /**
@@ -100,6 +111,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         txtCedula.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtCedula.setForeground(new java.awt.Color(204, 204, 204));
         txtCedula.setText("Cedula");
+        txtCedula.setToolTipText("Cedula");
         txtCedula.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtCedula.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -120,6 +132,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         txtNombre.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("Nombre");
+        txtNombre.setToolTipText("Nombre");
         txtNombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -135,6 +148,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         txtNombreUsu.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtNombreUsu.setForeground(new java.awt.Color(204, 204, 204));
         txtNombreUsu.setText("Nombre de usuario");
+        txtNombreUsu.setToolTipText("Nombre de usuario");
         txtNombreUsu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtNombreUsu.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -150,6 +164,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         txtCorreo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtCorreo.setForeground(new java.awt.Color(204, 204, 204));
         txtCorreo.setText("E-Mail");
+        txtCorreo.setToolTipText("E-Mail");
         txtCorreo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -165,6 +180,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         txtTelefono.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
         txtTelefono.setText("Telefono");
+        txtTelefono.setToolTipText("Telefono");
         txtTelefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -203,6 +219,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         txtRespuesta.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtRespuesta.setForeground(new java.awt.Color(204, 204, 204));
         txtRespuesta.setText("Respuesta de seguridad");
+        txtRespuesta.setToolTipText("Respuesta de seguridad");
         txtRespuesta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtRespuesta.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -228,6 +245,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         txtContrasena.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtContrasena.setForeground(new java.awt.Color(204, 204, 204));
         txtContrasena.setText("Contraseña");
+        txtContrasena.setToolTipText("Contraseña");
         txtContrasena.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -383,29 +401,41 @@ public class pnlRegistro extends javax.swing.JPanel {
     private void btnCrearUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuActionPerformed
         // TODO add your handling code here:
         if (validar()) {
-            //Accion De Crear Usuario
-            Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
-            if (!controUsuario.validarCampoUsuario(txtCedula.getText(), "cedula", "usuario")) {
-                if (!controUsuario.validarCampoUsuario(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
-                    if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
-                            cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
-                            validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
-                            txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText()),
-                            validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
-                        Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
-                        abrirIniciarSesion();
+            if (usu == null) {
+                //Accion De Crear Usuario
+                Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+                if (!controUsuario.validarCampoUsuario(txtCedula.getText(), "cedula", "usuario")) {
+                    if (!controUsuario.validarCampoUsuario(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
+                        if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
+                                cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                                validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
+                                txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText()),
+                                validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
+                            Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                            abrirIniciarSesion();
+                        }
+                    } else {
+                        Main.mensaje(300, 30, "EL NOMBRE DE USUARIO YA ESTA OCUPADO", 2, "/Recursos/cancel.png");
+                        LineBorder b = new LineBorder(Color.red, 1);
+                        txtNombreUsu.setBorder(b);
+                        lblNombreUsuario.setVisible(true);
                     }
                 } else {
-                    Main.mensaje(300, 30, "EL NOMBRE DE USUARIO YA ESTA OCUPADO", 2, "/Recursos/cancel.png");
+                    Main.mensaje(300, 30, "ESTA CEDULA YA EXISTE", 2, "/Recursos/cancel.png");
                     LineBorder b = new LineBorder(Color.red, 1);
-                    txtNombreUsu.setBorder(b);
-                    lblNombreUsuario.setVisible(true);
+                    txtCedula.setBorder(b);
+                    lblCedula.setVisible(true);
                 }
             } else {
-                Main.mensaje(300, 30, "ESTA CEDULA YA EXISTE", 2, "/Recursos/cancel.png");
-                LineBorder b = new LineBorder(Color.red, 1);
-                txtCedula.setBorder(b);
-                lblCedula.setVisible(true);
+                //Modificar
+                Main.mensaje(300, 30, "MODIFICANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+                if (controUsuario.solicitudModificar(Integer.parseInt(txtCedula.getText()),
+                        cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                        validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
+                        txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText()),
+                        validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
+                    Main.mensaje(300, 30, "!SE HA MODIFICADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                }
             }
         }
     }//GEN-LAST:event_btnCrearUsuActionPerformed
@@ -455,16 +485,32 @@ public class pnlRegistro extends javax.swing.JPanel {
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 
+    //Cambiar Campos
+    private void cambiarCampos(Usuario usu) {
+        this.usu = usu;
+        txtCedula.setText(usu.getCedula() + "");
+        txtCedula.setEditable(false);
+        txtNombre.setText(usu.getNombre());
+        txtNombreUsu.setText(usu.getNombreUsu());
+        txtNombreUsu.setEditable(false);
+        txtContrasena.setText(usu.getContrasena());
+        txtCorreo.setText(usu.getCorreo());
+        txtTelefono.setText(usu.getTelefono());
+        spnSemestre.setValue(usu.getSemestre());
+        cbPreguntaS.setSelectedIndex(usu.getPregunta());
+        txtRespuesta.setText(usu.getRespuesta());
+    }
+
     //Abrir Iniciar Sesion
-    private void abrirIniciarSesion(){
+    private void abrirIniciarSesion() {
         if (Main.ventanaPrincipal.isVisible()) {
             Main.ventanaPrincipal.visualizar("inicio");
-        }else{
+        } else {
             FrmCrearJuego.ventanaJuego.visualizar("inicio");
             FrmCrearJuego.ventanaJuego.setSize(350, FrmCrearJuego.ventanaJuego.getHeight());
         }
     }
-    
+
     //Metodo Para Validar Key de tipos numericos
     private void validarTeclado(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();

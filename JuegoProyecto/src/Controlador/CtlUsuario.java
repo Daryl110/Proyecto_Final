@@ -25,9 +25,13 @@ public class CtlUsuario {
         dao = new DAO();
         controladorDAO = new CtlDAO();
     }
+    
+    public Usuario traerUsuario(String nombreUsu){
+        return (Usuario) controladorDAO.sqlToObject("usuario", "nombreUsu", nombreUsu, new Usuario(0, 0, 0, "", "", "", "", "", ""));
+    }
 
-    public String traerDato(String cedula,String columna) {
-        return dao.traerDato("usuario", columna, "cedula", cedula);
+    public String traerDato(String nombreUsu,String columna) {
+        return dao.traerDato("usuario", columna, "nombreUsu", nombreUsu);
     }
 
     public boolean solicitudRegistro(int cedula, int pregunta, int semestre, String nombre, String nombreUsu, String contrasena, String correo, String telefono, String respuesta) {
@@ -39,6 +43,12 @@ public class CtlUsuario {
         Usuario usu = new Usuario(cedula, pregunta, semestre, nombre, nombreUsu, contrasena, correo, telefono, respuesta);
 
         return controladorDAO.solicitudRegistro(usu, "usuario");
+    }
+    public boolean solicitudModificar(int cedula, int pregunta, int semestre, String nombre, String nombreUsu, String contrasena, String correo, String telefono, String respuesta) {
+
+        Usuario usu = new Usuario(cedula, pregunta, semestre, nombre, nombreUsu, contrasena, correo, telefono, respuesta);
+
+        return controladorDAO.solicitarModificar(usu, "usuario", "cedula");
     }
 
     public DefaultComboBoxModel solicitarListarEnCB(String tabla, String campo) {

@@ -127,8 +127,6 @@ public class CtlDAO {
         } catch (SQLException e) {
             
         }
-        
-        System.out.println(sentenciaJSON);
         return gson.fromJson(sentenciaJSON, objeto.getClass());
     }
     
