@@ -75,12 +75,12 @@ CREATE TABLE opcion(
 );
 
 CREATE TABLE resultado(
-	idPregunta_juego INT (11)AUTO_INCREMENT,
+	idResultado INT (11)AUTO_INCREMENT,
 	idPregunta INT,
 	puntaje INT,
 	idJuego INT,
 	cedula INT,
-	PRIMARY KEY (idPregunta_juego),
+	PRIMARY KEY (idResultado),
 	FOREIGN KEY (idPregunta) REFERENCES pregunta(idPregunta) ON DELETE CASCADE,
 	FOREIGN KEY (idJuego) REFERENCES juego(idJuego) ON DELETE CASCADE,
 	FOREIGN KEY (cedula) REFERENCES  usuario(cedula) ON DELETE CASCADE
