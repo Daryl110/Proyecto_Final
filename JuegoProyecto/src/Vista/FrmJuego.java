@@ -7,7 +7,9 @@ package Vista;
 
 import Controlador.CtlJuego;
 import Controlador.CtlPregunta;
+import Controlador.Main;
 import Modelo.Opcion;
+import static Vista.FrmCrearJuego.ventanaJuego;
 import Vista.Preguntas.pnlPregunta;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -27,18 +29,22 @@ public class FrmJuego extends javax.swing.JFrame {
     private final int[] idPreguntas;
     CtlPregunta controladorPreg;
     CtlJuego controladorJuego;
-    private String idJuego;
-    private int cedula;
+    private final String idJuego;
+    private final int cedula;
+    private int participantes;
 
     /**
      * Creates new form FrmJuego
+     *
      * @param idJuego
      * @param cedula
+     * @param participantes
      */
-    public FrmJuego(String idJuego,int cedula) {
+    public FrmJuego(String idJuego, int cedula, int participantes) {
         initComponents();
         this.idJuego = idJuego;
-        this.cedula=cedula;
+        this.cedula = cedula;
+        this.participantes = participantes;
         idPreguntas = new int[10];
         preguntas = new ArrayList<>();
         controladorPreg = new CtlPregunta();
@@ -374,11 +380,38 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
         // TODO add your handling code here:
-        cambiarBordeButton(btnTerminar);
+        participantes--;
         Object[] arreglo = guardarInformacion();
-        controladorJuego.registrarPreguntasJuego(idPreguntas, controladorPreg.calificar(
-                (ArrayList<int[]>)arreglo[0], (ArrayList<ArrayList<Opcion>>)arreglo[1])
-                , Integer.parseInt(idJuego),cedula);
+        if (participantes != 0) {
+            cambiarBordeButton(btnTerminar);
+            if (controladorJuego.registrarPreguntasJuego(idPreguntas, controladorPreg.calificar(
+                    (ArrayList<int[]>) arreglo[0], (ArrayList<ArrayList<Opcion>>) arreglo[1]),
+                    Integer.parseInt(idJuego), cedula)) {
+
+                Main.mensaje(350, 30, "Preparando el nuevo juego para el siguiente jugador", 3, "/Recursos/spinner-of-dots.png");
+                this.dispose();
+                ventanaJuego = new FrmIniciarCrear(idJuego, participantes);
+                ventanaJuego.setLocationRelativeTo(null);
+                ventanaJuego.setVisible(true);
+
+            } else {
+                System.out.println("Hubo un erro");
+            }
+        } else {
+            if (controladorJuego.registrarPreguntasJuego(idPreguntas, controladorPreg.calificar(
+                    (ArrayList<int[]>) arreglo[0], (ArrayList<ArrayList<Opcion>>) arreglo[1]),
+                    Integer.parseInt(idJuego), cedula)) {
+                 Main.mensaje(350, 30, "Gracias por jugar!!!Cargando las puntaciones", 3, "/Recursos/Cuenta.png");
+                FrmPuntuaciones punta = new FrmPuntuaciones(FrmCrearJuego.nombreJuego);
+                punta.setLocationRelativeTo(null);
+                punta.setVisible(true);
+                this.dispose();
+            } else {
+                System.out.println("Hubo un error");
+            }
+        }
+
+
     }//GEN-LAST:event_btnTerminarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -403,8 +436,12 @@ public class FrmJuego extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPreguntas;
     // End of variables declaration//GEN-END:variables
 
-    private void cambiarBordeButton(JButton boton){
+    private void cambiarBordeButton(JButton boton) {
         CompoundBorder b = new CompoundBorder(new LineBorder(new Color(153, 153, 153)), new EtchedBorder(1));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 57aa707b3f47a4d66a2c98d6ef8b6c68b73c0efe
         if (btn0.getBorder().getClass().getSimpleName().equalsIgnoreCase("LineBorder")) {
             btn0.setBorder(b);
         }
@@ -438,16 +475,16 @@ public class FrmJuego extends javax.swing.JFrame {
         if (btnTerminar.getBorder().getClass().getSimpleName().equalsIgnoreCase("LineBorder")) {
             btnTerminar.setBorder(b);
         }
-        LineBorder c = new LineBorder(Color.RED,2);
+        LineBorder c = new LineBorder(Color.RED, 2);
         boton.setBorder(c);
-        
+
     }
-    
-    private Object[] guardarInformacion(){
+
+    private Object[] guardarInformacion() {
         Object[] arreglo = new Object[2];
         ArrayList<int[]> selecciones = new ArrayList<>();
         ArrayList<ArrayList<Opcion>> opciones = new ArrayList<>();
-        
+
         for (int i = 0; i < preguntas.size(); i++) {
             selecciones.add(preguntas.get(i).getSelecciones());
         }
@@ -458,15 +495,15 @@ public class FrmJuego extends javax.swing.JFrame {
         arreglo[1] = opciones;
         return arreglo;
     }
-    
+
     private void cargarPreguntas(int contador) {
         if (contador < 10) {
             int numero = (int) (Math.random() * controladorPreg.getNumeroRegistros()) + 1;
             if (validarIgualdad(numero)) {
-                preguntas.add(new pnlPregunta(controladorPreg.traerPregunta(numero),controladorPreg.getOpciones(numero)));
+                preguntas.add(new pnlPregunta(controladorPreg.traerPregunta(numero), controladorPreg.getOpciones(numero)));
                 idPreguntas[contador] = numero;
                 cargarPreguntas(contador + 1);
-            }else{
+            } else {
                 cargarPreguntas(contador);
             }
         }

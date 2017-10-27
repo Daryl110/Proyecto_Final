@@ -19,13 +19,16 @@ public class FrmIniciarCrear extends javax.swing.JFrame {
     
     
     private final String idJuego;
+    private final int participantes;
     /**
      * Creates new form FrmJuego
      * @param idJuego
+     * @param participantes
      */
-    public FrmIniciarCrear(String idJuego) {
+    public FrmIniciarCrear(String idJuego, int participantes) {
         initComponents();
         this.idJuego = idJuego;
+        this.participantes=participantes;
     }
 
     /**
@@ -89,7 +92,7 @@ public class FrmIniciarCrear extends javax.swing.JFrame {
             int numeroComponentes = pnlContenedor.getComponentCount();
             JPanel panelNuevo;
             if (numeroComponentes == 0 && panel.equalsIgnoreCase("inicio")) {
-                panelNuevo = new pnlIniciarSesion(idJuego);
+                panelNuevo = new pnlIniciarSesion(idJuego,participantes);
                 pnlContenedor.add(panelNuevo, BorderLayout.CENTER);
             } else {
                 pnlContenedor.getComponent(0).setVisible(false);

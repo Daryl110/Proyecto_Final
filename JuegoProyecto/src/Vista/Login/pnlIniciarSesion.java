@@ -5,6 +5,7 @@
  */
 package Vista.Login;
 
+import Controlador.CtlJuego;
 import Controlador.CtlUsuario;
 import Controlador.Main;
 import Vista.FrmAdministrador;
@@ -12,6 +13,7 @@ import Vista.FrmCrearJuego;
 import Vista.FrmJuego;
 import Vista.FrmUsuario;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -25,8 +27,12 @@ import javax.swing.border.LineBorder;
 public class pnlIniciarSesion extends javax.swing.JPanel {
 
     private String idJuego;
-    CtlUsuario usu= new CtlUsuario();
-    
+    private int participantes;
+    CtlUsuario usu = new CtlUsuario();
+    CtlJuego juego = new CtlJuego();
+    public static ArrayList<String> listaCedulas = new ArrayList<String>();
+
+
     public pnlIniciarSesion() {
         initComponents();
         lblAstContraseña.setVisible(false);
@@ -34,21 +40,23 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
         notaVisible(false);
         if (FrmCrearJuego.ventanaJuego == null) {
             recordarme();
-        }else{
+        } else {
             chbRecordarme.setVisible(false);
         }
     }
-    public pnlIniciarSesion(String idJuego) {
+
+    public pnlIniciarSesion(String idJuego, int participantes) {
         initComponents();
         lblAstContraseña.setVisible(false);
         lblAstNombreUsu.setVisible(false);
         notaVisible(false);
         if (FrmCrearJuego.ventanaJuego == null) {
             recordarme();
-        }else{
+        } else {
             chbRecordarme.setVisible(false);
         }
         this.idJuego = idJuego;
+        this.participantes = participantes;
     }
 
     /**
@@ -322,10 +330,17 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                             Main.controUsuario.eliminarRegistro();
                             Main.controUsuario.registroRecordar(txtNombreUsu.getText(), txtContrasena.getText());
                         }
+<<<<<<< HEAD
                         FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText()+"");
+=======
+                        FrmUsuario frmusu = new FrmUsuario(usu.traerDato(usu.traerDato(txtNombreUsu.getText() + "", "cedula"), "nombre"));
+>>>>>>> 57aa707b3f47a4d66a2c98d6ef8b6c68b73c0efe
                         momentoIniciar(frmusu);
                     } else {
-                        FrmJuego juego = new FrmJuego(idJuego,Integer.parseInt(usu.traerDato(txtNombreUsu.getText()+"", "cedula")));
+                        
+                        listaCedulas.add(usu.traerDato(txtNombreUsu.getText() + "","cedula"));
+                        
+                        FrmJuego juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText() + "","cedula")), participantes);
                         momentoIniciar(juego);
                     }
                 } else {
@@ -445,7 +460,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
         if (Main.ventanaPrincipal.isVisible()) {
             recordar(chbRecordarme.isSelected());
             Main.ventanaPrincipal.dispose();
-        }else{
+        } else {
             FrmCrearJuego.ventanaJuego.dispose();
         }
     }

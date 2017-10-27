@@ -30,8 +30,13 @@ public class CtlUsuario {
         return (Usuario) controladorDAO.sqlToObject("usuario", "nombreUsu", nombreUsu, new Usuario(0, 0, 0, "", "", "", "", "", ""));
     }
 
+<<<<<<< HEAD
     public String traerDato(String nombreUsu,String columna) {
         return dao.traerDato("usuario", columna, "nombreUsu", nombreUsu);
+=======
+    public String traerDato(String cedula,String columna) {
+        return dao.traerDato("usuario", columna, "nombreUsu", cedula);
+>>>>>>> 57aa707b3f47a4d66a2c98d6ef8b6c68b73c0efe
     }
 
     public boolean solicitudRegistro(int cedula, int pregunta, int semestre, String nombre, String nombreUsu, String contrasena, String correo, String telefono, String respuesta) {

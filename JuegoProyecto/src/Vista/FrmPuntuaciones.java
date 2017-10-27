@@ -5,17 +5,27 @@
  */
 package Vista;
 
+import Controlador.CtlJuego;
+
 /**
  *
  * @author Daryl Ospina
  */
 public class FrmPuntuaciones extends javax.swing.JFrame {
+    
+    private final String nombreJuego;
+    CtlJuego juego = new CtlJuego();
 
     /**
      * Creates new form FrmPuntuaciones
+     * @param nombreJuego
      */
-    public FrmPuntuaciones() {
+    public FrmPuntuaciones(String nombreJuego) {
         initComponents();
+        this.nombreJuego=nombreJuego;
+        juego.listarPuntuacion(nombreJuego);
+        tblPuntuaciones.setModel(juego.listarPuntuacion(nombreJuego));
+        
     }
 
     /**

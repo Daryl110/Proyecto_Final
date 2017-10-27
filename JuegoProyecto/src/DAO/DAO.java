@@ -53,7 +53,7 @@ public class DAO {
                 dato = resultadoDB.getString(atributoSolicitado);
             }
         } catch (SQLException e) {
-
+            System.out.println(e);
         }
 
         return dato;
@@ -61,6 +61,13 @@ public class DAO {
 
     public ResultSet traerBuscar(String nombreTabla, String llavePrimaria, String dato) {
         String senteciaSQL = "SELECT * FROM " + nombreTabla + " WHERE " + llavePrimaria + "='" + dato + "'";
+        System.out.println(senteciaSQL);
+        return Main.conec.ejecutarRetorno(senteciaSQL);
+    }
+
+    public ResultSet traerBuscarAvanzado(String nombreTabla, String llavePrimaria, String dato,String llavePrimaria2, String dato2) {
+        String senteciaSQL = "SELECT * FROM " + nombreTabla + " WHERE " + llavePrimaria + "='" + dato + "' and " + llavePrimaria2 + "='" + dato2 + "";
+        System.out.println(senteciaSQL);
         return Main.conec.ejecutarRetorno(senteciaSQL);
     }
 
