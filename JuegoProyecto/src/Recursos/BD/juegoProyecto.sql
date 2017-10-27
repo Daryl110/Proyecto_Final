@@ -353,7 +353,7 @@ INSERT INTO opcion VALUE('','Arquitectura de tubería y filtro. ',1,'39');
 INSERT INTO opcion VALUE('','Arquitectura en capas.',0,'39');
 INSERT INTO opcion VALUE('','Arquitectura en procesos.',0,'39');
 
-INSERT INTO pregunta VALUES('','En el siguiente requerimiento: "A cada pedido se le permite asignar un identificador único (ID_PEDIDO)" Corresponde a un requerimiento:','1','1');
+INSERT INTO pregunta VALUES('','En el siguiente requerimiento: A cada pedido se le permite asignar un identificador único (ID_PEDIDO) Corresponde a un requerimiento:','1','1');
 INSERT INTO opcion VALUE('','Requerimiento no funcional.',0,'40');
 INSERT INTO opcion VALUE('','Requerimiento funcional. ',1,'40');
 INSERT INTO opcion VALUE('','Requerimiento provisional.',0,'40');

@@ -185,7 +185,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             } else {
                 pnlLogin.getComponent(0).setVisible(false);
                 if (panel.equalsIgnoreCase("registro") && numeroComponentes > 0) {
-                    panelNuevo = new pnlRegistro();
+                    panelNuevo = new pnlRegistro(false);
                     if (numeroComponentes == 2) {
                         pnlLogin.remove(1);
                     }

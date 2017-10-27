@@ -5,17 +5,35 @@
  */
 package Vista;
 
+import Controlador.CtlUsuario;
+import Vista.Login.pnlIniciarSesion;
+import Vista.Login.pnlOlvideContraseña;
+import Vista.Login.pnlRegistro;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author PCSHOP
  */
 public class FrmUsuario extends javax.swing.JFrame {
 
+    CtlUsuario contronladorUsu;
+
     /**
      * Creates new form FrmUsuario
+     *
+     * @param cedula
      */
-    public FrmUsuario() {
+    public FrmUsuario(String cedula) {
         initComponents();
+        contronladorUsu = new CtlUsuario();
+        lblEtiqueta.setText("<html>Te doy la bienvenida "
+                + contronladorUsu.traerDato(cedula, "nombreUsu")
+                + "<br>realiza la accion que "
+                + "desees<br>dando click "
+                + "al boton de<br>la devida acción</html>");
+
     }
 
     /**
@@ -27,23 +45,166 @@ public class FrmUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlContenedor = new javax.swing.JPanel();
+        pnlContenedorDialogo = new javax.swing.JPanel();
+        lblEtiqueta = new javax.swing.JLabel();
+        lblGif = new javax.swing.JLabel();
+        lblNube = new javax.swing.JLabel();
+        pnlOpciones = new javax.swing.JPanel();
+        pnlMenu = new javax.swing.JPanel();
+        btn0 = new javax.swing.JButton();
+        btn1 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
+        pnlCambio = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pnlContenedor.setBackground(new java.awt.Color(0, 0, 29));
+
+        pnlContenedorDialogo.setBackground(new java.awt.Color(0, 0, 29));
+        pnlContenedorDialogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEtiqueta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblEtiqueta.setForeground(new java.awt.Color(255, 255, 255));
+        lblEtiqueta.setText("Texto");
+        pnlContenedorDialogo.add(lblEtiqueta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
+
+        lblGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/pinguino-iloveimg-resized.gif"))); // NOI18N
+        pnlContenedorDialogo.add(lblGif, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
+
+        lblNube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icon.png"))); // NOI18N
+        pnlContenedorDialogo.add(lblNube, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 270, 290));
+
+        pnlOpciones.setBackground(new java.awt.Color(0, 0, 29));
+
+        pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn0.setBackground(new java.awt.Color(153, 178, 203));
+        btn0.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn0.setForeground(new java.awt.Color(51, 51, 51));
+        btn0.setText("Ver Puntuaciones");
+        btn0.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btn0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlMenu.add(btn0, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 60));
+
+        btn1.setBackground(new java.awt.Color(153, 178, 203));
+        btn1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn1.setForeground(new java.awt.Color(51, 51, 51));
+        btn1.setText("Editar Perfil");
+        btn1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 130, 60));
+
+        btn2.setBackground(new java.awt.Color(153, 178, 203));
+        btn2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn2.setForeground(new java.awt.Color(51, 51, 51));
+        btn2.setText("Cerrar Sesión");
+        btn2.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlMenu.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 130, 60));
+
+        pnlCambio.setBackground(new java.awt.Color(0, 0, 29));
+
+        javax.swing.GroupLayout pnlCambioLayout = new javax.swing.GroupLayout(pnlCambio);
+        pnlCambio.setLayout(pnlCambioLayout);
+        pnlCambioLayout.setHorizontalGroup(
+            pnlCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnlCambioLayout.setVerticalGroup(
+            pnlCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 574, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pnlOpcionesLayout = new javax.swing.GroupLayout(pnlOpciones);
+        pnlOpciones.setLayout(pnlOpcionesLayout);
+        pnlOpcionesLayout.setHorizontalGroup(
+            pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnlOpcionesLayout.setVerticalGroup(
+            pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlOpcionesLayout.createSequentialGroup()
+                .addComponent(pnlMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout pnlContenedorLayout = new javax.swing.GroupLayout(pnlContenedor);
+        pnlContenedor.setLayout(pnlContenedorLayout);
+        pnlContenedorLayout.setHorizontalGroup(
+            pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlContenedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlContenedorDialogo, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        pnlContenedorLayout.setVerticalGroup(
+            pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlContenedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlContenedorDialogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(pnlContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        // TODO add your handling code here:
+        visualizar("registro");
+    }//GEN-LAST:event_btn1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn0;
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn2;
+    private javax.swing.JLabel lblEtiqueta;
+    private javax.swing.JLabel lblGif;
+    private javax.swing.JLabel lblNube;
+    private javax.swing.JPanel pnlCambio;
+    private javax.swing.JPanel pnlContenedor;
+    private javax.swing.JPanel pnlContenedorDialogo;
+    private javax.swing.JPanel pnlMenu;
+    private javax.swing.JPanel pnlOpciones;
     // End of variables declaration//GEN-END:variables
+
+    //Metodo Para Visualizar Paneles
+    public void visualizar(String panel) {
+        try {
+            pnlCambio.setLayout(new BorderLayout(5, 5));
+            JPanel panelNuevo = new pnlRegistro(true);
+            pnlCambio.add(panelNuevo,BorderLayout.CENTER);
+            pnlCambio.updateUI();
+        } catch (ArrayIndexOutOfBoundsException e) {
+
+        }
+    }
+
+    //Metodo Para Cambiar Cursor
+    public void cambiarCursor(int cursor) {
+        this.setCursor(cursor);
+    }
 }
