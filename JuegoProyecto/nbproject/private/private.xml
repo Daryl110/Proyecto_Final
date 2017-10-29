@@ -3,31 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Controlador/CtlUsuario.java</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Modelo/Juego.java</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Controlador/CtlDAO.java</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Vista/Login/pnlRegistro.java</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Recursos/BD/juegoProyecto.sql</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Vista/FrmIniciarCrear.java</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Controlador/Main.java</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Vista/FrmJuego.java</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Vista/FrmUsuario.java</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Controlador/CtlJuego.java</file>
-            <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Vista/FrmCrearJuego.java</file>
-=======
+            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmPrincipal.java</file>
             <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmJuego.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/Login/pnlIniciarSesion.java</file>
+            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmPuntuaciones.java</file>
             <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Controlador/CtlJuego.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Controlador/CtlUsuario.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Modelo/Opcion.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/DAO/DAO.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Controlador/CtlPregunta.java</file>
+            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/Login/pnlIniciarSesion.java</file>
+            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmUsuario.java</file>
+            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Controlador/Main.java</file>
             <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmIniciarCrear.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/Preguntas/pnlPregunta.java</file>
             <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmCrearJuego.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Recursos/BD/juegoProyecto.sql</file>
->>>>>>> 3175f8e4e62e92ca860af475391dcf857b4c3ceb
         </group>
     </open-files>
 </project-private>

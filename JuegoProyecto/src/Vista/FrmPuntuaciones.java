@@ -8,6 +8,7 @@ package Vista;
 import Controlador.CtlJuego;
 import Controlador.Main;
 import static Controlador.Main.ventanaPrincipal;
+import javax.swing.JFrame;
 
 /**
  *
@@ -17,6 +18,7 @@ public class FrmPuntuaciones extends javax.swing.JFrame {
 
     private final String nombreJuego;
     CtlJuego juego = new CtlJuego();
+    private JFrame padre;
 
     /**
      * Creates new form FrmPuntuaciones
@@ -28,6 +30,13 @@ public class FrmPuntuaciones extends javax.swing.JFrame {
         this.nombreJuego = nombreJuego;
         tblPuntuaciones.setModel(juego.listarPuntuacion(nombreJuego));
 
+    }
+
+    public FrmPuntuaciones(String nombreJuego, JFrame padre) {
+        initComponents();
+        this.nombreJuego = nombreJuego;
+        tblPuntuaciones.setModel(juego.listarPuntuacion(nombreJuego));
+        this.padre = padre;
     }
 
     /**
@@ -85,7 +94,7 @@ public class FrmPuntuaciones extends javax.swing.JFrame {
         btnVolverInicio.setBackground(new java.awt.Color(51, 51, 51));
         btnVolverInicio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnVolverInicio.setForeground(new java.awt.Color(204, 204, 204));
-        btnVolverInicio.setText("VOLVER A INICIO");
+        btnVolverInicio.setText("VOLVER");
         btnVolverInicio.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
         btnVolverInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVolverInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -146,11 +155,17 @@ public class FrmPuntuaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverJugarActionPerformed
 
     private void btnVolverInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInicioActionPerformed
-        ventanaPrincipal = new FrmPrincipal();
-
-        ventanaPrincipal.setLocationRelativeTo(null);
-        ventanaPrincipal.setVisible(true);
         this.dispose();
+        Main.mensaje(115, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
+        if (padre != null) {
+            padre.setVisible(true);
+        } else {
+            FrmCrearJuego.ventanaJuego = null;
+            ventanaPrincipal = new FrmPrincipal();
+
+            ventanaPrincipal.setLocationRelativeTo(null);
+            ventanaPrincipal.setVisible(true);
+        }
     }//GEN-LAST:event_btnVolverInicioActionPerformed
 
 

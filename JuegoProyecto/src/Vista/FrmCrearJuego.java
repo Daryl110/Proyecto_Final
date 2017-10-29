@@ -10,6 +10,7 @@ import Controlador.Main;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
@@ -22,7 +23,9 @@ public class FrmCrearJuego extends javax.swing.JFrame {
     public static FrmIniciarCrear ventanaJuego;
     CtlJuego controJuego = new CtlJuego();
     
-    public static String nombreJuego=""; 
+    public static String nombreJuego="";
+    
+    private JFrame padre;
 
     /**
      * Creates new form FrmCrearJuego
@@ -31,6 +34,12 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         initComponents();
         lblEtiqueta.setText("<html>Bienvenido por favor<br>seleccione el numero de<br>jugadores que<br>participaran en la partida</html>");
         lblNombreJuego.setVisible(false);
+    }
+    public FrmCrearJuego(JFrame padre) {
+        initComponents();
+        lblEtiqueta.setText("<html>Bienvenido por favor<br>seleccione el numero de<br>jugadores que<br>participaran en la partida</html>");
+        lblNombreJuego.setVisible(false);
+        this.padre = padre;
     }
 
     /**
@@ -44,8 +53,8 @@ public class FrmCrearJuego extends javax.swing.JFrame {
 
         pnlContenedorTotal = new javax.swing.JPanel();
         txtNombreJuego = new javax.swing.JTextField();
-        btnIniciarSesion = new javax.swing.JButton();
-        btnIniciarSesion1 = new javax.swing.JButton();
+        btnIIniciarJuego = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         pnlContenedorPanelC = new javax.swing.JPanel();
         pnlContenedorDialogo = new javax.swing.JPanel();
         lblEtiqueta = new javax.swing.JLabel();
@@ -77,31 +86,31 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         });
         pnlContenedorTotal.add(txtNombreJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 256, 25));
 
-        btnIniciarSesion.setBackground(new java.awt.Color(51, 51, 51));
-        btnIniciarSesion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(204, 204, 204));
-        btnIniciarSesion.setText("INICIAR JUEGO");
-        btnIniciarSesion.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
-        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+        btnIIniciarJuego.setBackground(new java.awt.Color(51, 51, 51));
+        btnIIniciarJuego.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnIIniciarJuego.setForeground(new java.awt.Color(204, 204, 204));
+        btnIIniciarJuego.setText("INICIAR JUEGO");
+        btnIIniciarJuego.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btnIIniciarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIIniciarJuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesionActionPerformed(evt);
+                btnIIniciarJuegoActionPerformed(evt);
             }
         });
-        pnlContenedorTotal.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 199, 330, 50));
+        pnlContenedorTotal.add(btnIIniciarJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 199, 330, 50));
 
-        btnIniciarSesion1.setBackground(new java.awt.Color(51, 51, 51));
-        btnIniciarSesion1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        btnIniciarSesion1.setForeground(new java.awt.Color(204, 204, 204));
-        btnIniciarSesion1.setText("CANCELAR");
-        btnIniciarSesion1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
-        btnIniciarSesion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnIniciarSesion1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(51, 51, 51));
+        btnCancelar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(204, 204, 204));
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesion1ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-        pnlContenedorTotal.add(btnIniciarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 267, 330, 50));
+        pnlContenedorTotal.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 267, 330, 50));
 
         pnlContenedorPanelC.setBackground(new java.awt.Color(0, 0, 29));
 
@@ -161,14 +170,18 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnIniciarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.dispose();
         Main.mensaje(115, 30, "Cancelando...", 3, "/Recursos/spinner-of-dots.png");
-        Main.abrirFrmPrincipal();
-    }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
+        if (padre != null) {
+            padre.setVisible(true);
+        }else{
+            Main.abrirFrmPrincipal();
+        }
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+    private void btnIIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIIniciarJuegoActionPerformed
         // TODO add your handling code here:
         if (!txtNombreJuego.getText().isEmpty() && !txtNombreJuego.getText().equalsIgnoreCase("Nombre del juego")) {
             this.dispose();
@@ -177,7 +190,11 @@ public class FrmCrearJuego extends javax.swing.JFrame {
             Date date = new Date();
             if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(),d.format(date))) {
                 nombreJuego=txtNombreJuego.getText();
-                ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText()),Integer.parseInt(jSpinner1.getValue()+""));
+                if (padre != null) {
+                    ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText()),Integer.parseInt(jSpinner1.getValue()+""),padre);
+                }else{
+                    ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText()),Integer.parseInt(jSpinner1.getValue()+""));
+                }
                 ventanaJuego.setLocationRelativeTo(null);
                 ventanaJuego.setVisible(true);
                 return;
@@ -191,7 +208,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         }
         lblEtiqueta.setText("<html>Debe llenar todos<br>los campos</html>");
         lblNombreJuego.setVisible(true);
-    }//GEN-LAST:event_btnIniciarSesionActionPerformed
+    }//GEN-LAST:event_btnIIniciarJuegoActionPerformed
 
     private void txtNombreJuegoborrarCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreJuegoborrarCedula
         // TODO add your handling code here:
@@ -212,8 +229,8 @@ public class FrmCrearJuego extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnIniciarSesion1;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnIIniciarJuego;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblEtiqueta;

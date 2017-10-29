@@ -8,11 +8,7 @@ package Controlador;
 import DAO.DAO;
 import Modelo.Juego;
 import Modelo.Puntuacion;
-<<<<<<< HEAD
 import Vista.Login.pnlIniciarSesion;
-import Vista.Login.pnlRegistro;
-=======
->>>>>>> a1887d1fb4dab20b0b9326af7b15655504c1c03b
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,49 +30,70 @@ public class CtlJuego {
         controladorDAO = new CtlDAO();
     }
 
-<<<<<<< HEAD
-=======
-    public ArrayList<String> getListaCedulas() {
-        return listaCedulas;
-    }
-
     public DefaultTableModel listarPuntuacion(int cedula) {
 
         String[] nombreColumnas = {"Nombre del juego", "Puntuación"};
-        
+
         ArrayList<String> puntua = new ArrayList<>();
 
         DefaultTableModel model = new DefaultTableModel(new Object[][]{}, nombreColumnas);
 
         ResultSet resultado = dao.traerBuscar("resultado", "cedula", cedula + "");
-        
+
         try {
             while (resultado.next()) {
-                model.addRow(new Object[]{traerDato(resultado.getString("idJuego")),resultado.getString("puntaje")});
+                puntua.add(traerDato(resultado.getString("idJuego")));
+                puntua.add(resultado.getString("puntaje"));
             }
         } catch (Exception e) {
         }
-        
-//        int[] puntuaciones = new int[10];
-//        int contador = 0;
-//        
-//        for (int i = 0; i < puntua.size(); i++) {
-//            for (int j = 0; j < 20; j++) {
-//                if (j % 2 == 0) {
-//                    puntuaciones[contador] += Integer.parseInt(puntua.get(j));
-//                }
-//            }
-//            contador++;
-//        }
-        
+
+        int gdeveinte = 0, contador = 0;
+
+        for (int i = 0; i < puntua.size(); i++) {
+            if (contador == 19) {
+                gdeveinte++;
+                contador = -1;
+            }
+            contador++;
+        }
+
+        int suma = 0;
+        contador = 0;
+        int contador1 = 20;
+
+        for (int i = 0; i < gdeveinte; i++) {
+            for (int j = contador; j < contador1; j++) {
+                if (j % 2 != 0) {
+                    suma += Integer.parseInt(puntua.get(j));
+                }
+                if (j == contador1 - 2) {
+                    if (model.getRowCount() == 0) {
+                        model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
+                    } else {
+                        int posicion = -1;
+                        for (int k = 0; k < model.getRowCount(); k++) {
+                            if ((int) model.getValueAt(k, 1) < suma) {
+                                posicion = k;
+                                break;
+                            }
+                        }
+                        if (posicion != -1) {
+                            model.insertRow(posicion, new Object[]{puntua.get(contador1 - 2), suma});
+                        } else {
+                            model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
+                        }
+                    }
+                    suma = 0;
+                }
+            }
+            contador += 20;
+            contador1 += 20;
+        }
+
         return model;
     }
 
-    public void limpiarLista() {
-        listaCedulas = new ArrayList<>();
-    }
-
->>>>>>> a1887d1fb4dab20b0b9326af7b15655504c1c03b
     public boolean solicitudRegistro(int numeroJugadores, String nombreJuego, String fecha) {
 
         if (dao.validarCampo(nombreJuego, "nombreJuego", "juego")) {
@@ -91,7 +108,7 @@ public class CtlJuego {
     public String traerIdJuego(String nombreJuego) {
         return dao.traerDato("juego", "idJuego", "nombreJuego", nombreJuego);
     }
-    
+
     public String traerDato(String idJuego) {
         return dao.traerDato("juego", "nombreJuego", "idJuego", idJuego);
     }
@@ -99,7 +116,7 @@ public class CtlJuego {
     public boolean registrarPreguntasJuego(int[] idPreguntas, int[] puntajes, int idJuego, int cedula) {
         for (int i = 0; i < 10; i++) {
             String sentenciaSQL = "INSERT INTO resultado(idPregunta,puntaje,cedula,idJuego) VALUES(" + idPreguntas[i] + "," + puntajes[i] + "," + cedula + "," + idJuego + ");";
-            System.out.println(sentenciaSQL);
+
             if (!dao.registrarYModificar(sentenciaSQL)) {
                 return false;
             }
@@ -122,36 +139,17 @@ public class CtlJuego {
                     suma = suma + resultado.getInt("puntaje");
                 }
             } catch (SQLException e) {
-                System.out.println(e);
             }
             punta = new Puntuacion(pnlIniciarSesion.listaCedulas.get(i), suma, dao.traerDato("usuario", "nombreUsu", "cedula", pnlIniciarSesion.listaCedulas.get(i) + ""));
             listaPuntuacio.add(punta);
         }
-//
-//        ArrayList<Puntuacion> listaPuntuacio2 = new ArrayList<>();
-//
-//        int max = 0;
-//        while (!listaPuntuacio.isEmpty()) {
-//            for (int i = 0; i < listaPuntuacio.size(); i++) {
-//                if (listaPuntuacio.get(i).getPuntuacion() > max) {
-//                    max = listaPuntuacio.get(i).getPuntuacion();
-//                    punta = listaPuntuacio.get(i);
-//
-//                }
-//
-//            }
-//            for (int j = 0; j < listaPuntuacio.size(); j++) {
-//                if (listaPuntuacio.get(j).getPuntuacion() == max) {
-//                    listaPuntuacio.remove(j+1);
-//                }
-//            }
-//
-//            listaPuntuacio2.add(punta);
-//    }
-        for (int i = 0; i < listaPuntuacio.size(); i++) {
-            model.addRow(new Object[]{listaPuntuacio.get(i).getCedula(), listaPuntuacio.get(i).getNombreUsuario(), listaPuntuacio.get(i).getPuntuacion()});
-        }
-        return model;
-    }
 
+
+        for (int x = 0; x < listaPuntuacio.size(); x++) {
+            model.addRow(new Object[]{listaPuntuacio.get(x).getCedula(), listaPuntuacio.get(x).getNombreUsuario(), listaPuntuacio.get(x).getPuntuacion()});
+        }
+        pnlIniciarSesion.listaCedulas = new ArrayList<>();
+        return model;
+
+    }
 }

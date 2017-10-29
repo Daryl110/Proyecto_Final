@@ -15,6 +15,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
@@ -32,6 +33,7 @@ public class FrmJuego extends javax.swing.JFrame {
     private final String idJuego;
     private final int cedula;
     private int participantes;
+    private JFrame padre;
 
     /**
      * Creates new form FrmJuego
@@ -50,6 +52,18 @@ public class FrmJuego extends javax.swing.JFrame {
         controladorPreg = new CtlPregunta();
         controladorJuego = new CtlJuego();
         cargarPreguntas(0);
+    }
+    public FrmJuego(String idJuego, int cedula, int participantes,JFrame padre) {
+        initComponents();
+        this.idJuego = idJuego;
+        this.cedula = cedula;
+        this.participantes = participantes;
+        idPreguntas = new int[10];
+        preguntas = new ArrayList<>();
+        controladorPreg = new CtlPregunta();
+        controladorJuego = new CtlJuego();
+        cargarPreguntas(0);
+        this.padre = padre;
     }
 
     /**
@@ -402,10 +416,16 @@ public class FrmJuego extends javax.swing.JFrame {
             if (controladorJuego.registrarPreguntasJuego(idPreguntas, controladorPreg.calificar(
                     (ArrayList<int[]>) arreglo[0], (ArrayList<ArrayList<Opcion>>) arreglo[1]),
                     Integer.parseInt(idJuego), cedula)) {
-                 Main.mensaje(350, 30, "Gracias por jugar!!!Cargando las puntaciones", 3, "/Recursos/Cuenta.png");
-                FrmPuntuaciones punta = new FrmPuntuaciones(FrmCrearJuego.nombreJuego);
-                punta.setLocationRelativeTo(null);
-                punta.setVisible(true);
+                Main.mensaje(350, 30, "Gracias por jugar!!!Cargando las puntaciones", 3, "/Recursos/Cuenta.png");
+                if (padre != null) {
+                    FrmPuntuaciones punta = new FrmPuntuaciones(FrmCrearJuego.nombreJuego, padre);
+                    punta.setLocationRelativeTo(null);
+                    punta.setVisible(true);
+                } else {
+                    FrmPuntuaciones punta = new FrmPuntuaciones(FrmCrearJuego.nombreJuego);
+                    punta.setLocationRelativeTo(null);
+                    punta.setVisible(true);
+                }
                 this.dispose();
             } else {
                 System.out.println("Hubo un error");

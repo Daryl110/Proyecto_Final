@@ -9,6 +9,7 @@ import Vista.Login.pnlIniciarSesion;
 import Vista.Login.pnlOlvideContraseña;
 import Vista.Login.pnlRegistro;
 import java.awt.BorderLayout;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -16,19 +17,28 @@ import javax.swing.JPanel;
  * @author Daryl Ospina
  */
 public class FrmIniciarCrear extends javax.swing.JFrame {
-    
-    
+
     private final String idJuego;
     private final int participantes;
+    private JFrame padre;
+
     /**
      * Creates new form FrmJuego
+     *
      * @param idJuego
      * @param participantes
      */
     public FrmIniciarCrear(String idJuego, int participantes) {
         initComponents();
         this.idJuego = idJuego;
-        this.participantes=participantes;
+        this.participantes = participantes;
+    }
+
+    public FrmIniciarCrear(String idJuego, int participantes, JFrame padre) {
+        initComponents();
+        this.idJuego = idJuego;
+        this.participantes = participantes;
+        this.padre = padre;
     }
 
     /**
@@ -84,7 +94,7 @@ public class FrmIniciarCrear extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel pnlContenedor;
     // End of variables declaration//GEN-END:variables
-    
+
     //Metodo Para Visualizar Paneles
     public void visualizar(String panel) {
         try {
@@ -92,7 +102,11 @@ public class FrmIniciarCrear extends javax.swing.JFrame {
             int numeroComponentes = pnlContenedor.getComponentCount();
             JPanel panelNuevo;
             if (numeroComponentes == 0 && panel.equalsIgnoreCase("inicio")) {
-                panelNuevo = new pnlIniciarSesion(idJuego,participantes);
+                if (padre != null) {
+                    panelNuevo = new pnlIniciarSesion(idJuego, participantes, padre);
+                } else {
+                    panelNuevo = new pnlIniciarSesion(idJuego, participantes);
+                }
                 pnlContenedor.add(panelNuevo, BorderLayout.CENTER);
             } else {
                 pnlContenedor.getComponent(0).setVisible(false);
@@ -109,8 +123,13 @@ public class FrmIniciarCrear extends javax.swing.JFrame {
                     }
                     pnlContenedor.add(panelNuevo, BorderLayout.CENTER);
                 } else if (panel.equalsIgnoreCase("inicio")) {
-                    pnlContenedor.getComponent(0).setVisible(true);
-                    pnlContenedor.getComponent(1).setVisible(false);
+                    if (padre != null) {
+                        panelNuevo = new pnlIniciarSesion(idJuego, participantes, padre);
+                        pnlContenedor.add(panelNuevo, BorderLayout.CENTER);
+                    } else {
+                        pnlContenedor.getComponent(0).setVisible(true);
+                        pnlContenedor.getComponent(1).setVisible(false);
+                    }
                 } else if (panel.equalsIgnoreCase("inicio")) {
                     visualizar("inicio");
                 }
@@ -120,7 +139,7 @@ public class FrmIniciarCrear extends javax.swing.JFrame {
 
         }
     }
-    
+
     //Metodo Para Cambiar Cursor
     public void cambiarCursor(int cursor) {
         this.setCursor(cursor);
