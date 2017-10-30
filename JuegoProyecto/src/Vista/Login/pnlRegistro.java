@@ -122,6 +122,9 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCedulaKeyTyped(evt);
             }
@@ -203,6 +206,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         cbPreguntaS.setToolTipText("Seleccione una pregunta de seguridad");
         cbPreguntaS.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51))));
         cbPreguntaS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbPreguntaS.setNextFocusableComponent(txtRespuesta);
         cbPreguntaS.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 cambiarBorde(evt);
@@ -461,6 +465,20 @@ public class pnlRegistro extends javax.swing.JPanel {
         validarTeclado(evt);
     }//GEN-LAST:event_txtTelefonoKeyTyped
 
+    private void txtCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyReleased
+        // TODO add your handling code here:
+        if (controUsuario.validarCampoUsuario(txtCedula.getText().trim(), "cedula", "usuario")) {
+            lblCedula.setVisible(true);
+            txtCedula.setBorder(new LineBorder(Color.red));
+            cambiarNota("La cedula que ha ingresado", "ya esta registrada.");
+            notaVisible(true);
+        }else{
+             lblCedula.setVisible(false);
+            txtCedula.setBorder(new EtchedBorder(1));
+            notaVisible(false);
+        }
+    }//GEN-LAST:event_txtCedulaKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearUsu;
@@ -522,6 +540,7 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     //Metodo Para Validar Campos
     private boolean validar() {
+        cambiarNota("Los Campos con asteriscos", "son Obligatorios.");
         LineBorder b = new LineBorder(Color.red, 1);
         boolean bool = false;
         if (txtCedula.getText().isEmpty() || txtCedula.getText().equalsIgnoreCase("Cedula")) {
@@ -559,6 +578,12 @@ public class pnlRegistro extends javax.swing.JPanel {
         lblObligatorios.setVisible(bool);
 
         return bool;
+    }
+    
+    //Metodo Para Cambiar Mensaje De Nota
+    private void cambiarNota(String cadena1,String cadena2){
+        lblCampos.setText(cadena1);
+        lblObligatorios.setText(cadena2);
     }
 
     //Metodo Para Ocultar Asteriscos

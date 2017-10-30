@@ -3,15 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmPrincipal.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmJuego.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmPuntuaciones.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Controlador/CtlJuego.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/Login/pnlIniciarSesion.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmUsuario.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Controlador/Main.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmIniciarCrear.java</file>
-            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/FrmCrearJuego.java</file>
+            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/Login/pnlRegistro.java</file>
+            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Controlador/CtlUsuario.java</file>
         </group>
     </open-files>
 </project-private>
