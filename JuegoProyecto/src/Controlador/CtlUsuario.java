@@ -64,7 +64,7 @@ public class CtlUsuario {
     }
 
     public void registroRecordar(String nombreUsu, String contrasena) {
-        boolean recordar = dao.recordar(dao.traerDato("usuario", "cedula", "nombreUsu", nombreUsu), nombreUsu, contrasena);
+        dao.recordar(dao.traerDato("usuario", "cedula", "nombreUsu", nombreUsu), nombreUsu, contrasena);
     }
 
     public void eliminarRegistro() {
