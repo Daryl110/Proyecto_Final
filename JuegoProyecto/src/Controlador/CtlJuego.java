@@ -9,10 +9,6 @@ import DAO.DAO;
 import Modelo.Juego;
 import Modelo.Puntuacion;
 import Vista.Login.pnlIniciarSesion;
-<<<<<<< HEAD
-import Vista.Login.pnlRegistro;
-=======
->>>>>>> 429a03df1b195b8bbe7d94237776cedc7827d2f3
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,10 +30,6 @@ public class CtlJuego {
         controladorDAO = new CtlDAO();
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 429a03df1b195b8bbe7d94237776cedc7827d2f3
     public DefaultTableModel listarPuntuacion(int cedula) {
 
         String[] nombreColumnas = {"Nombre del juego", "Puntuación"};
@@ -56,8 +48,6 @@ public class CtlJuego {
         } catch (Exception e) {
         }
 
-<<<<<<< HEAD
-=======
         int gdeveinte = 0, contador = 0;
 
         for (int i = 0; i < puntua.size(); i++) {
@@ -103,8 +93,7 @@ public class CtlJuego {
 
         return model;
     }
-
->>>>>>> 429a03df1b195b8bbe7d94237776cedc7827d2f3
+    
     public boolean solicitudRegistro(int numeroJugadores, String nombreJuego, String fecha) {
 
         if (dao.validarCampo(nombreJuego, "nombreJuego", "juego")) {

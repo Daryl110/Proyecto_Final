@@ -29,10 +29,7 @@ public class CtlUsuario {
     public Usuario traerUsuario(String nombreUsu) {
         return (Usuario) controladorDAO.sqlToObject("usuario", "nombreUsu", nombreUsu, new Usuario(0, 0, 0, "", "", "", "", "", ""));
     }
-<<<<<<< HEAD
     
-=======
->>>>>>> 429a03df1b195b8bbe7d94237776cedc7827d2f3
     public String traerDato(String nombreUsu, String columna) {
         return dao.traerDato("usuario", columna, "nombreUsu", nombreUsu);
     }
