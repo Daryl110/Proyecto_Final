@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Controlador/CtlUsuario.java</file>
             <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/DAO/DAO.java</file>
             <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Vista/Login/pnlRegistro.java</file>
@@ -15,6 +16,10 @@
             <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Controlador/CtlJuego.java</file>
             <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Vista/FrmPuntuaciones.java</file>
             <file>file:/A:/GitHud/Proyecto_Final/JuegoProyecto/src/Vista/Preguntas/pnlPregunta.java</file>
+=======
+            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Vista/Login/pnlRegistro.java</file>
+            <file>file:/C:/Users/Daryl%20Ospina/Documents/NetBeansProjects/Proyecto_Final/JuegoProyecto/src/Controlador/CtlUsuario.java</file>
+>>>>>>> 429a03df1b195b8bbe7d94237776cedc7827d2f3
         </group>
     </open-files>
 </project-private>

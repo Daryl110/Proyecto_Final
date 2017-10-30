@@ -49,37 +49,22 @@ public class FrmUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlContenedor = new javax.swing.JPanel();
-        pnlContenedorDialogo = new javax.swing.JPanel();
-        lblEtiqueta = new javax.swing.JLabel();
-        lblGif = new javax.swing.JLabel();
-        lblNube = new javax.swing.JLabel();
         pnlOpciones = new javax.swing.JPanel();
         pnlMenu = new javax.swing.JPanel();
         btnPuntuaciones = new javax.swing.JButton();
         btnEditarPerfil = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
+        btnJugar = new javax.swing.JButton();
         pnlCambio = new javax.swing.JPanel();
+        pnlContenedorDialogo = new javax.swing.JPanel();
+        lblEtiqueta = new javax.swing.JLabel();
+        lblGif = new javax.swing.JLabel();
+        lblNube = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlContenedor.setBackground(new java.awt.Color(0, 0, 29));
         pnlContenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnlContenedorDialogo.setBackground(new java.awt.Color(0, 0, 29));
-        pnlContenedorDialogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblEtiqueta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblEtiqueta.setForeground(new java.awt.Color(255, 255, 255));
-        lblEtiqueta.setText("Texto");
-        pnlContenedorDialogo.add(lblEtiqueta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
-
-        lblGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/pinguino.gif"))); // NOI18N
-        pnlContenedorDialogo.add(lblGif, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
-
-        lblNube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icon.png"))); // NOI18N
-        pnlContenedorDialogo.add(lblNube, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 270, 290));
-
-        pnlContenedor.add(pnlContenedorDialogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 12, 528, 640));
 
         pnlOpciones.setBackground(new java.awt.Color(0, 0, 29));
         pnlOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,7 +95,7 @@ public class FrmUsuario extends javax.swing.JFrame {
                 btnEditarPerfilActionPerformed(evt);
             }
         });
-        pnlMenu.add(btnEditarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 130, 60));
+        pnlMenu.add(btnEditarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 100, 60));
 
         btnCerrarSesion.setBackground(new java.awt.Color(153, 178, 203));
         btnCerrarSesion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -123,9 +108,22 @@ public class FrmUsuario extends javax.swing.JFrame {
                 btnCerrarSesionActionPerformed(evt);
             }
         });
-        pnlMenu.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 130, 60));
+        pnlMenu.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 150, 60));
 
-        pnlOpciones.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 392, -1));
+        btnJugar.setBackground(new java.awt.Color(153, 178, 203));
+        btnJugar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnJugar.setForeground(new java.awt.Color(51, 51, 51));
+        btnJugar.setText("Jugar");
+        btnJugar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btnJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnJugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJugarActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 100, 60));
+
+        pnlOpciones.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, -1));
 
         pnlCambio.setBackground(new java.awt.Color(0, 0, 29));
 
@@ -140,15 +138,31 @@ public class FrmUsuario extends javax.swing.JFrame {
             .addGap(0, 562, Short.MAX_VALUE)
         );
 
-        pnlOpciones.add(pnlCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 66, 392, -1));
+        pnlOpciones.add(pnlCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 66, 480, -1));
 
-        pnlContenedor.add(pnlOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
+        pnlContenedor.add(pnlOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 480, -1));
+
+        pnlContenedorDialogo.setBackground(new java.awt.Color(0, 0, 29));
+        pnlContenedorDialogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEtiqueta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblEtiqueta.setForeground(new java.awt.Color(255, 255, 255));
+        lblEtiqueta.setText("Texto");
+        pnlContenedorDialogo.add(lblEtiqueta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        lblGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/pinguino.gif"))); // NOI18N
+        pnlContenedorDialogo.add(lblGif, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
+
+        lblNube.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icon.png"))); // NOI18N
+        pnlContenedorDialogo.add(lblNube, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 270, 290));
+
+        pnlContenedor.add(pnlContenedorDialogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 528, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 1044, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,10 +193,20 @@ public class FrmUsuario extends javax.swing.JFrame {
         lblEtiqueta.setText("<html>Aqui Puedes visualizar tus<br>puntajes en las partidas<br>que has participado</html>");
     }//GEN-LAST:event_btnPuntuacionesActionPerformed
 
+    private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
+        FrmCrearJuego ventanaCrearJuego = new FrmCrearJuego(this);
+        ventanaCrearJuego.setLocationRelativeTo(null);
+        ventanaCrearJuego.setVisible(true);
+    }//GEN-LAST:event_btnJugarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEditarPerfil;
+    private javax.swing.JButton btnJugar;
     private javax.swing.JButton btnPuntuaciones;
     private javax.swing.JLabel lblEtiqueta;
     private javax.swing.JLabel lblGif;
