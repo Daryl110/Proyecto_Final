@@ -58,7 +58,8 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
         this.idJuego = idJuego;
         this.participantes = participantes;
     }
-    public pnlIniciarSesion(String idJuego, int participantes,JFrame padre) {
+
+    public pnlIniciarSesion(String idJuego, int participantes, JFrame padre) {
         initComponents();
         lblAstContraseña.setVisible(false);
         lblAstNombreUsu.setVisible(false);
@@ -344,7 +345,12 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                             Main.controUsuario.eliminarRegistro();
                             Main.controUsuario.registroRecordar(txtNombreUsu.getText().trim(), txtContrasena.getText().trim());
                         }
+<<<<<<< HEAD
                         FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText()+"".trim());
+=======
+                        FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText() + "");
+
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
                         momentoIniciar(frmusu);
                     } else {
 
@@ -352,9 +358,15 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
 
                         FrmJuego juego;
                         if (padre != null) {
+<<<<<<< HEAD
                             juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText().trim() + "", "cedula")), participantes,padre);
                         }else{
                             juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText().trim() + "", "cedula")), participantes);
+=======
+                            juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText() + "", "cedula")), participantes, padre);
+                        } else {
+                            juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText() + "", "cedula")), participantes);
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
                         }
                         momentoIniciar(juego);
                     }
