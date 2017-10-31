@@ -330,9 +330,9 @@ public class pnlOlvideContraseña extends javax.swing.JPanel {
         if (validar()) {
             //Metodo Para Cambiar Contraseña
             Main.mensaje(300, 30, "CAMBIANDO CONTRASEÑA....", 3, "/Recursos/spinner-of-dots.png");
-            if (Main.controUsuario.validarCampoUsuario(txtCedula.getText(), "cedula", "usuario")) {
-                if (Main.controUsuario.validarOlvidoContrasena(txtCedula.getText(), cbPreguntaS.getSelectedIndex(), txtRespuesta.getText())) {
-                    if (Main.controUsuario.cambiarContrasena(txtContrasena.getText(), txtCedula.getText())) {
+            if (Main.controUsuario.validarCampoUsuario(txtCedula.getText().trim(), "cedula", "usuario")) {
+                if (Main.controUsuario.validarOlvidoContrasena(txtCedula.getText().trim(), cbPreguntaS.getSelectedIndex(), txtRespuesta.getText().trim())) {
+                    if (Main.controUsuario.cambiarContrasena(txtContrasena.getText().trim(), txtCedula.getText().trim())) {
                         Main.mensaje(300, 30, "!SE HA CAMBIADO LA CONTRASEÑA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
                         abrirIniciarSesion();
                     }
@@ -386,17 +386,17 @@ public class pnlOlvideContraseña extends javax.swing.JPanel {
     private boolean validar() {
         LineBorder b = new LineBorder(Color.red, 1);
         boolean bool = false;
-        if (txtCedula.getText().isEmpty() || txtCedula.getText().equalsIgnoreCase("Cedula")) {
+        if (txtCedula.getText().trim().isEmpty() || txtCedula.getText().trim().equalsIgnoreCase("Cedula")) {
             txtCedula.setBorder(b);
             lblAstCedula.setVisible(true);
             bool = true;
         }
-        if (txtContrasena.getText().isEmpty() || txtContrasena.getText().equalsIgnoreCase("Contraseña Nueva")) {
+        if (txtContrasena.getText().trim().isEmpty() || txtContrasena.getText().trim().equalsIgnoreCase("Contraseña Nueva")) {
             txtContrasena.setBorder(b);
             lblAstContra.setVisible(true);
             bool = true;
         }
-        if (txtRespuesta.getText().isEmpty() || txtRespuesta.getText().equalsIgnoreCase("Respuesta")) {
+        if (txtRespuesta.getText().trim().isEmpty() || txtRespuesta.getText().trim().equalsIgnoreCase("Respuesta")) {
             txtRespuesta.setBorder(b);
             lblAstRes.setVisible(true);
             bool = true;

@@ -34,6 +34,7 @@ public class FrmJuego extends javax.swing.JFrame {
     private final int cedula;
     private int participantes;
     private JFrame padre;
+    JButton boton = new JButton();
 
     /**
      * Creates new form FrmJuego
@@ -52,8 +53,11 @@ public class FrmJuego extends javax.swing.JFrame {
         controladorPreg = new CtlPregunta();
         controladorJuego = new CtlJuego();
         cargarPreguntas(0);
+        botonesVisualizar(false);
+
     }
-    public FrmJuego(String idJuego, int cedula, int participantes,JFrame padre) {
+
+    public FrmJuego(String idJuego, int cedula, int participantes, JFrame padre) {
         initComponents();
         this.idJuego = idJuego;
         this.cedula = cedula;
@@ -64,6 +68,7 @@ public class FrmJuego extends javax.swing.JFrame {
         controladorJuego = new CtlJuego();
         cargarPreguntas(0);
         this.padre = padre;
+        botonesVisualizar(false);
     }
 
     /**
@@ -89,6 +94,11 @@ public class FrmJuego extends javax.swing.JFrame {
         btn9 = new javax.swing.JButton();
         btnTerminar = new javax.swing.JButton();
         pnlPreguntas = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        btn10 = new javax.swing.JButton();
+        btn11 = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -107,7 +117,7 @@ public class FrmJuego extends javax.swing.JFrame {
         btn0.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn0.setForeground(new java.awt.Color(51, 51, 51));
         btn0.setText("1");
-        btn0.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
+        btn0.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
         btn0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,22 +301,98 @@ public class FrmJuego extends javax.swing.JFrame {
         pnlPreguntas.setLayout(pnlPreguntasLayout);
         pnlPreguntasLayout.setHorizontalGroup(
             pnlPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 788, Short.MAX_VALUE)
         );
         pnlPreguntasLayout.setVerticalGroup(
             pnlPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 358, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
+        );
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 29));
+
+        btn10.setBackground(new java.awt.Color(204, 204, 204));
+        btn10.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        btn10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/back.png"))); // NOI18N
+        btn10.setText("inicio");
+        btn10.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
+        btn10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn10ActionPerformed(evt);
+            }
+        });
+
+        btn11.setBackground(new java.awt.Color(204, 204, 204));
+        btn11.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        btn11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/next.png"))); // NOI18N
+        btn11.setText("Final");
+        btn11.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
+        btn11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn11ActionPerformed(evt);
+            }
+        });
+
+        btnAnterior.setBackground(new java.awt.Color(204, 204, 204));
+        btnAnterior.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/back.png"))); // NOI18N
+        btnAnterior.setText("Anterior");
+        btnAnterior.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
+            }
+        });
+
+        btnSiguiente.setBackground(new java.awt.Color(204, 204, 204));
+        btnSiguiente.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/next.png"))); // NOI18N
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAnterior, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                    .addComponent(btnSiguiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlContenedorTotalLayout = new javax.swing.GroupLayout(pnlContenedorTotal);
         pnlContenedorTotal.setLayout(pnlContenedorTotalLayout);
         pnlContenedorTotalLayout.setHorizontalGroup(
             pnlContenedorTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlContenedorTotalLayout.createSequentialGroup()
+            .addGroup(pnlContenedorTotalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlContenedorTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlContenedorTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlPreguntas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlContenedorTotalLayout.setVerticalGroup(
@@ -316,6 +402,8 @@ public class FrmJuego extends javax.swing.JFrame {
                 .addComponent(pnlOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlPreguntas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -335,62 +423,82 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
         // TODO add your handling code here:
+        boton = btn0;
         cambiarBordeButton(btn0);
         cargarPanel(0);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
+        boton = btn1;
         cambiarBordeButton(btn1);
         cargarPanel(1);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
+        boton = btn2;
         cambiarBordeButton(btn2);
         cargarPanel(2);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
+        boton = btn3;
         cambiarBordeButton(btn3);
         cargarPanel(3);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
+        boton = btn4;
         cambiarBordeButton(btn4);
         cargarPanel(4);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
+        boton = btn5;
         cambiarBordeButton(btn5);
         cargarPanel(5);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
+        boton = btn6;
         cambiarBordeButton(btn6);
         cargarPanel(6);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
+        boton = btn7;
         cambiarBordeButton(btn7);
         cargarPanel(7);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
+        boton = btn8;
         cambiarBordeButton(btn8);
         cargarPanel(8);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
+        boton = btn9;
         cambiarBordeButton(btn9);
         cargarPanel(9);
+        botonesVisualizar(true);
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
@@ -440,9 +548,160 @@ public class FrmJuego extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
 
+    private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
+        // TODO add your handling code here:
+        boton = btn9;
+        cambiarBordeButton(btn9);
+        cargarPanel(9);
+        botonesVisualizar(true);
+    }//GEN-LAST:event_btn11ActionPerformed
+
+    private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
+        boton = btn0;
+        cambiarBordeButton(btn0);
+        cargarPanel(0);
+        botonesVisualizar(true);
+    }//GEN-LAST:event_btn10ActionPerformed
+
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+        // TODO add your handling code here:
+        if (btn9 == boton) {
+            boton = btn8;
+            cambiarBordeButton(btn8);
+            cargarPanel(8);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn1 == boton) {
+            boton = btn0;
+            cambiarBordeButton(btn0);
+            cargarPanel(0);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn2 == boton) {
+            boton = btn1;
+            cambiarBordeButton(btn1);
+            cargarPanel(1);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn3 == boton) {
+            boton = btn2;
+            cambiarBordeButton(btn2);
+            cargarPanel(2);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn4 == boton) {
+            boton = btn3;
+            cambiarBordeButton(btn3);
+            cargarPanel(3);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn5 == boton) {
+            boton = btn4;
+            cambiarBordeButton(btn4);
+            cargarPanel(4);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn6 == boton) {
+            boton = btn5;
+            cambiarBordeButton(btn5);
+            cargarPanel(5);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn7 == boton) {
+            boton = btn6;
+            cambiarBordeButton(btn6);
+            cargarPanel(6);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn8 == boton) {
+            boton = btn7;
+            cambiarBordeButton(btn7);
+            cargarPanel(7);
+            botonesVisualizar(true);
+            return;
+        }
+    }//GEN-LAST:event_btnAnteriorActionPerformed
+
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+        if (boton == btn0) {
+            boton = btn1;
+            cambiarBordeButton(btn1);
+            cargarPanel(1);
+            botonesVisualizar(true);
+            return;
+            
+        }
+        if (btn1 == boton) {
+            boton = btn2;
+            cambiarBordeButton(btn2);
+            cargarPanel(2);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn2 == boton) {
+            boton = btn3;
+            cambiarBordeButton(btn3);
+            cargarPanel(2);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn3 == boton) {
+            boton = btn4;
+            cambiarBordeButton(btn4);
+            cargarPanel(4);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn4 == boton) {
+            boton = btn5;
+            cambiarBordeButton(btn5);
+            cargarPanel(5);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn5 == boton) {
+            boton = btn6;
+            cambiarBordeButton(btn6);
+            cargarPanel(6);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn6 == boton) {
+            boton = btn7;
+            cambiarBordeButton(btn7);
+            cargarPanel(7);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn7 == boton) {
+            boton = btn8;
+            cambiarBordeButton(btn8);
+            cargarPanel(8);
+            botonesVisualizar(true);
+            return;
+        }
+        if (btn8 == boton) {
+            boton = btn9;
+            cambiarBordeButton(btn9);
+            cargarPanel(9);
+            botonesVisualizar(true);
+            return;
+        }
+    }//GEN-LAST:event_btnSiguienteActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
     private javax.swing.JButton btn1;
+    private javax.swing.JButton btn10;
+    private javax.swing.JButton btn11;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
@@ -451,7 +710,10 @@ public class FrmJuego extends javax.swing.JFrame {
     private javax.swing.JButton btn7;
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnTerminar;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel pnlContenedorTotal;
     private javax.swing.JPanel pnlOpciones;
     private javax.swing.JPanel pnlPreguntas;
@@ -540,5 +802,10 @@ public class FrmJuego extends javax.swing.JFrame {
         pnlPreguntas.setLayout(new BorderLayout(5, 5));
         pnlPreguntas.add(preguntas.get(preg), BorderLayout.CENTER);
         pnlPreguntas.updateUI();
+    }
+
+    private void botonesVisualizar(boolean x) {
+        btnAnterior.setVisible(x);
+        btnSiguiente.setVisible(x);
     }
 }

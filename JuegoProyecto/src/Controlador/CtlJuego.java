@@ -9,10 +9,7 @@ import DAO.DAO;
 import Modelo.Juego;
 import Modelo.Puntuacion;
 import Vista.Login.pnlIniciarSesion;
-<<<<<<< HEAD
 import Vista.Login.pnlRegistro;
-=======
->>>>>>> 429a03df1b195b8bbe7d94237776cedc7827d2f3
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,10 +31,6 @@ public class CtlJuego {
         controladorDAO = new CtlDAO();
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 429a03df1b195b8bbe7d94237776cedc7827d2f3
     public DefaultTableModel listarPuntuacion(int cedula) {
 
         String[] nombreColumnas = {"Nombre del juego", "Puntuación"};
@@ -54,57 +47,52 @@ public class CtlJuego {
                 puntua.add(resultado.getString("puntaje"));
             }
         } catch (Exception e) {
-        }
 
-<<<<<<< HEAD
-=======
-        int gdeveinte = 0, contador = 0;
-
-        for (int i = 0; i < puntua.size(); i++) {
-            if (contador == 19) {
-                gdeveinte++;
-                contador = -1;
-            }
-            contador++;
-        }
-
-        int suma = 0;
-        contador = 0;
-        int contador1 = 20;
-
-        for (int i = 0; i < gdeveinte; i++) {
-            for (int j = contador; j < contador1; j++) {
-                if (j % 2 != 0) {
-                    suma += Integer.parseInt(puntua.get(j));
+            int gdeveinte = 0, contador = 0;
+            for (int i = 0; i < puntua.size(); i++) {
+                if (contador == 19) {
+                    gdeveinte++;
+                    contador = -1;
                 }
-                if (j == contador1 - 2) {
-                    if (model.getRowCount() == 0) {
-                        model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
-                    } else {
-                        int posicion = -1;
-                        for (int k = 0; k < model.getRowCount(); k++) {
-                            if ((int) model.getValueAt(k, 1) < suma) {
-                                posicion = k;
-                                break;
+                contador++;
+            }
+            int suma = 0;
+            contador = 0;
+            int contador1 = 20;
+
+            for (int i = 0; i < gdeveinte; i++) {
+                for (int j = contador; j < contador1; j++) {
+                    if (j % 2 != 0) {
+                        suma += Integer.parseInt(puntua.get(j));
+                    }
+                    if (j == contador1 - 2) {
+                        if (model.getRowCount() == 0) {
+                            model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
+                        } else {
+                            int posicion = -1;
+                            for (int k = 0; k < model.getRowCount(); k++) {
+                                if ((int) model.getValueAt(k, 1) < suma) {
+                                    posicion = k;
+                                    break;
+                                }
+                            }
+                            if (posicion != -1) {
+                                model.insertRow(posicion, new Object[]{puntua.get(contador1 - 2), suma});
+                            } else {
+                                model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
                             }
                         }
-                        if (posicion != -1) {
-                            model.insertRow(posicion, new Object[]{puntua.get(contador1 - 2), suma});
-                        } else {
-                            model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
-                        }
+                        suma = 0;
                     }
-                    suma = 0;
                 }
+                contador += 20;
+                contador1 += 20;
             }
-            contador += 20;
-            contador1 += 20;
-        }
 
+        }
         return model;
     }
 
->>>>>>> 429a03df1b195b8bbe7d94237776cedc7827d2f3
     public boolean solicitudRegistro(int numeroJugadores, String nombreJuego, String fecha) {
 
         if (dao.validarCampo(nombreJuego, "nombreJuego", "juego")) {
@@ -154,7 +142,6 @@ public class CtlJuego {
             punta = new Puntuacion(pnlIniciarSesion.listaCedulas.get(i), suma, dao.traerDato("usuario", "nombreUsu", "cedula", pnlIniciarSesion.listaCedulas.get(i) + ""));
             listaPuntuacio.add(punta);
         }
-
 
         for (int x = 0; x < listaPuntuacio.size(); x++) {
             model.addRow(new Object[]{listaPuntuacio.get(x).getCedula(), listaPuntuacio.get(x).getNombreUsuario(), listaPuntuacio.get(x).getPuntuacion()});
