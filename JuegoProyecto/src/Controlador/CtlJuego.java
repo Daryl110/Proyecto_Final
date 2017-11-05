@@ -9,6 +9,10 @@ import DAO.DAO;
 import Modelo.Juego;
 import Modelo.Puntuacion;
 import Vista.Login.pnlIniciarSesion;
+<<<<<<< HEAD
+import Vista.Login.pnlRegistro;
+=======
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -47,10 +51,14 @@ public class CtlJuego {
                 puntua.add(traerDato(resultado.getString("idJuego"), "fechaJuego"));
             }
         } catch (Exception e) {
+<<<<<<< HEAD
+=======
         }
 
         int gdeveinte = 0, contador = 0;
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
 
+<<<<<<< HEAD
         for (int i = 0; i < puntua.size(); i++) {
             if (contador == 29) {
                 gdeveinte++;
@@ -73,15 +81,67 @@ public class CtlJuego {
                 if (j == contador1 - 2) {
                     model.addRow(new Object[]{puntua.get(contador1 - 3), suma, puntua.get(contador1-1)});
                     suma = 0;
+=======
+            int gdeveinte = 0, contador = 0;
+            for (int i = 0; i < puntua.size(); i++) {
+                if (contador == 19) {
+                    gdeveinte++;
+                    contador = -1;
                 }
+                contador++;
             }
+            int suma = 0;
+            contador = 0;
+            int contador1 = 20;
+
+            for (int i = 0; i < gdeveinte; i++) {
+                for (int j = contador; j < contador1; j++) {
+                    if (j % 2 != 0) {
+                        suma += Integer.parseInt(puntua.get(j));
+                    }
+                    if (j == contador1 - 2) {
+                        if (model.getRowCount() == 0) {
+                            model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
+                        } else {
+                            int posicion = -1;
+                            for (int k = 0; k < model.getRowCount(); k++) {
+                                if ((int) model.getValueAt(k, 1) < suma) {
+                                    posicion = k;
+                                    break;
+                                }
+                            }
+                            if (posicion != -1) {
+                                model.insertRow(posicion, new Object[]{puntua.get(contador1 - 2), suma});
+                            } else {
+                                model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
+                            }
+                        }
+                        suma = 0;
+                    }
+>>>>>>> 76a92cf329b4c4b5ad4693a1b73c86a1c27156c4
+                }
+                contador += 20;
+                contador1 += 20;
+            }
+<<<<<<< HEAD
             contador += 30;
             contador1 += 30;
         }
+=======
+>>>>>>> 76a92cf329b4c4b5ad4693a1b73c86a1c27156c4
 
+        }
         return model;
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
+>>>>>>> 76a92cf329b4c4b5ad4693a1b73c86a1c27156c4
     public boolean solicitudRegistro(int numeroJugadores, String nombreJuego, String fecha) {
 
         if (dao.validarCampo(nombreJuego, "nombreJuego", "juego")) {

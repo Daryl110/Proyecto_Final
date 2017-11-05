@@ -220,11 +220,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     //Metodo Para Vaciar Campos
     public void vaciarCampo(String texto, JTextField txt, Color color) {
-        if (txt.getText().equalsIgnoreCase(texto)) {
+        if (txt.getText().trim().equalsIgnoreCase(texto)) {
             txt.setText("");
             txt.setForeground(color);
             txt.setBorder(new EtchedBorder(1));
-        } else if (txt.getText().isEmpty()) {
+        } else if (txt.getText().trim().isEmpty()) {
             txt.setText(texto);
             txt.setForeground(color);
         }

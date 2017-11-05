@@ -329,6 +329,10 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void borrarCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_borrarCedula
         // TODO add your handling code here:
+<<<<<<< HEAD
+        if (txtCedula.getText().trim().isEmpty() || txtCedula.getText().trim().equalsIgnoreCase("cedula")) {
+            Main.ventanaPrincipal.vaciarCampo("Cedula", txtCedula, Color.WHITE);
+=======
         if (validarCedula()) {
             if (txtCedula.getText().isEmpty() || txtCedula.getText().equalsIgnoreCase("cedula")) {
                 Main.ventanaPrincipal.vaciarCampo("Cedula", txtCedula, Color.WHITE);
@@ -337,6 +341,7 @@ public class pnlRegistro extends javax.swing.JPanel {
                 txtCedula.setBorder(borde);
             }
 
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
         } else {
             EtchedBorder borde = new EtchedBorder(1);
             txtCedula.setBorder(borde);
@@ -367,7 +372,7 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void borrarNombreUsu(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_borrarNombreUsu
         // TODO add your handling code here:
-        if (txtNombreUsu.getText().isEmpty() || txtNombreUsu.getText().equalsIgnoreCase("nombre de usuario")) {
+        if (txtNombreUsu.getText().trim().isEmpty() || txtNombreUsu.getText().trim().equalsIgnoreCase("nombre de usuario")) {
             Main.ventanaPrincipal.vaciarCampo("Nombre de usuario", txtNombreUsu, Color.WHITE);
         } else {
             EtchedBorder borde = new EtchedBorder(1);
@@ -439,6 +444,20 @@ public class pnlRegistro extends javax.swing.JPanel {
     private void btnCrearUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuActionPerformed
         // TODO add your handling code here:
         if (validar()) {
+<<<<<<< HEAD
+            if (usu == null) {
+                //Accion De Crear Usuario
+                Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+                if (!controUsuario.validarCampoUsuario(txtCedula.getText().trim(), "cedula", "usuario")) {
+                    if (!controUsuario.validarCampoUsuario(txtNombreUsu.getText().trim(), "nombreUsu", "usuario")) {
+                        if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText().trim()),
+                                cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                                validarEspaciosNoRequeridos(txtNombre.getText().trim()), txtNombreUsu.getText().trim(),
+                                txtContrasena.getText().trim(), validarEspaciosNoRequeridos(txtCorreo.getText().trim()),
+                                validarEspaciosNoRequeridos(txtTelefono.getText().trim()), txtRespuesta.getText().trim())) {
+                            Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                            abrirIniciarSesion();
+=======
             String correo = txtCorreo.getText().trim();
             if (!validarEmail(correo)) {
                 if (validarCedula()) {
@@ -476,14 +495,27 @@ public class pnlRegistro extends javax.swing.JPanel {
                                 txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText()),
                                 validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
                             Main.mensaje(300, 30, "!SE HA MODIFICADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
                         }
                     }
                 }
             } else {
+<<<<<<< HEAD
+                //Modificar
+                Main.mensaje(300, 30, "MODIFICANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+                if (controUsuario.solicitudModificar(Integer.parseInt(txtCedula.getText().trim()),
+                        cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                        validarEspaciosNoRequeridos(txtNombre.getText().trim()), txtNombreUsu.getText().trim(),
+                        txtContrasena.getText().trim(), validarEspaciosNoRequeridos(txtCorreo.getText().trim()),
+                        validarEspaciosNoRequeridos(txtTelefono.getText().trim()), txtRespuesta.getText().trim())) {
+                    Main.mensaje(300, 30, "!SE HA MODIFICADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                }
+=======
                 lblCorreo.setVisible(true);
                 txtCorreo.setBorder(new LineBorder(Color.red));
                 cambiarNota("El E-mail que ha introducido", "no es valido");
                 notaVisible(true);
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
             }
         }
     }//GEN-LAST:event_btnCrearUsuActionPerformed
@@ -623,22 +655,22 @@ public class pnlRegistro extends javax.swing.JPanel {
         cambiarNota("Los Campos con asteriscos", "son Obligatorios.");
         LineBorder b = new LineBorder(Color.red, 1);
         boolean bool = false;
-        if (txtCedula.getText().isEmpty() || txtCedula.getText().equalsIgnoreCase("Cedula")) {
+        if (txtCedula.getText().trim().isEmpty() || txtCedula.getText().trim().equalsIgnoreCase("Cedula")) {
             txtCedula.setBorder(b);
             lblCedula.setVisible(true);
             bool = true;
         }
-        if (txtNombreUsu.getText().isEmpty() || txtNombreUsu.getText().equalsIgnoreCase("Nombre de usuario")) {
+        if (txtNombreUsu.getText().trim().isEmpty() || txtNombreUsu.getText().trim().equalsIgnoreCase("Nombre de usuario")) {
             txtNombreUsu.setBorder(b);
             lblNombreUsuario.setVisible(true);
             bool = true;
         }
-        if (txtContrasena.getText().isEmpty() || txtContrasena.getText().equalsIgnoreCase("Contraseña")) {
+        if (txtContrasena.getText().trim().isEmpty() || txtContrasena.getText().trim().equalsIgnoreCase("Contraseña")) {
             txtContrasena.setBorder(b);
             lblContrasena.setVisible(true);
             bool = true;
         }
-        if (txtRespuesta.getText().isEmpty() || txtRespuesta.getText().equalsIgnoreCase("Respuesta de seguridad")) {
+        if (txtRespuesta.getText().trim().isEmpty() || txtRespuesta.getText().trim().equalsIgnoreCase("Respuesta de seguridad")) {
             txtRespuesta.setBorder(b);
             lblRespuestaS.setVisible(true);
             bool = true;

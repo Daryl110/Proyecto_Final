@@ -335,28 +335,38 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         // TODO add your handling code here:
         if (validar()) {
-            if (txtNombreUsu.getText().equalsIgnoreCase("Admin") && txtContrasena.getText().equalsIgnoreCase("123")) {
+            if (txtNombreUsu.getText().trim().equalsIgnoreCase("Admin") && txtContrasena.getText().trim().equalsIgnoreCase("123")) {
                 FrmAdministrador admin = new FrmAdministrador();
                 momentoIniciar(admin);
-            } else if (Main.controUsuario.validarCampoUsuario(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
-                if (Main.controUsuario.validarCampoUsuario(txtContrasena.getText(), "contrasena", "usuario")) {
+            } else if (Main.controUsuario.validarCampoUsuario(txtNombreUsu.getText().trim(), "nombreUsu", "usuario")) {
+                if (Main.controUsuario.validarCampoUsuario(txtContrasena.getText().trim(), "contrasena", "usuario")) {
                     if (Main.ventanaPrincipal.isActive()) {
                         if (chbRecordarme.isSelected()) {
                             Main.controUsuario.eliminarRegistro();
-                            Main.controUsuario.registroRecordar(txtNombreUsu.getText(), txtContrasena.getText());
+                            Main.controUsuario.registroRecordar(txtNombreUsu.getText().trim(), txtContrasena.getText().trim());
                         }
+<<<<<<< HEAD
+                        FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText()+"".trim());
+=======
                         FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText() + "");
 
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
                         momentoIniciar(frmusu);
                     } else {
 
-                        listaCedulas.add(usu.traerDato(txtNombreUsu.getText() + "", "cedula"));
+                        listaCedulas.add(usu.traerDato(txtNombreUsu.getText().trim() + "", "cedula"));
 
                         FrmJuego juego;
                         if (padre != null) {
+<<<<<<< HEAD
+                            juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText().trim() + "", "cedula")), participantes,padre);
+                        }else{
+                            juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText().trim() + "", "cedula")), participantes);
+=======
                             juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText() + "", "cedula")), participantes, padre);
                         } else {
                             juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText() + "", "cedula")), participantes);
+>>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
                         }
                         momentoIniciar(juego);
                     }
@@ -441,12 +451,12 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
     private boolean validar() {
         LineBorder b = new LineBorder(Color.red, 1);
         boolean bool = false;
-        if (txtNombreUsu.getText().isEmpty() || txtNombreUsu.getText().equalsIgnoreCase("Nombre de usuario")) {
+        if (txtNombreUsu.getText().trim().isEmpty() || txtNombreUsu.getText().trim().equalsIgnoreCase("Nombre de usuario")) {
             txtNombreUsu.setBorder(b);
             lblAstNombreUsu.setVisible(true);
             bool = true;
         }
-        if (txtContrasena.getText().isEmpty() || txtContrasena.getText().equalsIgnoreCase("Contraseña")) {
+        if (txtContrasena.getText().trim().isEmpty() || txtContrasena.getText().trim().equalsIgnoreCase("Contraseña")) {
             txtContrasena.setBorder(b);
             lblAstContraseña.setVisible(true);
             bool = true;
@@ -496,7 +506,7 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
             txtContrasena.setText(Main.controUsuario.mostrarRecordar().get(1));
         } catch (Exception e) {
         }
-        if (!txtContrasena.getText().isEmpty() && !txtNombreUsu.getText().isEmpty()) {
+        if (!txtContrasena.getText().trim().isEmpty() && !txtNombreUsu.getText().trim().isEmpty()) {
             chbRecordarme.setSelected(true);
         }
     }
