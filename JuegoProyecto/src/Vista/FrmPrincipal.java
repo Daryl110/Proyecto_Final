@@ -29,16 +29,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
      * Creates new form FrmPrincipal
      */
     public FrmPrincipal() {
-//        initComponents();
-//        pnlIniciarSesion1 = new pnlIniciarSesion();
-//        pnlLogin.setLayout(new BorderLayout(5, 5));
-//        pnlLogin.add(pnlIniciarSesion1, BorderLayout.CENTER);
-//        pnlLogin.updateUI();
-//        lblImagen.setSize(775, 535);
-//        lblImagen.add(btnBoton);
-        AudioClip sonido;
-        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Recursos/Never_Better.wav"));
-        sonido.play();
+        initComponents();
+        pnlIniciarSesion1 = new pnlIniciarSesion();
+        pnlLogin.setLayout(new BorderLayout(5, 5));
+        pnlLogin.add(pnlIniciarSesion1, BorderLayout.CENTER);
+        pnlLogin.updateUI();
+        lblImagen.setSize(775, 535);
+        lblImagen.add(btnBoton);
+
 
     }
 
