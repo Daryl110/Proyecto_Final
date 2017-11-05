@@ -9,7 +9,10 @@ import DAO.DAO;
 import Modelo.Juego;
 import Modelo.Puntuacion;
 import Vista.Login.pnlIniciarSesion;
+<<<<<<< HEAD
 import Vista.Login.pnlRegistro;
+=======
+>>>>>>> 8185b53d4e362abe29f82455b4f846e67af49332
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,6 +22,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author PCSHOP
  */
+
+
 public class CtlJuego {
 
     private final DAO dao;
@@ -33,7 +38,7 @@ public class CtlJuego {
 
     public DefaultTableModel listarPuntuacion(int cedula) {
 
-        String[] nombreColumnas = {"Nombre del juego", "Puntuación"};
+        String[] nombreColumnas = {"Nombre del juego", "Puntuación", "Fecha de juego"};
 
         ArrayList<String> puntua = new ArrayList<>();
 
@@ -43,56 +48,61 @@ public class CtlJuego {
 
         try {
             while (resultado.next()) {
-                puntua.add(traerDato(resultado.getString("idJuego")));
+                puntua.add(traerNombreJuego(resultado.getString("idJuego")));
                 puntua.add(resultado.getString("puntaje"));
+                puntua.add(traerDato(resultado.getString("idJuego"), "fechaJuego"));
             }
         } catch (Exception e) {
         }
 
         int gdeveinte = 0, contador = 0;
+<<<<<<< HEAD
             for (int i = 0; i < puntua.size(); i++) {
                 if (contador == 19) {
                     gdeveinte++;
                     contador = -1;
                 }
                 contador++;
+=======
+        for (int i = 0; i < puntua.size(); i++) {
+            if (contador == 29) {
+                gdeveinte++;
+                contador = -1;
+>>>>>>> 8185b53d4e362abe29f82455b4f846e67af49332
             }
-            int suma = 0;
-            contador = 0;
-            int contador1 = 20;
+            contador++;
+        }
 
-            for (int i = 0; i < gdeveinte; i++) {
-                for (int j = contador; j < contador1; j++) {
-                    if (j % 2 != 0) {
-                        suma += Integer.parseInt(puntua.get(j));
-                    }
-                    if (j == contador1 - 2) {
-                        if (model.getRowCount() == 0) {
-                            model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
-                        } else {
-                            int posicion = -1;
-                            for (int k = 0; k < model.getRowCount(); k++) {
-                                if ((int) model.getValueAt(k, 1) < suma) {
-                                    posicion = k;
-                                    break;
-                                }
-                            }
-                            if (posicion != -1) {
-                                model.insertRow(posicion, new Object[]{puntua.get(contador1 - 2), suma});
-                            } else {
-                                model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
-                            }
-                        }
-                        suma = 0;
+        int suma = 0;
+        contador = 0;
+        int contador1 = 30;
+        int aux = 0;
+        contador = 0;
+
+        for (int i = 0; i < gdeveinte; i++) {
+            for (int j = contador; j < contador1; j++) {
+                if (j % 2 != 0) {
+                    suma += Integer.parseInt(puntua.get(j));
+                }
+                if (j == contador1 - 2) {
+                    if (model.getRowCount() == 0) {
+                        model.addRow(new Object[]{puntua.get(contador1 - 2), suma});
                     }
                 }
-                contador += 20;
-                contador1 += 20;
             }
+<<<<<<< HEAD
 
         return model;
         }
     
+=======
+            contador += 30;
+            contador1 += 30;
+        }
+
+        return model;
+    }
+>>>>>>> 8185b53d4e362abe29f82455b4f846e67af49332
 
     public boolean solicitudRegistro(int numeroJugadores, String nombreJuego, String fecha) {
 
@@ -109,8 +119,12 @@ public class CtlJuego {
         return dao.traerDato("juego", "idJuego", "nombreJuego", nombreJuego);
     }
 
-    public String traerDato(String idJuego) {
+    public String traerNombreJuego(String idJuego) {
         return dao.traerDato("juego", "nombreJuego", "idJuego", idJuego);
+    }
+
+    public String traerDato(String idJuego, String columna) {
+        return dao.traerDato("juego", columna, "idJuego", idJuego);
     }
 
     public boolean registrarPreguntasJuego(int[] idPreguntas, int[] puntajes, int idJuego, int cedula) {

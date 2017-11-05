@@ -338,6 +338,13 @@ public class pnlRegistro extends javax.swing.JPanel {
                     EtchedBorder borde = new EtchedBorder(1);
                     txtCedula.setBorder(borde);
                 }
+<<<<<<< HEAD
+=======
+
+            } else {
+                EtchedBorder borde = new EtchedBorder(1);
+                txtCedula.setBorder(borde);
+>>>>>>> 8185b53d4e362abe29f82455b4f846e67af49332
             }
             lblCedula.setVisible(false);
             notaVisible(false);
@@ -438,6 +445,7 @@ public class pnlRegistro extends javax.swing.JPanel {
     private void btnCrearUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuActionPerformed
         // TODO add your handling code here:
         if (validar()) {
+<<<<<<< HEAD
             if (!validarEmail(txtCorreo.getText().trim())) {
                 if (validarCedula()) {
                     if (usu == null) {
@@ -452,13 +460,76 @@ public class pnlRegistro extends javax.swing.JPanel {
                                         validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
                                     Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
                                     abrirIniciarSesion();
+=======
+            if (usu == null) {
+                //Accion De Crear Usuario
+                Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+                if (!controUsuario.validarCampoUsuario(txtCedula.getText().trim(), "cedula", "usuario")) {
+                    if (!controUsuario.validarCampoUsuario(txtNombreUsu.getText().trim(), "nombreUsu", "usuario")) {
+                        if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText().trim()),
+                                cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                                validarEspaciosNoRequeridos(txtNombre.getText().trim()), txtNombreUsu.getText().trim(),
+                                txtContrasena.getText().trim(), validarEspaciosNoRequeridos(txtCorreo.getText().trim()),
+                                validarEspaciosNoRequeridos(txtTelefono.getText().trim()), txtRespuesta.getText().trim())) {
+                            Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                            abrirIniciarSesion();
+                            String correo = txtCorreo.getText().trim();
+                            if (!validarEmail(correo)) {
+                                if (validarCedula()) {
+                                    if (usu == null) {
+                                        //Accion De Crear Usuario
+                                        Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+                                        if (!controUsuario.validarCampoUsuario(txtCedula.getText(), "cedula", "usuario")) {
+                                            if (!controUsuario.validarCampoUsuario(txtNombreUsu.getText(), "nombreUsu", "usuario")) {
+                                                if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
+                                                        cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                                                        validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
+                                                        txtContrasena.getText(), validarEspaciosNoRequeridos(correo),
+                                                        validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
+                                                    Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                                                    abrirIniciarSesion();
+                                                }
+                                            } else {
+                                                Main.mensaje(300, 30, "EL NOMBRE DE USUARIO YA ESTA OCUPADO", 2, "/Recursos/cancel.png");
+                                                LineBorder b = new LineBorder(Color.red, 1);
+                                                txtNombreUsu.setBorder(b);
+                                                lblNombreUsuario.setVisible(true);
+                                            }
+                                        } else {
+                                            Main.mensaje(300, 30, "ESTA CEDULA YA EXISTE", 2, "/Recursos/cancel.png");
+                                            LineBorder b = new LineBorder(Color.red, 1);
+                                            txtCedula.setBorder(b);
+                                            lblCedula.setVisible(true);
+                                        }
+                                    } else {
+                                        //Modificar
+                                        Main.mensaje(300, 30, "MODIFICANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+                                        if (controUsuario.solicitudModificar(Integer.parseInt(txtCedula.getText()),
+                                                cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                                                validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
+                                                txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText()),
+                                                validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
+                                            Main.mensaje(300, 30, "!SE HA MODIFICADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                                        }
+                                    }
+>>>>>>> 8185b53d4e362abe29f82455b4f846e67af49332
                                 }
                             } else {
-                                Main.mensaje(300, 30, "EL NOMBRE DE USUARIO YA ESTA OCUPADO", 2, "/Recursos/cancel.png");
-                                LineBorder b = new LineBorder(Color.red, 1);
-                                txtNombreUsu.setBorder(b);
-                                lblNombreUsuario.setVisible(true);
+                                //Modificar
+                                Main.mensaje(300, 30, "MODIFICANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
+                                if (controUsuario.solicitudModificar(Integer.parseInt(txtCedula.getText().trim()),
+                                        cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
+                                        validarEspaciosNoRequeridos(txtNombre.getText().trim()), txtNombreUsu.getText().trim(),
+                                        txtContrasena.getText().trim(), validarEspaciosNoRequeridos(txtCorreo.getText().trim()),
+                                        validarEspaciosNoRequeridos(txtTelefono.getText().trim()), txtRespuesta.getText().trim())) {
+                                    Main.mensaje(300, 30, "!SE HA MODIFICADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
+                                }
+                                lblCorreo.setVisible(true);
+                                txtCorreo.setBorder(new LineBorder(Color.red));
+                                cambiarNota("El E-mail que ha introducido", "no es valido");
+                                notaVisible(true);
                             }
+<<<<<<< HEAD
                         } else {
                             Main.mensaje(300, 30, "ESTA CEDULA YA EXISTE", 2, "/Recursos/cancel.png");
                             LineBorder b = new LineBorder(Color.red, 1);
@@ -492,6 +563,11 @@ public class pnlRegistro extends javax.swing.JPanel {
                 txtCorreo.setBorder(new LineBorder(Color.red));
                 cambiarNota("El E-mail que ha introducido", "no es valido");
                 notaVisible(true);
+=======
+                        }
+                    }
+                }
+>>>>>>> 8185b53d4e362abe29f82455b4f846e67af49332
             }
         }
 

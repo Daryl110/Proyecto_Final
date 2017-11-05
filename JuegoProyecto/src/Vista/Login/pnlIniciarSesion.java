@@ -345,8 +345,12 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
                             Main.controUsuario.eliminarRegistro();
                             Main.controUsuario.registroRecordar(txtNombreUsu.getText().trim(), txtContrasena.getText().trim());
                         }
+<<<<<<< HEAD
 
                         FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText() + "".trim());
+=======
+                        FrmUsuario frmusu = new FrmUsuario(txtNombreUsu.getText()+"".trim());
+>>>>>>> 8185b53d4e362abe29f82455b4f846e67af49332
                         momentoIniciar(frmusu);
                     } else {
 
@@ -354,12 +358,18 @@ public class pnlIniciarSesion extends javax.swing.JPanel {
 
                         FrmJuego juego;
                         if (padre != null) {
+<<<<<<< HEAD
                             juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText().trim() + "", "cedula")), participantes, padre);
                         } else {
                             juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText().trim() + "", "cedula")), participantes);
 
                             momentoIniciar(juego);
 
+=======
+                            juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText().trim() + "", "cedula")), participantes,padre);
+                        }else{
+                            juego = new FrmJuego(idJuego, Integer.parseInt(usu.traerDato(txtNombreUsu.getText().trim() + "", "cedula")), participantes);
+>>>>>>> 8185b53d4e362abe29f82455b4f846e67af49332
                         }
                     }
                 } else {
