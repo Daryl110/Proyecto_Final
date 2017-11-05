@@ -23,9 +23,9 @@ public class FrmCrearJuego extends javax.swing.JFrame {
 
     public static FrmIniciarCrear ventanaJuego;
     CtlJuego controJuego = new CtlJuego();
-    
-    public static String nombreJuego="";
-    
+
+    public static String nombreJuego = "";
+
     private JFrame padre;
 
     /**
@@ -36,6 +36,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         lblEtiqueta.setText("<html>Bienvenido por favor<br>seleccione el numero de<br>jugadores que<br>participaran en la partida</html>");
         lblNombreJuego.setVisible(false);
     }
+
     public FrmCrearJuego(JFrame padre) {
         initComponents();
         lblEtiqueta.setText("<html>Bienvenido por favor<br>seleccione el numero de<br>jugadores que<br>participaran en la partida</html>");
@@ -164,62 +165,47 @@ public class FrmCrearJuego extends javax.swing.JFrame {
         Main.mensaje(115, 30, "Cancelando...", 3, "/Recursos/spinner-of-dots.png");
         if (padre != null) {
             padre.setVisible(true);
-        }else{
+        } else {
             Main.abrirFrmPrincipal();
         }
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnIIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIIniciarJuegoActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
         if (!txtNombreJuego.getText().trim().isEmpty() && !txtNombreJuego.getText().trim().equalsIgnoreCase("Nombre del juego")) {
             this.dispose();
             Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
             SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
             Date date = new Date();
-            if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText().trim(),d.format(date))) {
-                nombreJuego=txtNombreJuego.getText().trim();
-=======
-        if (!txtNombreJuego.getText().isEmpty() && !txtNombreJuego.getText().equalsIgnoreCase("Nombre del juego")) {
-            Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
-            SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
-            Date date = new Date();
-            if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(),d.format(date))) {
-                this.dispose();
-                nombreJuego = txtNombreJuego.getText();
->>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
-                if (padre != null) {
-                    ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText().trim()),Integer.parseInt(jSpinner1.getValue()+""),padre);
-                }else{
-                    ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText().trim()),Integer.parseInt(jSpinner1.getValue()+""));
+            if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText().trim(), d.format(date))) {
+                nombreJuego = txtNombreJuego.getText().trim();
+                if (!txtNombreJuego.getText().isEmpty() && !txtNombreJuego.getText().equalsIgnoreCase("Nombre del juego")) {
+                    Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
+                    if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(), d.format(date))) {
+                        this.dispose();
+                        nombreJuego = txtNombreJuego.getText();
+                        if (padre != null) {
+                            ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText().trim()), Integer.parseInt(jSpinner1.getValue() + ""), padre);
+                        } else {
+                            ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText().trim()), Integer.parseInt(jSpinner1.getValue() + ""));
+                        }
+                        ventanaJuego.setLocationRelativeTo(null);
+                        ventanaJuego.setVisible(true);
+                        return;
+                    } else {
+                        Main.mensaje(300, 30, "EL NOMBRE DEL JUEGO NO ESTA DISPONIBLE", 2, "/Recursos/cancel.png");
+                        LineBorder b = new LineBorder(Color.red, 1);
+                        txtNombreJuego.setBorder(b);
+                        lblNombreJuego.setVisible(true);
+                    }
+
                 }
-                ventanaJuego.setLocationRelativeTo(null);
-                ventanaJuego.setVisible(true);
-                return;
-            } else {
-                Main.mensaje(300, 30, "EL NOMBRE DEL JUEGO NO ESTA DISPONIBLE", 2, "/Recursos/cancel.png");
-                LineBorder b = new LineBorder(Color.red, 1);
-                txtNombreJuego.setBorder(b);
+                txtNombreJuego.setBorder(new LineBorder(Color.red));
+                lblEtiqueta.setText("<html>Debe llenar todos<br>los campos</html>");
                 lblNombreJuego.setVisible(true);
             }
-
         }
-        txtNombreJuego.setBorder(new LineBorder(Color.red));
-        lblEtiqueta.setText("<html>Debe llenar todos<br>los campos</html>");
-        lblNombreJuego.setVisible(true);
     }//GEN-LAST:event_btnIIniciarJuegoActionPerformed
-
-    private void txtNombreJuegoborrarCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreJuegoborrarCedula
-        // TODO add your handling code here:
-        if (txtNombreJuego.getText().trim().isEmpty() || txtNombreJuego.getText().trim().equalsIgnoreCase("Nombre del juego")) {
-            Main.ventanaPrincipal.vaciarCampo("Nombre del juego", txtNombreJuego, Color.WHITE);
-            lblEtiqueta.setText("<html>por favor<br>seleccione el numero de<br>jugadores que<br>participaran en la partida</html>");
-        } else {
-            EtchedBorder borde = new EtchedBorder(1);
-            txtNombreJuego.setBorder(borde);
-        }
-        lblNombreJuego.setVisible(false);
-    }//GEN-LAST:event_txtNombreJuegoborrarCedula
 
     private void txtNombreJuegoponerCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreJuegoponerCedula
         // TODO add your handling code here:
@@ -232,16 +218,28 @@ public class FrmCrearJuego extends javax.swing.JFrame {
             lblNombreJuego.setVisible(true);
             txtNombreJuego.setBorder(new LineBorder(Color.red));
             lblEtiqueta.setText("<html>El Nombre que has<br>elegido ya no esta<br>disponible</html>");
-        } else if(txtNombreJuego.getText().isEmpty()){
+        } else if (txtNombreJuego.getText().isEmpty()) {
             lblNombreJuego.setVisible(false);
             txtNombreJuego.setBorder(new EtchedBorder(1));
             lblEtiqueta.setText("<html>Por favor Asignale<br>un nombre a tu partida</html>");
-        }else{
+        } else {
             lblNombreJuego.setVisible(false);
             txtNombreJuego.setBorder(new EtchedBorder(1));
             lblEtiqueta.setText("<html>Ahora inicia la partida<br>suerte..</html>");
         }
     }//GEN-LAST:event_txtNombreJuegoKeyReleased
+
+    private void txtNombreJuegoborrarCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreJuegoborrarCedula
+        // TODO add your handling code here:
+        if (txtNombreJuego.getText().trim().isEmpty() || txtNombreJuego.getText().trim().equalsIgnoreCase("Nombre del juego")) {
+            Main.ventanaPrincipal.vaciarCampo("Nombre del juego", txtNombreJuego, Color.WHITE);
+            lblEtiqueta.setText("<html>por favor<br>seleccione el numero de<br>jugadores que<br>participaran en la partida</html>");
+        } else {
+            EtchedBorder borde = new EtchedBorder(1);
+            txtNombreJuego.setBorder(borde);
+        }
+        lblNombreJuego.setVisible(false);
+    }//GEN-LAST:event_txtNombreJuegoborrarCedula
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
