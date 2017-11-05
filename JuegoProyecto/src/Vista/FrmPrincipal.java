@@ -9,6 +9,7 @@ import Controlador.Main;
 import Vista.Login.pnlIniciarSesion;
 import Vista.Login.pnlOlvideContraseña;
 import Vista.Login.pnlRegistro;
+import java.applet.AudioClip;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -23,17 +24,22 @@ import javax.swing.border.EtchedBorder;
 public class FrmPrincipal extends javax.swing.JFrame {
 
     pnlIniciarSesion pnlIniciarSesion1;
+
     /**
      * Creates new form FrmPrincipal
      */
     public FrmPrincipal() {
-        initComponents();
-        pnlIniciarSesion1 = new pnlIniciarSesion();
-        pnlLogin.setLayout(new BorderLayout(5, 5));
-        pnlLogin.add(pnlIniciarSesion1, BorderLayout.CENTER);
-        pnlLogin.updateUI();
-        lblImagen.setSize(775, 535);
-        lblImagen.add(btnBoton);
+//        initComponents();
+//        pnlIniciarSesion1 = new pnlIniciarSesion();
+//        pnlLogin.setLayout(new BorderLayout(5, 5));
+//        pnlLogin.add(pnlIniciarSesion1, BorderLayout.CENTER);
+//        pnlLogin.updateUI();
+//        lblImagen.setSize(775, 535);
+//        lblImagen.add(btnBoton);
+        AudioClip sonido;
+        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Recursos/Never_Better.wav"));
+        sonido.play();
+
     }
 
     /**
@@ -141,6 +147,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void btnBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBotonActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        
         Main.mensaje(100, 30, "Cargando...", 3, "/Recursos/spinner-of-dots.png");
         FrmCrearJuego ventanaCrearJuego = new FrmCrearJuego();
         ventanaCrearJuego.setLocationRelativeTo(null);
@@ -229,4 +236,5 @@ public class FrmPrincipal extends javax.swing.JFrame {
             txt.setForeground(color);
         }
     }
+
 }

@@ -170,24 +170,14 @@ public class FrmCrearJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnIIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIIniciarJuegoActionPerformed
-        // TODO add your handling code here:
-<<<<<<< HEAD
+
         if (!txtNombreJuego.getText().trim().isEmpty() && !txtNombreJuego.getText().trim().equalsIgnoreCase("Nombre del juego")) {
-            this.dispose();
             Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
             SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
             Date date = new Date();
             if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText().trim(),d.format(date))) {
                 nombreJuego=txtNombreJuego.getText().trim();
-=======
-        if (!txtNombreJuego.getText().isEmpty() && !txtNombreJuego.getText().equalsIgnoreCase("Nombre del juego")) {
-            Main.mensaje(150, 30, "Iniciando Partida...", 3, "/Recursos/spinner-of-dots.png");
-            SimpleDateFormat d = new SimpleDateFormat("YYYY/MM/d");
-            Date date = new Date();
-            if (controJuego.solicitudRegistro(Integer.parseInt(jSpinner1.getValue() + ""), txtNombreJuego.getText(),d.format(date))) {
-                this.dispose();
-                nombreJuego = txtNombreJuego.getText();
->>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
+
                 if (padre != null) {
                     ventanaJuego = new FrmIniciarCrear(controJuego.traerIdJuego(txtNombreJuego.getText().trim()),Integer.parseInt(jSpinner1.getValue()+""),padre);
                 }else{
@@ -195,6 +185,7 @@ public class FrmCrearJuego extends javax.swing.JFrame {
                 }
                 ventanaJuego.setLocationRelativeTo(null);
                 ventanaJuego.setVisible(true);
+                this.dispose();
                 return;
             } else {
                 Main.mensaje(300, 30, "EL NOMBRE DEL JUEGO NO ESTA DISPONIBLE", 2, "/Recursos/cancel.png");

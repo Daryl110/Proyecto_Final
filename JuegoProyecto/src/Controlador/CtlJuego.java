@@ -9,10 +9,7 @@ import DAO.DAO;
 import Modelo.Juego;
 import Modelo.Puntuacion;
 import Vista.Login.pnlIniciarSesion;
-<<<<<<< HEAD
 import Vista.Login.pnlRegistro;
-=======
->>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -50,14 +47,9 @@ public class CtlJuego {
                 puntua.add(resultado.getString("puntaje"));
             }
         } catch (Exception e) {
-<<<<<<< HEAD
-=======
         }
 
         int gdeveinte = 0, contador = 0;
->>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
-
-            int gdeveinte = 0, contador = 0;
             for (int i = 0; i < puntua.size(); i++) {
                 if (contador == 19) {
                     gdeveinte++;
@@ -98,14 +90,10 @@ public class CtlJuego {
                 contador1 += 20;
             }
 
-        }
         return model;
-    }
-<<<<<<< HEAD
-
-=======
+        }
     
->>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
+
     public boolean solicitudRegistro(int numeroJugadores, String nombreJuego, String fecha) {
 
         if (dao.validarCampo(nombreJuego, "nombreJuego", "juego")) {

@@ -329,25 +329,19 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void borrarCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_borrarCedula
         // TODO add your handling code here:
-<<<<<<< HEAD
         if (txtCedula.getText().trim().isEmpty() || txtCedula.getText().trim().equalsIgnoreCase("cedula")) {
             Main.ventanaPrincipal.vaciarCampo("Cedula", txtCedula, Color.WHITE);
-=======
-        if (validarCedula()) {
-            if (txtCedula.getText().isEmpty() || txtCedula.getText().equalsIgnoreCase("cedula")) {
-                Main.ventanaPrincipal.vaciarCampo("Cedula", txtCedula, Color.WHITE);
-            } else {
-                EtchedBorder borde = new EtchedBorder(1);
-                txtCedula.setBorder(borde);
+            if (validarCedula()) {
+                if (txtCedula.getText().isEmpty() || txtCedula.getText().equalsIgnoreCase("cedula")) {
+                    Main.ventanaPrincipal.vaciarCampo("Cedula", txtCedula, Color.WHITE);
+                } else {
+                    EtchedBorder borde = new EtchedBorder(1);
+                    txtCedula.setBorder(borde);
+                }
             }
-
->>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
-        } else {
-            EtchedBorder borde = new EtchedBorder(1);
-            txtCedula.setBorder(borde);
+            lblCedula.setVisible(false);
+            notaVisible(false);
         }
-        lblCedula.setVisible(false);
-        notaVisible(false);
     }//GEN-LAST:event_borrarCedula
 
     private void ponerCedula(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ponerCedula
@@ -444,22 +438,7 @@ public class pnlRegistro extends javax.swing.JPanel {
     private void btnCrearUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuActionPerformed
         // TODO add your handling code here:
         if (validar()) {
-<<<<<<< HEAD
-            if (usu == null) {
-                //Accion De Crear Usuario
-                Main.mensaje(300, 30, "CREANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
-                if (!controUsuario.validarCampoUsuario(txtCedula.getText().trim(), "cedula", "usuario")) {
-                    if (!controUsuario.validarCampoUsuario(txtNombreUsu.getText().trim(), "nombreUsu", "usuario")) {
-                        if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText().trim()),
-                                cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
-                                validarEspaciosNoRequeridos(txtNombre.getText().trim()), txtNombreUsu.getText().trim(),
-                                txtContrasena.getText().trim(), validarEspaciosNoRequeridos(txtCorreo.getText().trim()),
-                                validarEspaciosNoRequeridos(txtTelefono.getText().trim()), txtRespuesta.getText().trim())) {
-                            Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
-                            abrirIniciarSesion();
-=======
-            String correo = txtCorreo.getText().trim();
-            if (!validarEmail(correo)) {
+            if (!validarEmail(txtCorreo.getText().trim())) {
                 if (validarCedula()) {
                     if (usu == null) {
                         //Accion De Crear Usuario
@@ -469,7 +448,7 @@ public class pnlRegistro extends javax.swing.JPanel {
                                 if (controUsuario.solicitudRegistro(Integer.parseInt(txtCedula.getText()),
                                         cbPreguntaS.getSelectedIndex(), Integer.parseInt(spnSemestre.getValue() + ""),
                                         validarEspaciosNoRequeridos(txtNombre.getText()), txtNombreUsu.getText(),
-                                        txtContrasena.getText(), validarEspaciosNoRequeridos(correo),
+                                        txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText().trim()),
                                         validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
                                     Main.mensaje(300, 30, "!SE HA CREADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
                                     abrirIniciarSesion();
@@ -495,12 +474,11 @@ public class pnlRegistro extends javax.swing.JPanel {
                                 txtContrasena.getText(), validarEspaciosNoRequeridos(txtCorreo.getText()),
                                 validarEspaciosNoRequeridos(txtTelefono.getText()), txtRespuesta.getText())) {
                             Main.mensaje(300, 30, "!SE HA MODIFICADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
->>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
+
                         }
                     }
                 }
             } else {
-<<<<<<< HEAD
                 //Modificar
                 Main.mensaje(300, 30, "MODIFICANDO CUENTA....", 3, "/Recursos/spinner-of-dots.png");
                 if (controUsuario.solicitudModificar(Integer.parseInt(txtCedula.getText().trim()),
@@ -510,14 +488,14 @@ public class pnlRegistro extends javax.swing.JPanel {
                         validarEspaciosNoRequeridos(txtTelefono.getText().trim()), txtRespuesta.getText().trim())) {
                     Main.mensaje(300, 30, "!SE HA MODIFICADO LA CUENTA EXITOSAMENTE!", 2, "/Recursos/Cuenta.png");
                 }
-=======
                 lblCorreo.setVisible(true);
                 txtCorreo.setBorder(new LineBorder(Color.red));
                 cambiarNota("El E-mail que ha introducido", "no es valido");
                 notaVisible(true);
->>>>>>> 37fe32a1e236c29e631fd34e2945007c1fb700df
             }
         }
+
+
     }//GEN-LAST:event_btnCrearUsuActionPerformed
 
     private void cbPreguntaSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPreguntaSActionPerformed

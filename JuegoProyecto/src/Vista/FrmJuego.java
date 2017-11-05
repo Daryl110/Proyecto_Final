@@ -11,6 +11,7 @@ import Controlador.Main;
 import Modelo.Opcion;
 import static Vista.FrmCrearJuego.ventanaJuego;
 import Vista.Preguntas.pnlPregunta;
+import java.applet.AudioClip;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -637,7 +638,7 @@ public class FrmJuego extends javax.swing.JFrame {
             cargarPanel(1);
             botonesVisualizar(true);
             return;
-            
+
         }
         if (btn1 == boton) {
             boton = btn2;
