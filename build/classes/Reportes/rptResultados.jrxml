@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select cedula,nombreUsuario,resultado,nombrejuego from reporteresultados]]>
+	</queryString>
+	<field name="cedula" class="java.lang.String"/>
+	<field name="nombreUsuario" class="java.lang.String"/>
+	<field name="resultado" class="java.lang.String"/>
+	<field name="nombrejuego" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement x="144" y="0" width="288" height="95" forecolor="#0000FF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Georgia" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de los resultados de los juegoos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="160" splitType="Stretch">
+			<textField>
+				<reportElement x="334" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="36" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombreUsuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="70" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{resultado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="101" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombrejuego}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="127" y="36" width="100" height="20" forecolor="#0033FF"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Nombre Usuario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="70" width="100" height="20" forecolor="#0033FF"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Resultado:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="101" width="123" height="20" forecolor="#0033FF"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Nombre de juego:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="6" width="100" height="20" forecolor="#0033FF"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Cedula:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="99" y="0" width="369" height="133" forecolor="#FF0033">
+					<property name="net.sf.jasperreports.export.pdf.tag.table"/>
+				</reportElement>
+			</rectangle>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="227" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
